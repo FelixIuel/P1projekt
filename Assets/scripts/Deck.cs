@@ -1,8 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-// using Card;
+using cardNameSpace;
 
 public class Deck : MonoBehaviour {
     
