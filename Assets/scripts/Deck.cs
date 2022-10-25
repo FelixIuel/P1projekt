@@ -6,11 +6,15 @@ using cardNameSpace;
 public class Deck : MonoBehaviour {
     
     private List<Card> deck;
+    public string DeckName;
+
+    public void Start(){
+        deck = new List<Card>();
+    }
 
     public void shuffle(){
         //Vi bruger sådan en fræk knud shuffle https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle 
-        for (int t = 0; t < deck.Count; t++ )
-        {
+        for (int t = 0; t < deck.Count; t++ ) {
             Card tmp = deck[t];
             int r = Random.Range(t, deck.Count);
             deck[t] = deck[r];
@@ -18,9 +22,9 @@ public class Deck : MonoBehaviour {
         }
     }
     
-    public void add(List<Card> deckToAdd) {
-        deck.AddRange(deckToAdd);
-    }
+    // public void add(List<Card> deckToAdd) {
+    //     deck.AddRange(deckToAdd);
+    // }
     
     public void add(Card cardToAdd) {
         deck.Add(cardToAdd);
@@ -31,5 +35,10 @@ public class Deck : MonoBehaviour {
         deck.RemoveAt(deck.Count-1);
         return cardToReturn;
     }
-    
+
+    public Card Discard(int cardIndex){
+        Card cardToReturn = deck[cardIndex];
+        deck.RemoveAt(cardIndex);
+        return cardToReturn;
+    }
 }
