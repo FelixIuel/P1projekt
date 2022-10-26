@@ -25,10 +25,6 @@ namespace CardDrawing {
             effectText.text = " " +_effectText;
             cardArt.sprite = _cardArt;
             backgroundArt.sprite = _backgroundArt;
-            
-        }
-        void Start() {
-            
         }
     }
 }

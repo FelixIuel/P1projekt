@@ -12,6 +12,10 @@ public class Deck : MonoBehaviour {
         deck = new List<Card>();
     }
 
+    public Deck() {
+        deck = new List<Card>();
+    }
+
     public void shuffle(){
         //Vi bruger sådan en fræk knud shuffle https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle 
         for (int t = 0; t < deck.Count; t++ ) {

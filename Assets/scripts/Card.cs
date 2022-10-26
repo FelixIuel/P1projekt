@@ -8,10 +8,11 @@ using CardDrawing;
 namespace cardNameSpace {
 
     public enum CardType {
-        FactoryTypel,
+        FactoryType,
         DealType,
         ProjectType
     }
+
     public class Card : MonoBehaviour {
         
         private string cardName;
@@ -20,16 +21,27 @@ namespace cardNameSpace {
         private int cardCost;
         private Sprite cardArt;
         private Sprite backgroundArt;
-        private CardType type;
+        public CardType type;
         // public GameObject asGameObject;
 
-        public Card(string _cardName, string _flavorText, string _effectText, int _cardCost, Sprite _cardArt, Sprite _backgroundArt) {
+        public Card(string _cardName, string _flavorText, string _effectText, int _cardCost, Sprite _cardArt, CardType _type) {
             cardName = _cardName;
             flavorText = _flavorText;
             cardCost = _cardCost;
-            cardArt = _cardArt;
             effectText = _effectText;
-            backgroundArt = _backgroundArt;
+            cardArt = _cardArt;
+            switch(_type){
+                case CardType.FactoryType:
+                    backgroundArt = Resources.Load<Sprite>("sprites/Factory_card_1");
+                    break;
+                case CardType.DealType:
+                    backgroundArt = Resources.Load<Sprite>("sprites/Deal_card_1");
+                    break;
+                case CardType.ProjectType:
+                    backgroundArt = Resources.Load<Sprite>("sprites/Deal_card_1");
+                    break;
+
+            }
         }
 
         // Update is called once per frame
@@ -39,42 +51,20 @@ namespace cardNameSpace {
         
         public GameObject AddGameObject(int cardID, GameObject Template) {
             GameObject objectToAdd = Instantiate(Template);
-                (objectToAdd.GetComponent<DisplayCard>()).SetCard(
-                    cardID,
-                    cardName,
-                    flavorText,
-                    effectText,
-                    cardCost,
-                    cardArt,
-                    backgroundArt
-                );
+            objectToAdd.GetComponent<DisplayCard>().SetCard(
+                cardID,
+                cardName,
+                flavorText,
+                effectText,
+                cardCost,
+                cardArt,
+                backgroundArt
+            );
             return objectToAdd;
-            // asGameObject = objectToAdd;
         }
-
-        // public void DestroyObject(){
-        //     Destroy(asGameObject);
-        //     asGameObject = null;
-        // }
 
         public void CardEffect() {
             
         } 
     }
-
-
-
-    // public class FactoryCard : Card {
-    //     public Card(string _cardName, string _flavorText, string _effectText, int _cardCost, Image _cardArt, Image _backgroundArt, CardType _type) {
-    //         cardName = _cardName;
-    //         flavorText = _flavorText;
-    //         cardCost = _cardCost;
-    //         cardArt = _cardArt;
-    //         effectText = _effectText;
-    //         backgroundArt = _backgroundArt;
-    //         type = _type;
-    //     }
-    //     public override Factory CardEffect();
-    // }
-
 }

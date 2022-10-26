@@ -218,7 +218,7 @@ RectTransform:
   - {fileID: 1386388040}
   - {fileID: 1545538914}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -262,7 +262,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 52141787}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -451,11 +451,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11a22200038f7184abf908f1ef7bc2f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  factoryDeck: {fileID: 1863713176}
-  dealsDeck: {fileID: 52141788}
-  factoryDiscard: {fileID: 1804895450}
-  dealsDiscard: {fileID: 1804895450}
-  hand: {fileID: 1386388043}
+  GOfactoryDeck: {fileID: 1863713175}
+  GOdealsDeck: {fileID: 52141787}
+  GOfactoryDiscard: {fileID: 1804895449}
+  GOdealsDiscard: {fileID: 1804895449}
+  GOhand: {fileID: 1386388039}
 --- !u!4 &1343609416
 Transform:
   m_ObjectHideFlags: 0
@@ -472,7 +472,7 @@ Transform:
   - {fileID: 52141789}
   - {fileID: 1804895451}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1386388039
 GameObject:
@@ -563,7 +563,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ac712d10b982dc4b96f7bf84752e462, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardPrefab: {fileID: 2496989661608837139, guid: f96df03c741fb5c439f41278e72c9e2c, type: 3}
+  factoryPrefab: {fileID: 2496989661608837139, guid: f96df03c741fb5c439f41278e72c9e2c, type: 3}
+  dealPrefab: {fileID: 7020803659369210366, guid: 6cc0b9cab8b96df4c9ebdd0da7c231c7, type: 3}
+  projectPrefab: {fileID: 7020803659369210366, guid: 6cc0b9cab8b96df4c9ebdd0da7c231c7, type: 3}
 --- !u!1 &1545538913
 GameObject:
   m_ObjectHideFlags: 0
@@ -677,7 +679,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1804895449}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
