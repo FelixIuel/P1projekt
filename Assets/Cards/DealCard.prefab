@@ -359,6 +359,7 @@ GameObject:
   - component: {fileID: 5442888758113928212}
   - component: {fileID: 5707414864320633420}
   - component: {fileID: 1319355592322322786}
+  - component: {fileID: 8540347599414389280}
   m_Layer: 5
   m_Name: DealCard
   m_TagString: Untagged
@@ -387,7 +388,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -965, y: 51}
+  m_AnchoredPosition: {x: -815, y: -306}
   m_SizeDelta: {x: 100, y: 139}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1319355592322322796
@@ -447,6 +448,7 @@ MonoBehaviour:
   cardArt: {fileID: 6314038124595609996}
   backgroundArt: {fileID: 5442888758113928212}
   cardID: 0
+  anchorPoint: {x: 0, y: 0, z: 0}
 --- !u!23 &1319355592322322786
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -489,6 +491,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8540347599414389280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7020803659369210366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9656c11912ec94d45a98cc009e0ffc19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8743823379187433871
 GameObject:
   m_ObjectHideFlags: 0

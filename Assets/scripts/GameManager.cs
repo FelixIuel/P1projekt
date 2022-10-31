@@ -4,22 +4,37 @@ using UnityEngine;
 using UnityEngine.UI;
 using handNameSpace;
 using cardNameSpace;
+using RP;
 
 namespace GMNameSpace {
-
     public class GameManager : MonoBehaviour {
-            
+        
         private Deck factoryDeck;
         private Deck dealsDeck;
         private Deck factoryDiscard;
         private Deck dealsDiscard;
         private Hand hand;
+        private Board board;
+        private ResourcePanel resources;
 
         public GameObject GOfactoryDeck;
         public GameObject GOdealsDeck;
         public GameObject GOfactoryDiscard;
         public GameObject GOdealsDiscard;
         public GameObject GOhand;
+        public GameObject GOBoard;
+        public GameObject GOResources;
+
+        private int turn = 0;
+        private int year = 1;
+        public int factoryDraw;
+        public int dealsDraw;
+
+        public int balance = 5;
+        public int funding = 3;
+        public int pollution = 0;
+        public int maxPollution = 300;
+
 
         // Start is called before the first frame update
         void Start() {
@@ -28,42 +43,93 @@ namespace GMNameSpace {
             factoryDiscard = GOfactoryDiscard.GetComponent<Deck>();
             dealsDiscard = GOdealsDiscard.GetComponent<Deck>();
             hand = GOhand.GetComponent<Hand>();
+            // board = GOBoard.GetComponent<Board>();
+            board = null;
+            resources = GOResources.GetComponent<ResourcePanel>();
 
-            for (int t = 0; t < 4; t++ ) {
+            resources.update_text(balance, funding, pollution, maxPollution, turn, year);
+
+            for (int t = 0; t < 16; t++ ) {
                 factoryDeck.add(
-                        new Card(
+                    new Card(
                         "Factory 1",
                         "Lav en fabrik",
                         "Lav en fabrik",
                         1,
                         Resources.Load<Sprite>("sprites/factory"),
-                        CardType.DealType
+                        CardType.FactoryType,
+                        CostType.Money
                     )
                 );
             }
-            for (int t = 0; t < 4; t++ ) {
-                factoryDeck.add(
+            
+            for (int t = 0; t < 16; t++ ) {
+                dealsDeck.add(
                         new Card(
                         "Deal 1",
                         "lav en deal",
                         "lav en deal",
-                        1,
+                        0,
                         Resources.Load<Sprite>("sprites/factory"),
-                        CardType.DealType
+                        CardType.DealType,
+                        CostType.Pollution
                     )
                 );
             }
             factoryDeck.shuffle();
-            for (int t = 0; t < 4; t++ ) {
+            dealsDeck.shuffle();
+            drawHand();
+        }
+
+        // Update is called once per frame
+        void Update() {
+            resources.update_text(balance, funding, pollution, maxPollution, turn, year);
+        }
+
+        public void nextTurn() {
+            filterToDiscard(hand.DiscardHand());
+            foreach (Transform child in GOhand.transform) {
+                GameObject.Destroy(child.gameObject);
+            }
+            if (turn == 3) {
+                year += 1;
+                dealsDeck.add(dealsDiscard);
+                dealsDiscard.clear();
+                dealsDeck.shuffle();
+                factoryDeck.add(factoryDiscard);
+                factoryDiscard.clear();
+                factoryDeck.shuffle();
+                
+            }
+            turn = (turn+1)%4;
+
+
+            balance += funding;
+
+            drawHand();
+        }
+
+        public void drawHand(){
+
+            for (int t = 0; t < factoryDraw; t++ ) {
                 Card drawncard = factoryDeck.drawCard();
+                hand.AddCard(drawncard);
+            }
+            for (int t = 0; t < dealsDraw; t++ ) {
+                Card drawncard = dealsDeck.drawCard();
                 hand.AddCard(drawncard);
             }
             hand.createHand(GOhand);
         }
 
-        // Update is called once per frame
-        void Update() {
-            
+        public void filterToDiscard(List<Card> discard) {
+            foreach (Card card in discard) {
+                if (card.type == CardType.FactoryType) {
+                    factoryDiscard.add(card);
+                } else {
+                    dealsDiscard.add(card);
+                }
+            }
         }
     }
 

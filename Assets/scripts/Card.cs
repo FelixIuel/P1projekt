@@ -12,8 +12,12 @@ namespace cardNameSpace {
         DealType,
         ProjectType
     }
-
-    public class Card : MonoBehaviour {
+    public enum CostType {
+        Money,
+        Pollution,
+        Funding,
+    }
+    public class Card {
         
         private string cardName;
         private string flavorText;
@@ -22,14 +26,16 @@ namespace cardNameSpace {
         private Sprite cardArt;
         private Sprite backgroundArt;
         public CardType type;
-        // public GameObject asGameObject;
+        public CostType costType;
 
-        public Card(string _cardName, string _flavorText, string _effectText, int _cardCost, Sprite _cardArt, CardType _type) {
+        public Card(string _cardName, string _flavorText, string _effectText, int _cardCost, Sprite _cardArt, CardType _type, CostType _costType) {
             cardName = _cardName;
             flavorText = _flavorText;
             cardCost = _cardCost;
             effectText = _effectText;
             cardArt = _cardArt;
+            type = _type;
+            costType = _costType;
             switch(_type){
                 case CardType.FactoryType:
                     backgroundArt = Resources.Load<Sprite>("sprites/Factory_card_1");
@@ -43,28 +49,26 @@ namespace cardNameSpace {
 
             }
         }
+        public Card() {}
 
         // Update is called once per frame
         void Update() {
             
         }
         
-        public GameObject AddGameObject(int cardID, GameObject Template) {
-            GameObject objectToAdd = Instantiate(Template);
-            objectToAdd.GetComponent<DisplayCard>().SetCard(
+        public void SetCardInfo(int cardID, GameObject CardObject) {
+            CardObject.GetComponent<DisplayCard>().SetCard(
                 cardID,
                 cardName,
                 flavorText,
                 effectText,
                 cardCost,
                 cardArt,
-                backgroundArt
+                backgroundArt,
+                type,
+                CardObject.transform.position
             );
-            return objectToAdd;
         }
 
-        public void CardEffect() {
-            
-        } 
     }
 }
