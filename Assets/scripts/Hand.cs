@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using cardNameSpace;
+using CardDrawing;
 
 namespace handNameSpace{
     public class Hand : MonoBehaviour {
@@ -27,20 +28,38 @@ namespace handNameSpace{
         public List<Card> DiscardHand() {
             List<Card> temp = new List<Card>(hand);
             hand.Clear();
+            foreach (GameObject card in handDisplay) {
+                Destroy(card);
+            }
             handDisplay.Clear();
+
             return temp;
         }
 
         // Need to add so it removes the DisplayCard from HandDisplay As well
-        public Card Discard(int cardIndex){
+        public Card Discard(int cardID){
+            print(cardID);
+            print("count" + hand.Count);
+            int cardIndex = -1;
+            for (int i = 0; i < handDisplay.Count; i++ ) {
+                if (handDisplay[i].GetComponent<DisplayCard>().cardID == cardID) {
+                    cardIndex = i;
+                    break;
+                }
+            }
+            if (cardIndex == -1) {
+                return null;
+            }
+
             Card cardToReturn = hand[cardIndex];
             hand.RemoveAt(cardIndex);
+            DestroyObject(cardIndex);
             return cardToReturn;
         }
         
-        public void DestroyObject(int ID){
-            Destroy(handDisplay[ID]);
-            hand.RemoveAt(ID);
+        private void DestroyObject(int cardIndex){
+            Destroy(handDisplay[cardIndex]);
+            hand.RemoveAt(cardIndex);
         }
         
         public void AddCard(Card card) {
@@ -49,9 +68,9 @@ namespace handNameSpace{
 
         public void createHand(GameObject parent) {
             print(hand.Count);
-            for (int t = 0; t < hand.Count; t++ ) {
+            for (int i = 0; i < hand.Count; i++ ) {
                 GameObject objectToAdd = null;
-                switch(hand[t].type){
+                switch(hand[i].type){
                     case CardType.FactoryType:
                         objectToAdd = Instantiate(factoryPrefab);
                         break;
@@ -62,11 +81,11 @@ namespace handNameSpace{
                         objectToAdd = Instantiate(projectPrefab);
                         break;
                 }
-                hand[t].SetCardInfo(t, objectToAdd);
+                hand[i].SetCardInfo(i, objectToAdd);
                 objectToAdd.transform.SetParent(parent.transform);
                 
                 // float x_pos = Mathf.Lerp(-835f,835f, t/hand.Count);
-                float x_pos = -835f+(835*2/maxHandSize)*t+960;
+                float x_pos = -835f+(835*2/maxHandSize)*i+960;
                 objectToAdd.transform.position = new Vector3(x_pos, -373+540.0f,0.0f);
                 handDisplay.Add(objectToAdd);
             }

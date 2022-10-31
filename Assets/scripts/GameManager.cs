@@ -2,11 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 using handNameSpace;
 using cardNameSpace;
 using RP;
 
 namespace GMNameSpace {
+
+    public class CardPlayedEvent : UnityEvent<int> {}
+
     public class GameManager : MonoBehaviour {
         
         private Deck factoryDeck;
@@ -35,6 +39,7 @@ namespace GMNameSpace {
         public int pollution = 0;
         public int maxPollution = 300;
 
+        public static CardPlayedEvent cardplayed;
 
         // Start is called before the first frame update
         void Start() {
@@ -46,6 +51,9 @@ namespace GMNameSpace {
             // board = GOBoard.GetComponent<Board>();
             board = null;
             resources = GOResources.GetComponent<ResourcePanel>();
+
+            cardplayed = new CardPlayedEvent();
+            cardplayed.AddListener(playCard);
 
             resources.update_text(balance, funding, pollution, maxPollution, turn, year);
 
@@ -88,9 +96,7 @@ namespace GMNameSpace {
 
         public void nextTurn() {
             filterToDiscard(hand.DiscardHand());
-            foreach (Transform child in GOhand.transform) {
-                GameObject.Destroy(child.gameObject);
-            }
+
             if (turn == 3) {
                 year += 1;
                 dealsDeck.add(dealsDiscard);
@@ -102,11 +108,16 @@ namespace GMNameSpace {
                 
             }
             turn = (turn+1)%4;
-
-
             balance += funding;
 
             drawHand();
+        }
+
+
+
+
+        public void playCard(int cardIndex) {
+            hand.Discard(cardIndex);
         }
 
         public void drawHand(){

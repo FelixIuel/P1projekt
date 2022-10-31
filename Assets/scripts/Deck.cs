@@ -13,10 +13,10 @@ public class Deck : MonoBehaviour {
 
     public void shuffle() {
         //Vi bruger sådan en fræk knud shuffle https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
-        for (int t = 0; t < deck.Count; t++ ) {
-            Card tmp = deck[t];
-            int r = Random.Range(t, deck.Count);
-            deck[t] = deck[r];
+        for (int i = 0; i < deck.Count; i++ ) {
+            Card tmp = deck[i];
+            int r = Random.Range(i, deck.Count);
+            deck[i] = deck[r];
             deck[r] = tmp;
         }
     }
