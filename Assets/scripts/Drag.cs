@@ -9,17 +9,14 @@ using CardDrawing;
 public class Drag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
     
     Transform returnParent = null;
-    // public GameManager GM;
     public DisplayCard card;
     
     public void Start() {
-        // GM = GameObject.Find("GameHandler").GetComponent<GameManager>();
     }
 
     public void OnBeginDrag(PointerEventData eventData){
         returnParent = this.transform.parent;
         this.transform.SetParent(this.transform.parent.parent);
-        // this.GM = GameObject.Find("GameHandler").GetComponent<GameManager>();
     }
     public void OnDrag(PointerEventData eventData){
         this.transform.position = eventData.position;

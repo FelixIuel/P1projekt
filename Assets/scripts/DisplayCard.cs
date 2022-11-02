@@ -25,6 +25,7 @@ namespace CardDrawing {
             if (_type == CardType.FactoryType) {
                 cardCost.text = " " + _cardCost;
             }
+            
             effectText.text = " " +_effectText;
             cardArt.sprite = _cardArt;
             backgroundArt.sprite = _backgroundArt;

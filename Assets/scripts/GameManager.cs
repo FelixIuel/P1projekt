@@ -37,11 +37,10 @@ namespace GMNameSpace {
         public int balance = 5;
         public int funding = 3;
         public int pollution = 0;
-        public int maxPollution = 300;
+        public int maxPollution;
 
         public static CardPlayedEvent cardplayed;
 
-        // Start is called before the first frame update
         void Start() {
             factoryDeck = GOfactoryDeck.GetComponent<Deck>();
             dealsDeck = GOdealsDeck.GetComponent<Deck>();
@@ -89,7 +88,6 @@ namespace GMNameSpace {
             drawHand();
         }
 
-        // Update is called once per frame
         void Update() {
             resources.update_text(balance, funding, pollution, maxPollution, turn, year);
         }
@@ -105,8 +103,8 @@ namespace GMNameSpace {
                 factoryDeck.add(factoryDiscard);
                 factoryDiscard.clear();
                 factoryDeck.shuffle();
-                
             }
+
             turn = (turn+1)%4;
             balance += funding;
 
@@ -117,8 +115,6 @@ namespace GMNameSpace {
         public void playCard(int cardIndex) {
             hand.Discard(cardIndex);
         }
-
-
 
         public void drawHand(){
             for (int t = 0; t < factoryDraw; t++ ) {

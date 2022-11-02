@@ -12,7 +12,7 @@ public class Deck : MonoBehaviour {
     }
 
     public void shuffle() {
-        //Vi bruger sådan en fræk knud shuffle https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
+        //Vi bruger en knud shuffle https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
         for (int i = 0; i < deck.Count; i++ ) {
             Card tmp = deck[i];
             int r = Random.Range(i, deck.Count);
@@ -30,7 +30,6 @@ public class Deck : MonoBehaviour {
 
     public void add(Deck deckToAdd) {
         deck.AddRange(deckToAdd.deck);
-        // Debug.Log("DeckSize" + deckToAdd.deck.Count);
     }
 
     public void add(List<Card> deckToAdd) {

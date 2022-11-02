@@ -12,7 +12,7 @@ namespace cardNameSpace {
         DealType,
         ProjectType
     }
-    
+
     public enum CostType {
         Money,
         Pollution,
@@ -37,6 +37,7 @@ namespace cardNameSpace {
             cardArt = _cardArt;
             type = _type;
             costType = _costType;
+
             switch(_type){
                 case CardType.FactoryType:
                     backgroundArt = Resources.Load<Sprite>("sprites/Factory_card_1");
@@ -47,15 +48,10 @@ namespace cardNameSpace {
                 case CardType.ProjectType:
                     backgroundArt = Resources.Load<Sprite>("sprites/Deal_card_1");
                     break;
-
             }
         }
+        
         public Card() {}
-
-        // Update is called once per frame
-        void Update() {
-            
-        }
         
         public void SetCardInfo(int cardID, GameObject CardObject) {
             CardObject.GetComponent<DisplayCard>().SetCard(
