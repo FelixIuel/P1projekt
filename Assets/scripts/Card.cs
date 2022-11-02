@@ -12,13 +12,14 @@ namespace cardNameSpace {
         DealType,
         ProjectType
     }
+    
     public enum CostType {
         Money,
         Pollution,
         Funding,
     }
+
     public class Card {
-        
         private string cardName;
         private string flavorText;
         private string effectText;

@@ -114,14 +114,13 @@ namespace GMNameSpace {
         }
 
 
-
-
         public void playCard(int cardIndex) {
             hand.Discard(cardIndex);
         }
 
-        public void drawHand(){
 
+
+        public void drawHand(){
             for (int t = 0; t < factoryDraw; t++ ) {
                 Card drawncard = factoryDeck.drawCard();
                 hand.AddCard(drawncard);

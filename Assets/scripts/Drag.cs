@@ -20,13 +20,11 @@ public class Drag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
         returnParent = this.transform.parent;
         this.transform.SetParent(this.transform.parent.parent);
         // this.GM = GameObject.Find("GameHandler").GetComponent<GameManager>();
-        // print(this.name);
     }
     public void OnDrag(PointerEventData eventData){
         this.transform.position = eventData.position;
     }
     public void OnEndDrag(PointerEventData eventData){
-        // print(eventData.position.y);
         if (eventData.position.y < 360) {
             this.transform.SetParent(returnParent);
         } else {

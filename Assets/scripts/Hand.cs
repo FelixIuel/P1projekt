@@ -36,10 +36,7 @@ namespace handNameSpace{
             return temp;
         }
 
-        // Need to add so it removes the DisplayCard from HandDisplay As well
         public Card Discard(int cardID){
-            print(cardID);
-            print("count" + hand.Count);
             int cardIndex = -1;
             for (int i = 0; i < handDisplay.Count; i++ ) {
                 if (handDisplay[i].GetComponent<DisplayCard>().cardID == cardID) {
@@ -53,7 +50,9 @@ namespace handNameSpace{
 
             Card cardToReturn = hand[cardIndex];
             hand.RemoveAt(cardIndex);
-            DestroyObject(cardIndex);
+            DestroyObject(handDisplay[cardIndex]);
+            handDisplay.RemoveAt(cardIndex);
+
             return cardToReturn;
         }
         
@@ -67,7 +66,6 @@ namespace handNameSpace{
         }
 
         public void createHand(GameObject parent) {
-            print(hand.Count);
             for (int i = 0; i < hand.Count; i++ ) {
                 GameObject objectToAdd = null;
                 switch(hand[i].type){
