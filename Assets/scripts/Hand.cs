@@ -43,7 +43,7 @@ namespace handNameSpace{
 
             Card cardToReturn = hand[cardIndex];
             hand.RemoveAt(cardIndex);
-            DestroyObject(handDisplay[cardIndex]);
+            Destroy(handDisplay[cardIndex]);
             handDisplay.RemoveAt(cardIndex);
 
             return cardToReturn;
