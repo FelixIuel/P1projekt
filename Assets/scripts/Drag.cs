@@ -11,8 +11,7 @@ public class Drag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     Transform returnParent = null;
     public DisplayCard card;
     
-    public void Start() {
-    }
+    public void Start() {}
 
     public void OnBeginDrag(PointerEventData eventData){
         returnParent = this.transform.parent;
@@ -22,10 +21,13 @@ public class Drag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
         this.transform.position = eventData.position;
     }
     public void OnEndDrag(PointerEventData eventData){
-        if (eventData.position.y < 360) {
-            this.transform.SetParent(returnParent);
-        } else {
-            GameManager.cardplayed.Invoke(card.cardID);
+
+        if (card != null) {
+            if (eventData.position.y < 360) {
+                this.transform.SetParent(returnParent);
+            } else {
+                GameManager.cardplayed.Invoke(card.cardID);
+            }
         }
     }
 }

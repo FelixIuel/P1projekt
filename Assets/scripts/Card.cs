@@ -62,8 +62,7 @@ namespace cardNameSpace {
                 cardCost,
                 cardArt,
                 backgroundArt,
-                type,
-                CardObject.transform.position
+                type
             );
         }
 
