@@ -9,16 +9,12 @@ using TMPro;
 namespace FactoryDrawing {
     public class DisplayFactory : MonoBehaviour {
         
-        public TextMeshProUGUI cardName;
-        public Image cardArt;
-        public Image backgroundArt;
-        public int cardID;
+        public TextMeshProUGUI factoryName;
+        public Image factoryArt;
         
-        public void SetCard(int _cardID, string _cardName, Sprite _cardArt, Sprite _backgroundArt) {
-            cardID = _cardID;
-            cardName.text = " " + _cardName;
-            cardArt.sprite = _cardArt;
-            backgroundArt.sprite = _backgroundArt;
+        public void SetCard(string _factoryName, Sprite _factoryArt) {
+            factoryName.text = " " + _factoryName;
+            factoryArt.sprite = _factoryArt;
         }
     }
 }

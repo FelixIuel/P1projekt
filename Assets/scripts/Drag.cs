@@ -5,11 +5,11 @@ using UnityEngine.EventSystems;
 using GMNameSpace;
 using cardNameSpace;
 using CardDrawing;
+using FactoryDrawing;
 
 public class Drag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
     
     Transform returnParent = null;
-    public DisplayCard card;
     
     public void Start() {}
 
@@ -22,8 +22,14 @@ public class Drag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     }
     public void OnEndDrag(PointerEventData eventData){
 
+        DisplayCard card = this.GetComponent<DisplayCard>();
+        DisplayFactory factory = this.GetComponent<DisplayFactory>();
+        if (factory != null) {
+            this.transform.SetParent(returnParent);
+        }
+
         if (card != null) {
-            if (eventData.position.y < 360) {
+            if (eventData.position.y < 380) {
                 this.transform.SetParent(returnParent);
             } else {
                 GameManager.cardplayed.Invoke(card.cardID);

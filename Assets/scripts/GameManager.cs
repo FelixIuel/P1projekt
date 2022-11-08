@@ -38,6 +38,9 @@ namespace GMNameSpace {
         public int funding = 3;
         public int pollution = 0;
         public int maxPollution;
+        public int backing = 60;
+
+        public GameObject FactoryPrefab;
 
         public static CardPlayedEvent cardplayed;
 
@@ -64,8 +67,7 @@ namespace GMNameSpace {
                         "Lav en fabrik",
                         1,
                         Resources.Load<Sprite>("sprites/factory"),
-                        CardType.FactoryType,
-                        CostType.Money
+                        CardType.FactoryType
                     )
                 );
             }
@@ -78,8 +80,7 @@ namespace GMNameSpace {
                         "lav en deal",
                         0,
                         Resources.Load<Sprite>("sprites/factory"),
-                        CardType.DealType,
-                        CostType.Pollution
+                        CardType.DealType
                     )
                 );
             }
@@ -114,6 +115,9 @@ namespace GMNameSpace {
 
         public void playCard(int cardIndex) {
             hand.Discard(cardIndex);
+            GameObject objectToAdd = null;
+            objectToAdd = Instantiate(FactoryPrefab);
+            objectToAdd.transform.SetParent(GOBoard.transform);
         }
 
         public void drawHand(){
@@ -137,6 +141,25 @@ namespace GMNameSpace {
                 }
             }
         }
+        
+        public void addResources(List<(Resource, int)> Resources) {
+            foreach ((Resource, int) resource in Resources) {
+                addResource(resource);
+            }
+        }
+
+        public void addResource((Resource, int) Resource) {
+            // switch:
+            
+        }
+        
+    }
+    
+    public enum Resource {
+        Money,
+        Funding,
+        Pollution,
+        backing,
     }
 
 }

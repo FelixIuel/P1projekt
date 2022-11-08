@@ -13,12 +13,6 @@ namespace cardNameSpace {
         ProjectType
     }
 
-    public enum CostType {
-        Money,
-        Pollution,
-        Funding,
-    }
-
     public class Card {
         private string cardName;
         private string flavorText;
@@ -27,16 +21,14 @@ namespace cardNameSpace {
         private Sprite cardArt;
         private Sprite backgroundArt;
         public CardType type;
-        public CostType costType;
 
-        public Card(string _cardName, string _flavorText, string _effectText, int _cardCost, Sprite _cardArt, CardType _type, CostType _costType) {
+        public Card(string _cardName, string _flavorText, string _effectText, int _cardCost, Sprite _cardArt, CardType _type) {
             cardName = _cardName;
             flavorText = _flavorText;
             cardCost = _cardCost;
             effectText = _effectText;
             cardArt = _cardArt;
             type = _type;
-            costType = _costType;
 
             switch(_type){
                 case CardType.FactoryType:
