@@ -7,8 +7,8 @@ using CardDrawing;
 namespace handNameSpace{
     public class Hand : MonoBehaviour {
 
-        private List<Card> hand;
-        private List<GameObject> handDisplay;
+        public List<Card> hand;
+        public List<GameObject> handDisplay;
         public GameObject factoryPrefab;
         public GameObject dealPrefab;
         public GameObject projectPrefab;
@@ -20,13 +20,17 @@ namespace handNameSpace{
 
         public List<Card> DiscardHand() {
             List<Card> temp = new List<Card>(hand);
+            ClearHand();
+            hand.Clear();
+
+            return temp;
+        }
+
+        public void ClearHand(){
             foreach (GameObject card in handDisplay) {
                 Destroy(card);
             }
             handDisplay.Clear();
-            hand.Clear();
-
-            return temp;
         }
 
         public Card Discard(int cardID){
@@ -43,14 +47,14 @@ namespace handNameSpace{
 
             Card cardToReturn = hand[cardIndex];
             hand.RemoveAt(cardIndex);
-            Destroy(handDisplay[cardIndex]);
-            handDisplay.RemoveAt(cardIndex);
-
+            ClearHand();
+            CreateHand();
             return cardToReturn;
         }
         
         private void DestroyObject(int cardIndex){
             Destroy(handDisplay[cardIndex]);
+            handDisplay.RemoveAt(cardIndex);
             hand.RemoveAt(cardIndex);
         }
         
@@ -58,7 +62,8 @@ namespace handNameSpace{
             hand.Add(card);
         }
 
-        public void createHand(GameObject parent) {
+        public void CreateHand() {
+            ClearHand();
             for (int i = 0; i < hand.Count; i++ ) {
                 GameObject objectToAdd = null;
                 switch(hand[i].type){
@@ -73,7 +78,7 @@ namespace handNameSpace{
                         break;
                 }
                 hand[i].SetCardInfo(i, objectToAdd);
-                objectToAdd.transform.SetParent(parent.transform);
+                objectToAdd.transform.SetParent(this.transform);
                 handDisplay.Add(objectToAdd);
             }
         }

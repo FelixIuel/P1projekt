@@ -22,7 +22,7 @@ namespace CardDrawing {
             cardName.text = " " + _cardName;
             flavorText.text = " " + _flavorText;
             if (_type == CardType.FactoryType) {
-                cardCost.text = " " + _cardCost;
+                cardCost.text = " " + -1*_cardCost;
             }
             
             effectText.text = " " +_effectText;

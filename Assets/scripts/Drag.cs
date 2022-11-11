@@ -14,26 +14,25 @@ public class Drag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     public void Start() {}
 
     public void OnBeginDrag(PointerEventData eventData){
-        returnParent = this.transform.parent;
-        this.transform.SetParent(this.transform.parent.parent);
+        if (eventData.button == PointerEventData.InputButton.Left) {
+            returnParent = this.transform.parent;
+            this.transform.SetParent(this.transform.parent.parent);
+        }
     }
     public void OnDrag(PointerEventData eventData){
-        this.transform.position = eventData.position;
+        if (eventData.button == PointerEventData.InputButton.Left) {
+            this.transform.position = eventData.position;
+        }
     }
     public void OnEndDrag(PointerEventData eventData){
-
-        DisplayCard card = this.GetComponent<DisplayCard>();
-        DisplayFactory factory = this.GetComponent<DisplayFactory>();
-        if (factory != null) {
-            this.transform.SetParent(returnParent);
-        }
-
-        if (card != null) {
-            if (eventData.position.y < 380) {
-                this.transform.SetParent(returnParent);
-            } else {
-                GameManager.cardplayed.Invoke(card.cardID);
+        if (eventData.button == PointerEventData.InputButton.Left) {
+            DisplayCard card = this.GetComponent<DisplayCard>();
+            if (card != null) {
+                if (eventData.position.y > 380) {
+                    GameManager.tryToPlayCard.Invoke(card.cardID);
+                }
             }
+            this.transform.SetParent(returnParent);
         }
     }
 }
