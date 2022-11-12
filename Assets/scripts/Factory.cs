@@ -30,7 +30,7 @@ namespace factoryNameSpace {
 
             Used = false;
             gM = GameObject.Find("GameHandler").GetComponent<GameManager>();
-
+            SetFactoryInfo();
         }
 
         void Update() {
@@ -64,10 +64,13 @@ namespace factoryNameSpace {
             }
             return false;
         }
-        public void SetCardInfo() {
-            this.GetComponent<DisplayFactory>().SetCard(
+        public void SetFactoryInfo() {
+            this.GetComponent<DisplayFactory>().SetDisplay(
                 factoryName,
-                factoryArt
+                factoryArt,
+                useCost,
+                useOutput,
+                upkeepOutput
             );
         }
     }

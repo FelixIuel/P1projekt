@@ -32,13 +32,13 @@ namespace cardNameSpace {
 
             switch(_type){
                 case CardType.FactoryType:
-                    backgroundArt = Resources.Load<Sprite>("sprites/Factory_card_1");
+                    backgroundArt = Resources.Load<Sprite>("Factory_card_1");
                     break;
                 case CardType.DealType:
-                    backgroundArt = Resources.Load<Sprite>("sprites/Deal_card_1");
+                    backgroundArt = Resources.Load<Sprite>("Deal_card_1");
                     break;
                 case CardType.ProjectType:
-                    backgroundArt = Resources.Load<Sprite>("sprites/Deal_card_1");
+                    backgroundArt = Resources.Load<Sprite>("Deal_card_1");
                     break;
             }
         }

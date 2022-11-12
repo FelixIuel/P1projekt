@@ -39,10 +39,11 @@ namespace GMNameSpace {
         public int baseFunding = 3;
         private int funding;
         public int pollution = 0;
-        public int maxPollution;
         public int backing;
+        public int maxPollution;
         public int power;
         public int powerRequirement;
+
 
         public GameObject FactoryPrefab;
 
@@ -70,7 +71,7 @@ namespace GMNameSpace {
                         "Lav en fabrik",
                         new List<Tuple<Effect, int>>{Tuple.Create(Effect.Money, -1)},
                         new List<Tuple<Effect, int>>{Tuple.Create(Effect.CreateFactory, 1)},
-                        Resources.Load<Sprite>("sprites/factory"),
+                        Resources.Load<Sprite>("factory"),
                         CardType.FactoryType
                     )
                 );
@@ -83,7 +84,7 @@ namespace GMNameSpace {
                         "lav en deal",
                         new List<Tuple<Effect, int>>{Tuple.Create(Effect.Power, -2)},
                         new List<Tuple<Effect, int>>{Tuple.Create(Effect.Money, 4)},
-                        Resources.Load<Sprite>("sprites/factory"),
+                        Resources.Load<Sprite>("factory"),
                         CardType.DealType
                     )   
                 );
@@ -149,8 +150,7 @@ namespace GMNameSpace {
                             }
                             ShuffleDiscardIntoDeck(CardType.FactoryType);
                         }
-                        Card drawnFactory = factoryDeck.drawCard();
-                        hand.AddCard(drawnFactory);
+                        hand.AddCard(factoryDeck.drawCard());
                         break;
                     case CardType.DealType:
                         if (dealsDeck.size() == 0) {
@@ -160,8 +160,7 @@ namespace GMNameSpace {
                             }
                             ShuffleDiscardIntoDeck(CardType.DealType);
                         }
-                        Card drawnDeal = dealsDeck.drawCard();
-                        hand.AddCard(drawnDeal);
+                        hand.AddCard(dealsDeck.drawCard());
                         break;
                 }
             }
@@ -273,10 +272,9 @@ namespace GMNameSpace {
             GameObject factory = null;
             // Factory factory
             factory = Instantiate(FactoryPrefab);
-            factory.GetComponent<Factory>().Init("Coal Power Plant", Resources.Load<Sprite>("sprites/factory"), null, null, 
+            factory.GetComponent<Factory>().Init("Coal Power Plant", Resources.Load<Sprite>("factory"), null, null, 
                 Tuple.Create(Effect.Money, -2), new List<Tuple<Effect, int>>{Tuple.Create(Effect.Power, 4), Tuple.Create(Effect.Pollution, 4)},
                 new List<Tuple<Effect, int>>{Tuple.Create(Effect.Pollution, 1)});
-
             factory.transform.position = Input.mousePosition;
             factory.transform.SetParent(GOBoard.transform);
         }

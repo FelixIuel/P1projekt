@@ -1,9 +1,9 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using factoryNameSpace;
-using cardNameSpace;
+using GMNameSpace;
 using TMPro;
 
 namespace FactoryDrawing {
@@ -11,10 +11,16 @@ namespace FactoryDrawing {
         
         public TextMeshProUGUI factoryName;
         public Image factoryArt;
-        
-        public void SetCard(string _factoryName, Sprite _factoryArt) {
+        public TextMeshProUGUI useText;
+        public TextMeshProUGUI upkeepText;
+        public void SetDisplay(string _factoryName, Sprite _factoryArt, Tuple<Effect,int> _useCost, List<Tuple<Effect,int>> useOutput, List<Tuple<Effect,int>> _upkeepOutput) {
             factoryName.text = " " + _factoryName;
             factoryArt.sprite = _factoryArt;
+            useText.text = " ";
+            upkeepText.text = "<sprite name="+"Energy_symbol"+">";
         }
-    }
-}
+
+
+
+    } 
+}   
