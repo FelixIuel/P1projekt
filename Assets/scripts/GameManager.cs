@@ -270,9 +270,8 @@ namespace GMNameSpace {
 
         public void CreateFactory(int factoryID){
             GameObject factory = null;
-            // Factory factory
             factory = Instantiate(FactoryPrefab);
-            factory.GetComponent<Factory>().Init("Coal Power Plant", Resources.Load<Sprite>("factory"), null, null, 
+            factory.GetComponent<Factory>().Init("Coal Power Plant", Resources.Load<Sprite>("factory"),
                 Tuple.Create(Effect.Money, -2), new List<Tuple<Effect, int>>{Tuple.Create(Effect.Power, 4), Tuple.Create(Effect.Pollution, 4)},
                 new List<Tuple<Effect, int>>{Tuple.Create(Effect.Pollution, 1)});
             factory.transform.position = Input.mousePosition;

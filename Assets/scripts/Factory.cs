@@ -17,17 +17,15 @@ namespace factoryNameSpace {
         private GameManager gM;
         private bool Used;
         
-        public void Init(string _factoryName, Sprite _factoryArt, Sprite _useSprite, Sprite _upkeepSprite, 
-            Tuple<Effect,int> _useCost, List<Tuple<Effect,int>> _useOutput, List<Tuple<Effect,int>> _upkeepOutput) {
+        public void Init(string _factoryName, Sprite _factoryArt, Tuple<Effect,int> _useCost, 
+            List<Tuple<Effect,int>> _useOutput, List<Tuple<Effect,int>> _upkeepOutput) {
             
             factoryName = _factoryName;
             factoryArt = _factoryArt;
-            useSprite = _useSprite;
-            upkeepSprite = _upkeepSprite;
             useCost = _useCost;
             useOutput = _useOutput;
             upkeepOutput = _upkeepOutput;
-
+            
             Used = false;
             gM = GameObject.Find("GameHandler").GetComponent<GameManager>();
             SetFactoryInfo();
