@@ -8,6 +8,8 @@ using handNameSpace;
 using cardNameSpace;
 using RP;
 using factoryNameSpace;
+using UnityEngine.SceneManagement;
+
 
 namespace GMNameSpace {
 
@@ -100,6 +102,7 @@ namespace GMNameSpace {
                 backing = 100;
             }
             if (backing <= 0 || pollution >= maxPollution) {
+                SceneManager.LoadScene(3);
                 print("Du er bad, du tabte spillet");
             }
             resources.update_text(balance, funding, pollution, maxPollution, turn, year, powerRequirement, power, backing);
