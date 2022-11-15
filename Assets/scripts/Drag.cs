@@ -6,11 +6,12 @@ using GMNameSpace;
 using cardNameSpace;
 using CardDrawing;
 using FactoryDrawing;
+using UnityEngine.UI;
 
 public class Drag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
     
     Transform returnParent = null;
-    
+
     public void Start() {}
 
     public void OnBeginDrag(PointerEventData eventData){
@@ -19,16 +20,18 @@ public class Drag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
             this.transform.SetParent(this.transform.parent.parent);
         }
     }
+
     public void OnDrag(PointerEventData eventData){
         if (eventData.button == PointerEventData.InputButton.Left) {
-            this.transform.position = eventData.position;
+            this.transform.position = eventData.position*GameManager.screenScale;
         }
     }
+
     public void OnEndDrag(PointerEventData eventData){
         if (eventData.button == PointerEventData.InputButton.Left) {
             DisplayCard card = this.GetComponent<DisplayCard>();
             if (card != null) {
-                if (eventData.position.y > 380) {
+                if (eventData.position.y > 380*GameManager.screenScale.y) {
                     GameManager.tryToPlayCard.Invoke(card.cardID);
                 }
             }

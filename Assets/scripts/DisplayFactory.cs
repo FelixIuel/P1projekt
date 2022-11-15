@@ -17,11 +17,14 @@ namespace FactoryDrawing {
         //checks if we should add the text "add" (for adding resources like money) since we only want it to be there once.
         private bool add = false;
 
-        public void SetDisplay(string _factoryName, Sprite _factoryArt, Tuple<Effect,int> _useCost, List<Tuple<Effect,int>> useOutput, List<Tuple<Effect,int>> _upkeepOutput) {
-            factoryName.text = " " + _factoryName;
+        public void SetDisplay(string _factoryName, Sprite _factoryArt, Tuple<Effect,int> _useCost, List<Tuple<Effect,int>> _useOutput, List<Tuple<Effect,int>> _upkeepOutput) {
+            factoryName.text = "" + _factoryName;
             factoryArt.sprite = _factoryArt;
-            useText.text = " ";
-            upkeepText.text = " ";
+            upkeepText.text = "";
+            useText.text = "Pay ";
+            add = true;
+            useText.text = AddText(useText.text, _useCost.Item1, _useCost.Item2);
+            add = false; //spaghetti kode find en bedre løsning.
             if (_upkeepOutput.Count != 0) {
                 foreach(Tuple<Effect,int> effect in _upkeepOutput) {
                     upkeepText.text += ", ";
@@ -30,14 +33,13 @@ namespace FactoryDrawing {
                 upkeepText.text += ".";
                 upkeepText.text = "on" + "<sprite name="+"Upkeep_symbol"+">" + upkeepText.text;
             }
-            
-            foreach(Tuple<Effect,int> effect in useOutput) {
+            add = false;
+            foreach(Tuple<Effect,int> effect in _useOutput) {
                 useText.text += ", ";
                 useText.text = AddText(useText.text, effect.Item1, effect.Item2);
-                useText.text += ".";
             }
-
-            useText.text = AddText(useText.text, _useCost.Item1, _useCost.Item2) + useText.text;
+            
+            useText.text = "<sprite name="+"Use_symbol"+">" + useText.text;
         }
 
         public string AddText(String CurrentText, Effect effect, int amount) {

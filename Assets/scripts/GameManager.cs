@@ -8,8 +8,7 @@ using handNameSpace;
 using cardNameSpace;
 using RP;
 using factoryNameSpace;
-using UnityEngine.SceneManagement;
-
+using SceneManagerNS;
 
 namespace GMNameSpace {
 
@@ -17,6 +16,12 @@ namespace GMNameSpace {
 
     public class GameManager : MonoBehaviour {
         
+        static float xScale = (float)1920 / (float)Screen.width;
+        static float yScale = (float)1080 / (float)Screen.height;
+        public static Vector2 screenScale = new Vector2(xScale,yScale);
+
+
+
         private Deck factoryDeck;
         private Deck dealsDeck;
         private Deck factoryDiscard;
@@ -101,9 +106,10 @@ namespace GMNameSpace {
             if (backing > 100) {
                 backing = 100;
             }
+            
             if (backing <= 0 || pollution >= maxPollution) {
-                SceneManager.LoadScene(3);
                 print("Du er bad, du tabte spillet");
+                SceneManagement.ChangeScene("LoserScene");
             }
             resources.update_text(balance, funding, pollution, maxPollution, turn, year, powerRequirement, power, backing);
         }
@@ -277,7 +283,7 @@ namespace GMNameSpace {
             factory.GetComponent<Factory>().Init("Coal Power Plant", Resources.Load<Sprite>("factory"),
                 Tuple.Create(Effect.Money, -2), new List<Tuple<Effect, int>>{Tuple.Create(Effect.Power, 4), Tuple.Create(Effect.Pollution, 4)},
                 new List<Tuple<Effect, int>>{Tuple.Create(Effect.Pollution, 1)});
-            factory.transform.position = Input.mousePosition;
+            factory.transform.position = Input.mousePosition*screenScale;
             factory.transform.SetParent(GOBoard.transform);
         }
     }
