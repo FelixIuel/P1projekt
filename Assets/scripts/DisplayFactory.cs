@@ -55,7 +55,11 @@ namespace FactoryDrawing {
                         break;
                     case Effect.Backing:
                         returnText = Add(returnText);
-                        returnText += amount + " backing.";
+                        if (amount >= 0) {
+                            returnText += amount + " <sprite name="+"Backing_symbol_happy"+">";
+                        } else {
+                            returnText += amount + " <sprite name="+"Backing_symbol_mad"+">";
+                        }
                         break;
                     case Effect.Power:
                         returnText = Add(returnText);

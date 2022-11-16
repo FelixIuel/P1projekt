@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
 using cardNameSpace;
 using TMPro;
 using GMNameSpace;
@@ -17,18 +18,34 @@ namespace CardDrawing {
         public int cardID;
         public bool add = false;
 
-        public void SetCard(int _cardID, string _cardName, string _flavorText, string _effectText, int _cardCost, Sprite _cardArt, Sprite _backgroundArt, CardType _type) {
+        public void SetCard(int _cardID, string _cardName, string _flavorText, List<Tuple<Effect,int>> _effects, 
+            List<Tuple<Effect,int>> _cardCost, Sprite _cardArt, Sprite _backgroundArt, CardType _type) {
             cardID = _cardID;
+            cardArt.sprite = _cardArt;
+            backgroundArt.sprite = _backgroundArt;
+
             cardName.text = " " + _cardName;
             flavorText.text = " " + _flavorText;
             if (_type == CardType.FactoryType) {
-                cardCost.text = " " + -1*_cardCost;
+                int cost = 0;
+                foreach ((Effect resource, int _cost) in _cardCost) {
+                if (resource == Effect.Money) {
+                    cost = _cost;
+                    cardCost.text = " " + -1*_cost;
+                }
+            }
             }
             
-            effectText.text = " " +_effectText;
-            cardArt.sprite = _cardArt;
-            backgroundArt.sprite = _backgroundArt;
             
+            effectText.text = " ";
+            
+            add = false;
+            foreach(Tuple<Effect,int> effect in _effects) {
+                // effectText.text += ", ";
+                effectText.text = AddText(effectText.text, effect.Item1, effect.Item2);
+            }
+            
+            // effectText.text = "<sprite name="+"Use_symbol"+">" + useText.text;
 
         }
 
@@ -45,7 +62,11 @@ namespace CardDrawing {
                         break;
                     case Effect.Backing:
                         returnText = Add(returnText);
-                        returnText += amount + " backing.";
+                        if (amount >= 0) {
+                            returnText += amount + " <sprite name="+"Backing_symbol_happy"+">";
+                        } else {
+                            returnText += amount + " <sprite name="+"Backing_symbol_mad"+">";
+                        }
                         break;
                     case Effect.Power:
                         returnText = Add(returnText);
@@ -62,6 +83,7 @@ namespace CardDrawing {
                         returnText = "Draw" + amount + "deal cards. " + returnText;
                         break;
                     case Effect.CreateFactory:
+                        returnText += "Create a" + "Indsæt navn";
                         // no upkeep/factories creates factories
                         break;
                 }

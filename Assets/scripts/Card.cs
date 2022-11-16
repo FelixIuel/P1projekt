@@ -46,18 +46,18 @@ namespace cardNameSpace {
         public Card() {}
         
         public void SetCardInfo(int cardID, GameObject CardObject) {
-            int cost = 0;
-            foreach ((Effect resource, int _cost) in cardCost) {
-                if (resource == Effect.Money) {
-                    cost = _cost;
-                }
-            }
+            // int cost = 0;
+            // foreach ((Effect resource, int _cost) in cardCost) {
+            //     if (resource == Effect.Money) {
+            //         cost = _cost;
+            //     }
+            // }
             CardObject.GetComponent<DisplayCard>().SetCard(
                 cardID,
                 cardName,
                 flavorText,
-                effectText,
-                cost,
+                cardEffect,
+                cardCost,
                 cardArt,
                 backgroundArt,
                 type

@@ -20,7 +20,8 @@ namespace GMNameSpace {
         static float yScale = (float)1080 / (float)Screen.height;
         public static Vector2 screenScale = new Vector2(xScale,yScale);
 
-
+        public static int BackingTop = 90;
+        public static int BackingBottom = 30;
 
         private Deck factoryDeck;
         private Deck dealsDeck;
@@ -50,7 +51,6 @@ namespace GMNameSpace {
         public int maxPollution;
         public int power;
         public int powerRequirement;
-
 
         public GameObject FactoryPrefab;
 
@@ -111,11 +111,25 @@ namespace GMNameSpace {
                 print("Du er bad, du tabte spillet");
                 SceneManagement.ChangeScene("LoserScene");
             }
+            if (backing >= 90) {
+                funding = 2*baseFunding;
+            } else if (backing <= 30) {
+                funding = (int)(0.5f*(float)baseFunding);
+            } else {
+                funding = baseFunding;
+            }
             resources.update_text(balance, funding, pollution, maxPollution, turn, year, powerRequirement, power, backing);
         }
 
         public void NextTurn() {
             filterToDiscard(hand.DiscardHand());
+
+            if (power < powerRequirement) {
+                backing -= 15;
+            }
+            if (power >= powerRequirement) {
+                backing += 5;
+            }
 
             if (turn == 3) {
                 year += 1;
@@ -124,20 +138,6 @@ namespace GMNameSpace {
                 powerRequirement += 3;
             }
 
-            if (power < powerRequirement) {
-                backing -= 20;
-            }
-            if (power >= powerRequirement) {
-                backing += 5;
-            }
-            if (backing >= 90) {
-                funding = 2*baseFunding;
-            }
-            if (backing <= 30) {
-                funding = (int)(0.5f*(float)baseFunding);
-            }
-            
-            
             turn = (turn+1)%4;
             balance += funding;
             power = 0;
@@ -281,7 +281,7 @@ namespace GMNameSpace {
             GameObject factory = null;
             factory = Instantiate(FactoryPrefab);
             factory.GetComponent<Factory>().Init("Coal Power Plant", Resources.Load<Sprite>("factory"),
-                Tuple.Create(Effect.Money, -2), new List<Tuple<Effect, int>>{Tuple.Create(Effect.Power, 4), Tuple.Create(Effect.Pollution, 4)},
+                Tuple.Create(Effect.Money, -2), new List<Tuple<Effect, int>>{Tuple.Create(Effect.Power, 4), Tuple.Create(Effect.Backing, -2), Tuple.Create(Effect.Pollution, 4)},
                 new List<Tuple<Effect, int>>{Tuple.Create(Effect.Pollution, 1)});
             factory.transform.position = Input.mousePosition*screenScale;
             factory.transform.SetParent(GOBoard.transform);

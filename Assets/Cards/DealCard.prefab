@@ -220,7 +220,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
+  m_spriteAsset: {fileID: 11400000, guid: 82e176e217dab0a499107e9c07c83130, type: 2}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
   m_TextStyleHashCode: -1183493901
@@ -448,7 +448,7 @@ MonoBehaviour:
   cardArt: {fileID: 6471634046446880546}
   backgroundArt: {fileID: 5033092150617227962}
   cardID: 0
-  anchorPoint: {x: 0, y: 0, z: 0}
+  add: 0
 --- !u!23 &2026459526299768780
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -503,7 +503,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9656c11912ec94d45a98cc009e0ffc19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 4712149823558278370}
 --- !u!1 &8577221837823985441
 GameObject:
   m_ObjectHideFlags: 0
