@@ -41,7 +41,8 @@ public class Deck : MonoBehaviour {
     }
     
     public Card drawCard(){
-        Card cardToReturn = new Card();
+        Card cardToReturn = null;
+        // new Card();
         cardToReturn = deck[deck.Count-1];
         deck.RemoveAt(deck.Count-1);
         return cardToReturn;

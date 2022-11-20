@@ -1,81 +1,89 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using factoryNameSpace;
 using GMNameSpace;
 using TMPro;
+using UnityEngine.EventSystems;
 
 namespace FactoryDrawing {
-    public class DisplayFactory : MonoBehaviour {
+    public class DisplayFactory : MonoBehaviour, IPointerClickHandler {
         
         public TextMeshProUGUI factoryName;
         public Image factoryArt;
         public TextMeshProUGUI useText;
         public TextMeshProUGUI upkeepText;
+        public Factory factory;
         // we need a better name for this one
         //checks if we should add the text "add" (for adding resources like money) since we only want it to be there once.
         private bool add = false;
 
-        public void SetDisplay(string _factoryName, Sprite _factoryArt, Tuple<Effect,int> _useCost, List<Tuple<Effect,int>> _useOutput, List<Tuple<Effect,int>> _upkeepOutput) {
-            factoryName.text = "" + _factoryName;
-            factoryArt.sprite = _factoryArt;
+        public void SetDisplay(Factory _factory) {
+            factory = _factory;
+            SetDisplay();
+        }
+
+        public void SetDisplay() {
+            factoryName.text = "" + factory.factoryName;
+            factoryArt.sprite = factory.factoryArt;
             upkeepText.text = "";
             useText.text = "Pay ";
             add = true;
-            useText.text = AddText(useText.text, _useCost.Item1, _useCost.Item2);
+            useText.text = AddText(useText.text, factory.useCost);
             add = false; //spaghetti kode find en bedre løsning.
-            if (_upkeepOutput.Count != 0) {
-                foreach(Tuple<Effect,int> effect in _upkeepOutput) {
+
+            
+            if (factory.upkeepOutput.Count != 0) {
+                foreach(Effect effect in factory.upkeepOutput) {
                     upkeepText.text += ", ";
-                    upkeepText.text = AddText(upkeepText.text, effect.Item1, effect.Item2);
+                    upkeepText.text = AddText(upkeepText.text, effect);
                 }
                 upkeepText.text += ".";
                 upkeepText.text = "on" + "<sprite name="+"Upkeep_symbol"+">" + upkeepText.text;
             }
+            
             add = false;
-            foreach(Tuple<Effect,int> effect in _useOutput) {
+            
+            foreach(Effect effect in factory.useOutput) {
                 useText.text += ", ";
-                useText.text = AddText(useText.text, effect.Item1, effect.Item2);
+                useText.text = AddText(useText.text, effect);
             }
             
             useText.text = "<sprite name="+"Use_symbol"+">" + useText.text;
         }
 
-        public string AddText(String CurrentText, Effect effect, int amount) {
+        public string AddText(String CurrentText, Effect effect) {
             string returnText = CurrentText;
-            switch (effect){
-                    case Effect.Money:
+            switch (effect.effectType) {
+                    case EffectType.Money:
                         returnText = Add(returnText);
-                        returnText += amount + " <sprite name="+"Money_symbol"+">";
+                        returnText += effect.amount + " <sprite name=Money_symbol>";
                         break;
-                    case Effect.Funding:
+                    case EffectType.Funding:
                         returnText = Add(returnText);
-                        returnText += amount + " funding.";
+                        returnText += effect.amount + " funding.";
                         break;
-                    case Effect.Backing:
+                    case EffectType.Backing:
                         returnText = Add(returnText);
-                        if (amount >= 0) {
-                            returnText += amount + " <sprite name="+"Backing_symbol_happy"+">";
+                        if (effect.amount >= 0) {
+                            returnText += effect.amount + " <sprite name=Backing_symbol_happy>";
                         } else {
-                            returnText += amount + " <sprite name="+"Backing_symbol_mad"+">";
+                            returnText += effect.amount + " <sprite name=Backing_symbol_mad>";
                         }
                         break;
-                    case Effect.Power:
+                    case EffectType.Power:
                         returnText = Add(returnText);
-                        returnText += amount + " <sprite name="+"Energy_symbol"+">";
+                        returnText += effect.amount + " <sprite name=Energy_symbol>";
                         break;
-                    case Effect.Pollution:
+                    case EffectType.Pollution:
                         returnText = Add(returnText);
-                        returnText += amount + " <sprite name="+"Pollution_symbol"+">";
+                        returnText += effect.amount + " <sprite name=Pollution_symbol>";
                         break;
-                    case Effect.DrawDeal:
-                        returnText = "Draw" + amount + "deal cards. " + returnText;
+                    case EffectType.Draw:
+                        returnText = "Draw " + effect.amount + " " + effect.name + " card(s). " + returnText;
                         break;
-                    case Effect.DrawFactory:
-                        returnText = "Draw" + amount + "deal cards. " + returnText;
-                        break;
-                    case Effect.CreateFactory:
+                    case EffectType.CreateFactory:
+                        returnText += "Create a " + effect.name;
                         // no upkeep/factories creates factories
                         break;
                 }
@@ -89,6 +97,16 @@ namespace FactoryDrawing {
                 return text;
             }
             return text;
+        }
+
+        public void Update() {
+            this.GetComponent<Animator>().SetBool("Used", factory.Used);
+        }
+
+        public void OnPointerClick(PointerEventData pointerEventData){
+            if (pointerEventData.button == PointerEventData.InputButton.Right && !factory.Used && factory.UseEffect()) {
+                factory.Used = true;
+            }
         }
     }
 }   

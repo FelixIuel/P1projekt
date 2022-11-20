@@ -1,14 +1,13 @@
-using System.Collections;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Events;
 using handNameSpace;
 using cardNameSpace;
 using RP;
 using factoryNameSpace;
 using SceneManagerNS;
+using FactoryDrawing;
 
 namespace GMNameSpace {
 
@@ -19,9 +18,10 @@ namespace GMNameSpace {
         static float xScale = (float)1920 / (float)Screen.width;
         static float yScale = (float)1080 / (float)Screen.height;
         public static Vector2 screenScale = new Vector2(xScale,yScale);
+        
+        public static PlayCardEvent tryToPlayCard;
+        public static System.Random random = new System.Random();
 
-        public static int BackingTop = 90;
-        public static int BackingBottom = 30;
 
         private Deck factoryDeck;
         private Deck dealsDeck;
@@ -52,9 +52,11 @@ namespace GMNameSpace {
         public int power;
         public int powerRequirement;
 
+        public static int BackingTop = 90;
+        public static int BackingBottom = 30;
+
         public GameObject FactoryPrefab;
 
-        public static PlayCardEvent tryToPlayCard;
 
         void Start() {
             factoryDeck = GOfactoryDeck.GetComponent<Deck>();
@@ -70,32 +72,13 @@ namespace GMNameSpace {
             funding = baseFunding;
             resources.update_text(balance, funding, pollution, maxPollution, turn, year, powerRequirement, power, backing);
 
-            for (int t = 0; t < 16; t++ ) {
-                factoryDeck.add(
-                    new Card(
-                        "Factory 1",
-                        "Lav en fabrik",
-                        "Lav en fabrik",
-                        new List<Tuple<Effect, int>>{Tuple.Create(Effect.Money, -1)},
-                        new List<Tuple<Effect, int>>{Tuple.Create(Effect.CreateFactory, 1)},
-                        Resources.Load<Sprite>("factory"),
-                        CardType.FactoryType
-                    )
-                );
+            for (int t = 0; t < 8; t++ ) {
+                factoryDeck.add(Instantiate(Resources.Load("Cards/Coal Generator") as Card));
             }
             for (int t = 0; t < 16; t++ ) {
-                dealsDeck.add(
-                    new Card(
-                        "Deal 1",
-                        "lav en deal",
-                        "lav en deal",
-                        new List<Tuple<Effect, int>>{Tuple.Create(Effect.Power, -2)},
-                        new List<Tuple<Effect, int>>{Tuple.Create(Effect.Money, 4)},
-                        Resources.Load<Sprite>("factory"),
-                        CardType.DealType
-                    )   
-                );
+                dealsDeck.add(Instantiate(Resources.Load("Cards/Deal 1") as Card));
             }
+
             factoryDeck.shuffle();
             dealsDeck.shuffle();
             DrawHand();
@@ -142,8 +125,10 @@ namespace GMNameSpace {
             balance += funding;
             power = 0;
 
+
+            // Factory.onUpkeep.Invoke();
             foreach (Transform factoryTransform in GOBoard.transform) {
-                factoryTransform.gameObject.GetComponent<Factory>().Upkeep();
+                factoryTransform.gameObject.GetComponent<DisplayFactory>().factory.Upkeep();
             }
             DrawHand();
         }
@@ -217,8 +202,8 @@ namespace GMNameSpace {
             }
         }
 
-        public bool TryToPay(List<Tuple<Effect, int>> resources){
-            foreach (Tuple<Effect, int> resource in resources) {
+        public bool TryToPay(List<Effect> resources){
+            foreach (Effect resource in resources) {
                 if (!TryToPay(resource)) {
                     return false;
                 }
@@ -226,78 +211,108 @@ namespace GMNameSpace {
             return true;
         }
 
-        public bool TryToPay(Tuple<Effect, int> resource) {
-            switch (resource.Item1){
-                case Effect.Money:
-                    return (balance + resource.Item2 >= 0);
-                case Effect.Funding:
-                    return (baseFunding + resource.Item2 > 0);
-                case Effect.Backing:
-                    return (backing + resource.Item2 > 0);
-                case Effect.Power:
-                    return (power + resource.Item2 >= 0);
-                case Effect.Pollution:
-                    return (resource.Item2 + pollution < maxPollution);
+        public bool TryToPay(Effect resource) {
+            switch (resource.effectType){
+                case EffectType.Money:
+                    return (balance + resource.amount >= 0);
+                case EffectType.Funding:
+                    return (baseFunding + resource.amount > 0);
+                case EffectType.Backing:
+                    return (backing + resource.amount > 0);
+                case EffectType.Power:
+                    return (power + resource.amount >= 0);
+                case EffectType.Pollution:
+                    return (resource.amount + pollution < maxPollution);
             }
             return false;
         }
 
-        public void PlayEffects(List<Tuple<Effect, int>> effects) {
-            foreach (Tuple<Effect, int> effect in effects) {
+        public void PlayEffects(List<Effect> effects) {
+            foreach (Effect effect in effects) {
                 PlayEffect(effect);
             }
         }
         
-        public void PlayEffect(Tuple<Effect, int> effect) {
-            switch (effect.Item1){
-                case Effect.Money:
-                    balance += effect.Item2;
+        public void PlayEffect(Effect effect) {
+            switch (effect.effectType){
+                case EffectType.Money:
+                    balance += effect.amount;
                     break;
-                case Effect.Funding:
-                    baseFunding += effect.Item2;
+                case EffectType.Funding:
+                    baseFunding += effect.amount;
                     break;
-                case Effect.Backing:
-                    backing += effect.Item2;
+                case EffectType.Backing:
+                    backing += effect.amount;
                     break;
-                case Effect.Power:
-                    power += effect.Item2;
+                case EffectType.Power:
+                    power += effect.amount;
                     break;
-                case Effect.Pollution:
-                    pollution += effect.Item2;
+                case EffectType.Pollution:
+                    pollution += effect.amount;
                     break;
-                case Effect.DrawDeal:
-                    Draw(CardType.DealType, effect.Item2);
+                case EffectType.Draw:
+                    if (effect.name == "factory") {
+                        Draw(CardType.FactoryType, effect.amount);
+                    } else {
+                        Draw(CardType.DealType, effect.amount);
+                    }
                     break;
-                case Effect.DrawFactory:
-                    Draw(CardType.DealType, effect.Item2);
+                case EffectType.DrawRandom:
+                    int draw1 = random.Next(effect.amount);
+                    Draw(CardType.FactoryType, draw1);
+                    if (draw1 != effect.amount) {
+                        Draw(CardType.DealType, effect.amount-draw1);
+                    }
                     break;
-                case Effect.CreateFactory:
-                    CreateFactory(effect.Item2);
+                case EffectType.DrawHand:
+                    DrawHand();
+                    break;
+                case EffectType.DiscardHand:
+                    hand.DiscardHand();
+                    break;
+                case EffectType.DiscardRandom:
+                    for (int i = 0; i < effect.amount; i++ ) {
+                        filterToDiscard(
+                            hand.Discard(random.Next(hand.hand.Count))
+                        );
+                        hand.CreateHand();
+                    }
+                    break;
+                case EffectType.CreateFactory:
+                    CreateFactory(effect.name);
                     break;
             }
         }
 
-        public void CreateFactory(int factoryID){
-            GameObject factory = null;
-            factory = Instantiate(FactoryPrefab);
-            factory.GetComponent<Factory>().Init("Coal Power Plant", Resources.Load<Sprite>("factory"),
-                Tuple.Create(Effect.Money, -2), new List<Tuple<Effect, int>>{Tuple.Create(Effect.Power, 4), Tuple.Create(Effect.Backing, -2), Tuple.Create(Effect.Pollution, 4)},
-                new List<Tuple<Effect, int>>{Tuple.Create(Effect.Pollution, 1)});
-            factory.transform.position = Input.mousePosition*screenScale;
-            factory.transform.SetParent(GOBoard.transform);
+        public void CreateFactory(string factoryName){
+            GameObject factoryGO = null;
+            factoryGO = Instantiate(FactoryPrefab);
+            Factory factory = Instantiate(Resources.Load("Factories/" + factoryName) as Factory);
+            factory.SetGameManager(this);
+            factoryGO.GetComponent<DisplayFactory>().SetDisplay(factory);
+            factoryGO.transform.position = Input.mousePosition*screenScale;
+            factoryGO.transform.SetParent(GOBoard.transform);
         }
     }
     
-    public enum Effect {
+    public enum EffectType {
         Money,
         Funding,
         Pollution,
         Backing,
         Power,
-        DrawFactory,
-        DrawDeal,
+        Draw,
+        DrawHand,
+        DrawRandom,
         CreateFactory,
         DiscardHand,
+        DiscardRandom,
     }
-
+    
+    [Serializable]
+    public class Effect {
+        public EffectType effectType;
+        public int amount;
+        public string name;
+    }
 }

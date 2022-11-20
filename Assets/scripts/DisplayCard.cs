@@ -18,72 +18,73 @@ namespace CardDrawing {
         public int cardID;
         public bool add = false;
 
-        public void SetCard(int _cardID, string _cardName, string _flavorText, List<Tuple<Effect,int>> _effects, 
-            List<Tuple<Effect,int>> _cardCost, Sprite _cardArt, Sprite _backgroundArt, CardType _type) {
+        public void SetCard(int _cardID, string _cardName, string _flavorText, List<Effect> _effects, 
+            List<Effect> _cardCost, Sprite _cardArt, CardType _type) {
             cardID = _cardID;
             cardArt.sprite = _cardArt;
-            backgroundArt.sprite = _backgroundArt;
-
+            switch(_type){
+                case CardType.FactoryType:
+                    backgroundArt.sprite = Resources.Load<Sprite>("Factory_card_1");
+                    break;
+                case CardType.DealType:
+                    backgroundArt.sprite = Resources.Load<Sprite>("Deal_card_1");
+                    break;
+                case CardType.ProjectType:
+                    backgroundArt.sprite = Resources.Load<Sprite>("Deal_card_1");
+                    break;
+            }
+            
             cardName.text = " " + _cardName;
             flavorText.text = " " + _flavorText;
             if (_type == CardType.FactoryType) {
                 int cost = 0;
-                foreach ((Effect resource, int _cost) in _cardCost) {
-                if (resource == Effect.Money) {
-                    cost = _cost;
-                    cardCost.text = " " + -1*_cost;
+                foreach (Effect effect in _cardCost) {
+                    if (effect.effectType == EffectType.Money) {
+                        cost = effect.amount;
+                        cardCost.text = " " + -1*effect.amount;
+                    }
                 }
             }
-            }
-            
             
             effectText.text = " ";
-            
             add = false;
-            foreach(Tuple<Effect,int> effect in _effects) {
-                // effectText.text += ", ";
-                effectText.text = AddText(effectText.text, effect.Item1, effect.Item2);
-            }
-            
-            // effectText.text = "<sprite name="+"Use_symbol"+">" + useText.text;
-
+            foreach(Effect effect in _effects) {
+                effectText.text = AddText(effectText.text, effect);
+            } 
         }
 
-        public string AddText(String CurrentText, Effect effect, int amount) {
+        public string AddText(String CurrentText, Effect effect) {
             string returnText = CurrentText;
-            switch (effect) {
-                    case Effect.Money:
+            switch (effect.effectType) {
+                    case EffectType.Money:
                         returnText = Add(returnText);
-                        returnText += amount + " <sprite name="+"Money_symbol"+">";
+                        returnText += effect.amount + " <sprite name=Money_symbol>";
                         break;
-                    case Effect.Funding:
+                    case EffectType.Funding:
                         returnText = Add(returnText);
-                        returnText += amount + " funding.";
+                        returnText += effect.amount + " funding.";
                         break;
-                    case Effect.Backing:
+                    case EffectType.Backing:
                         returnText = Add(returnText);
-                        if (amount >= 0) {
-                            returnText += amount + " <sprite name="+"Backing_symbol_happy"+">";
+                        if (effect.amount >= 0) {
+                            returnText += effect.amount + " <sprite name=Backing_symbol_happy>";
                         } else {
-                            returnText += amount + " <sprite name="+"Backing_symbol_mad"+">";
+                            returnText += effect.amount + " <sprite name=Backing_symbol_mad>";
                         }
                         break;
-                    case Effect.Power:
+                    case EffectType.Power:
                         returnText = Add(returnText);
-                        returnText += amount + " <sprite name="+"Energy_symbol"+">";
+                        returnText += effect.amount + " <sprite name=Energy_symbol>";
                         break;
-                    case Effect.Pollution:
+                    case EffectType.Pollution:
                         returnText = Add(returnText);
-                        returnText += amount + " <sprite name="+"Pollution_symbol"+">";
+                        returnText += effect.amount + " <sprite name=Pollution_symbol>";
                         break;
-                    case Effect.DrawDeal:
-                        returnText = "Draw" + amount + "deal cards. " + returnText;
+                    case EffectType.Draw:
+                        returnText = "Draw " + effect.amount + " " + effect.name + " card(s). " + returnText;
                         break;
-                    case Effect.DrawFactory:
-                        returnText = "Draw" + amount + "deal cards. " + returnText;
-                        break;
-                    case Effect.CreateFactory:
-                        returnText += "Create a" + "Indsæt navn";
+                    case EffectType.CreateFactory:
+                        returnText += "Create a " + effect.name;
                         // no upkeep/factories creates factories
                         break;
                 }
