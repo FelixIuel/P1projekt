@@ -5,7 +5,7 @@ using cardNameSpace;
 
 public class Deck : MonoBehaviour {
     
-    private List<Card> deck;
+    public List<Card> deck;
 
     public Deck() {
         deck = new List<Card>();

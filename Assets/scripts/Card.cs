@@ -17,7 +17,7 @@ namespace cardNameSpace {
     public class Card : ScriptableObject {
         public string cardName;
         public string flavorText;
-        public string effectText;
+        private string effectText;
         [SerializeField]
         public List<Effect> cardCost;
         [SerializeField]

@@ -22,7 +22,7 @@ namespace handNameSpace{
             List<Card> temp = new List<Card>(hand);
             ClearHand();
             hand.Clear();
-
+            CreateHand();
             return temp;
         }
 
@@ -47,7 +47,7 @@ namespace handNameSpace{
 
             Card cardToReturn = hand[cardIndex];
             hand.RemoveAt(cardIndex);
-            ClearHand();
+            // ClearHand();
             CreateHand();
             return cardToReturn;
         }

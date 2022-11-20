@@ -87,6 +87,18 @@ namespace CardDrawing {
                         returnText += "Create a " + effect.name;
                         // no upkeep/factories creates factories
                         break;
+                    case EffectType.DrawRandom:
+                        returnText = "Draw " + effect.amount + " card(s)" + " from random deck(s). " + returnText;
+                        break;
+                    case EffectType.DrawHand:
+                        returnText = "Draw a full hand. " + returnText;
+                        break;
+                    case EffectType.DiscardHand:
+                        returnText = "Discard your hand. " + returnText;
+                        break;
+                    case EffectType.DiscardRandom:
+                        returnText = "Discard " + effect.amount + " card(s) at random. " + returnText;
+                        break;
                 }
                 return returnText;
             }

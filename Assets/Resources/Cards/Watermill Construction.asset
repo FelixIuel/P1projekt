@@ -10,18 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ce4812bf165a444487c2456729dd441, type: 3}
-  m_Name: Coal Generator
+  m_Name: Watermill Construction
   m_EditorClassIdentifier: 
-  cardName: Coal Generator
+  cardName: Watermill construction
   flavorText: 
-  effectText: Create a Coal Generator
   cardCost:
   - effectType: 0
-    amount: -1
+    amount: -3
     name: 
   cardEffect:
   - effectType: 8
-    amount: 1
-    name: Coal Generator
-  cardArt: {fileID: 21300000, guid: ddd2ac395c189a74fb870af6eec909f9, type: 3}
+    amount: 0
+    name: Watermill
+  cardArt: {fileID: 0}
   type: 0

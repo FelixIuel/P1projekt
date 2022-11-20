@@ -8,6 +8,7 @@ using RP;
 using factoryNameSpace;
 using SceneManagerNS;
 using FactoryDrawing;
+using CardDrawing;
 
 namespace GMNameSpace {
 
@@ -22,7 +23,6 @@ namespace GMNameSpace {
         public static PlayCardEvent tryToPlayCard;
         public static System.Random random = new System.Random();
 
-
         private Deck factoryDeck;
         private Deck dealsDeck;
         private Deck factoryDiscard;
@@ -30,19 +30,20 @@ namespace GMNameSpace {
         private Hand hand;
         private ResourcePanel resources;
 
-        public GameObject GOfactoryDeck;
-        public GameObject GOdealsDeck;
-        public GameObject GOfactoryDiscard;
-        public GameObject GOdealsDiscard;
-        public GameObject GOhand;
-        public GameObject GOBoard;
-        public GameObject GOResources;
+        public GameObject factoryDeckGO;
+        public GameObject dealsDeckGO;
+        public GameObject factoryDiscardGO;
+        public GameObject dealsDiscardGO;
+        public GameObject handGO;
+        public GameObject BoardGO;
+        public GameObject ResourcesGO;
 
         private int turn = 0;
         private int year = 1;
+
+
         public int factoryDraw;
         public int dealsDraw;
-
         public int balance = 5;
         public int baseFunding = 3;
         private int funding;
@@ -52,32 +53,24 @@ namespace GMNameSpace {
         public int power;
         public int powerRequirement;
 
-        public static int BackingTop = 90;
+        public static int BackingTop = 85;
         public static int BackingBottom = 30;
 
         public GameObject FactoryPrefab;
 
-
         void Start() {
-            factoryDeck = GOfactoryDeck.GetComponent<Deck>();
-            dealsDeck = GOdealsDeck.GetComponent<Deck>();
-            factoryDiscard = GOfactoryDiscard.GetComponent<Deck>();
-            dealsDiscard = GOdealsDiscard.GetComponent<Deck>();
-            hand = GOhand.GetComponent<Hand>();
-            resources = GOResources.GetComponent<ResourcePanel>();
+            factoryDeck = factoryDeckGO.GetComponent<Deck>();
+            dealsDeck = dealsDeckGO.GetComponent<Deck>();
+            factoryDiscard = factoryDiscardGO.GetComponent<Deck>();
+            dealsDiscard = dealsDiscardGO.GetComponent<Deck>();
+            hand = handGO.GetComponent<Hand>();
+            resources = ResourcesGO.GetComponent<ResourcePanel>();
 
             tryToPlayCard = new PlayCardEvent();
             tryToPlayCard.AddListener(PlayCard);
             
             funding = baseFunding;
             resources.update_text(balance, funding, pollution, maxPollution, turn, year, powerRequirement, power, backing);
-
-            for (int t = 0; t < 8; t++ ) {
-                factoryDeck.add(Instantiate(Resources.Load("Cards/Coal Generator") as Card));
-            }
-            for (int t = 0; t < 16; t++ ) {
-                dealsDeck.add(Instantiate(Resources.Load("Cards/Deal 1") as Card));
-            }
 
             factoryDeck.shuffle();
             dealsDeck.shuffle();
@@ -89,9 +82,10 @@ namespace GMNameSpace {
             if (backing > 100) {
                 backing = 100;
             }
-            
+            if (pollution < 0) {
+                pollution = 0;
+            }
             if (backing <= 0 || pollution >= maxPollution) {
-                print("Du er bad, du tabte spillet");
                 SceneManagement.ChangeScene("LoserScene");
             }
             if (backing >= 90) {
@@ -125,9 +119,7 @@ namespace GMNameSpace {
             balance += funding;
             power = 0;
 
-
-            // Factory.onUpkeep.Invoke();
-            foreach (Transform factoryTransform in GOBoard.transform) {
+            foreach (Transform factoryTransform in BoardGO.transform) {
                 factoryTransform.gameObject.GetComponent<DisplayFactory>().factory.Upkeep();
             }
             DrawHand();
@@ -158,6 +150,7 @@ namespace GMNameSpace {
                         break;
                 }
             }
+            hand.CreateHand();
         }
 
         public void DrawHand(){
@@ -223,6 +216,10 @@ namespace GMNameSpace {
                     return (power + resource.amount >= 0);
                 case EffectType.Pollution:
                     return (resource.amount + pollution < maxPollution);
+                case EffectType.DiscardRandom:
+                    return (hand.hand.Count > 0);
+                case EffectType.DiscardHand: 
+                    return true;
             }
             return false;
         }
@@ -251,17 +248,19 @@ namespace GMNameSpace {
                     pollution += effect.amount;
                     break;
                 case EffectType.Draw:
-                    if (effect.name == "factory") {
+                    if (effect.name == "Factory") {
                         Draw(CardType.FactoryType, effect.amount);
                     } else {
                         Draw(CardType.DealType, effect.amount);
                     }
                     break;
                 case EffectType.DrawRandom:
-                    int draw1 = random.Next(effect.amount);
-                    Draw(CardType.FactoryType, draw1);
-                    if (draw1 != effect.amount) {
-                        Draw(CardType.DealType, effect.amount-draw1);
+                    for (int i = 0; i < effect.amount; i++ ) {
+                        if (random.Next(1,2) == 1) {
+                            Draw(CardType.FactoryType, 1);
+                        } else {
+                            Draw(CardType.DealType, 1);
+                        }
                     }
                     break;
                 case EffectType.DrawHand:
@@ -272,8 +271,13 @@ namespace GMNameSpace {
                     break;
                 case EffectType.DiscardRandom:
                     for (int i = 0; i < effect.amount; i++ ) {
+                        if (i > hand.hand.Count) { 
+                            break;
+                        }
                         filterToDiscard(
-                            hand.Discard(random.Next(hand.hand.Count))
+                            hand.Discard(
+                                hand.handDisplay[random.Next(hand.hand.Count)].GetComponent<DisplayCard>().cardID
+                            )
                         );
                         hand.CreateHand();
                     }
@@ -291,7 +295,7 @@ namespace GMNameSpace {
             factory.SetGameManager(this);
             factoryGO.GetComponent<DisplayFactory>().SetDisplay(factory);
             factoryGO.transform.position = Input.mousePosition*screenScale;
-            factoryGO.transform.SetParent(GOBoard.transform);
+            factoryGO.transform.SetParent(BoardGO.transform);
         }
     }
     

@@ -257,6 +257,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b232bf6a0d39cb4ab6cbaa5b4552fe8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deck:
+  - {fileID: 11400000, guid: 5fb332d89757acc448a58ddd0865b9b9, type: 2}
+  - {fileID: 11400000, guid: 5fb332d89757acc448a58ddd0865b9b9, type: 2}
+  - {fileID: 11400000, guid: 5fb332d89757acc448a58ddd0865b9b9, type: 2}
+  - {fileID: 11400000, guid: 5fb332d89757acc448a58ddd0865b9b9, type: 2}
+  - {fileID: 11400000, guid: 5fb332d89757acc448a58ddd0865b9b9, type: 2}
+  - {fileID: 11400000, guid: 5fb332d89757acc448a58ddd0865b9b9, type: 2}
+  - {fileID: 11400000, guid: 5fb332d89757acc448a58ddd0865b9b9, type: 2}
+  - {fileID: 11400000, guid: 5fb332d89757acc448a58ddd0865b9b9, type: 2}
 --- !u!4 &52141789
 Transform:
   m_ObjectHideFlags: 0
@@ -1678,6 +1687,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ac712d10b982dc4b96f7bf84752e462, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hand: []
   handDisplay: []
   factoryPrefab: {fileID: 2496989661608837139, guid: f96df03c741fb5c439f41278e72c9e2c, type: 3}
   dealPrefab: {fileID: 8016059216306841424, guid: 4d9bdde9f60150344a58a5c32d70c425, type: 3}
@@ -1960,6 +1970,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b232bf6a0d39cb4ab6cbaa5b4552fe8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deck: []
 --- !u!4 &1066994788
 Transform:
   m_ObjectHideFlags: 0
@@ -2716,15 +2727,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11a22200038f7184abf908f1ef7bc2f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GOfactoryDeck: {fileID: 1863713175}
-  GOdealsDeck: {fileID: 52141787}
-  GOfactoryDiscard: {fileID: 1804895449}
-  GOdealsDiscard: {fileID: 1066994786}
-  GOhand: {fileID: 1386388039}
-  GOBoard: {fileID: 1720601042}
-  GOResources: {fileID: 1187385928}
-  factoryDraw: 4
-  dealsDraw: 4
+  factoryDeckGO: {fileID: 1863713175}
+  dealsDeckGO: {fileID: 52141787}
+  factoryDiscardGO: {fileID: 1804895449}
+  dealsDiscardGO: {fileID: 1066994786}
+  handGO: {fileID: 1386388039}
+  BoardGO: {fileID: 1720601042}
+  ResourcesGO: {fileID: 1187385928}
+  factoryDraw: 2
+  dealsDraw: 2
   balance: 5
   baseFunding: 3
   pollution: 0
@@ -2811,6 +2822,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ac712d10b982dc4b96f7bf84752e462, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hand: []
   handDisplay: []
   factoryPrefab: {fileID: 2496989661608837139, guid: f96df03c741fb5c439f41278e72c9e2c, type: 3}
   dealPrefab: {fileID: 8016059216306841424, guid: 4d9bdde9f60150344a58a5c32d70c425, type: 3}
@@ -3648,6 +3660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b232bf6a0d39cb4ab6cbaa5b4552fe8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deck: []
 --- !u!4 &1804895451
 Transform:
   m_ObjectHideFlags: 0
@@ -3692,6 +3705,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b232bf6a0d39cb4ab6cbaa5b4552fe8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deck:
+  - {fileID: 11400000, guid: 5d5f8a3a34325ed43853c4c0b394560e, type: 2}
+  - {fileID: 11400000, guid: 5d5f8a3a34325ed43853c4c0b394560e, type: 2}
+  - {fileID: 11400000, guid: 5d5f8a3a34325ed43853c4c0b394560e, type: 2}
+  - {fileID: 11400000, guid: 049ecd03cd0f0744a9ec99c877d6c5ec, type: 2}
+  - {fileID: 11400000, guid: 943313ecc6389d14f80d7d1ba866f274, type: 2}
+  - {fileID: 11400000, guid: 9da6e4dc61987d045afd71da5c5f3360, type: 2}
+  - {fileID: 11400000, guid: 2c1e7461c2cfb574f9aa62df78ecb4c2, type: 2}
+  - {fileID: 11400000, guid: 2c1e7461c2cfb574f9aa62df78ecb4c2, type: 2}
+  - {fileID: 11400000, guid: 4af8d48f2bf1821459bcd2383fd81aae, type: 2}
+  - {fileID: 11400000, guid: 4af8d48f2bf1821459bcd2383fd81aae, type: 2}
+  - {fileID: 11400000, guid: 4af8d48f2bf1821459bcd2383fd81aae, type: 2}
+  - {fileID: 11400000, guid: 6c772451db01d684c996385a42491c5c, type: 2}
+  - {fileID: 11400000, guid: 6c772451db01d684c996385a42491c5c, type: 2}
+  - {fileID: 11400000, guid: 6a420edf52a08fe4ebf2fce889f8a0d3, type: 2}
+  - {fileID: 11400000, guid: 6a420edf52a08fe4ebf2fce889f8a0d3, type: 2}
 --- !u!4 &1863713177
 Transform:
   m_ObjectHideFlags: 0
