@@ -2744,7 +2744,7 @@ MonoBehaviour:
   power: 0
   powerRequirement: 5
   winCounter: 0
-  winCon: 0
+  winCon: 4
   FactoryPrefab: {fileID: 5202054948903078043, guid: 9fb35ba958a23624d99082304c43cd4e, type: 3}
 --- !u!4 &1343609416
 Transform:
