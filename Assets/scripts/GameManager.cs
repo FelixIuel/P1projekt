@@ -126,6 +126,7 @@ namespace GMNameSpace {
                 winCounter += 1;
                 if (winCounter >= winCon) {
                     print("Du har vundet spillet");
+                    SceneManagement.ChangeScene("WinScene");
                 }
             } else {
                 winCounter = 0;
