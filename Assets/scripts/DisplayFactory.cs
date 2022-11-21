@@ -83,20 +83,20 @@ namespace FactoryDrawing {
                         returnText += effect.amount + " <sprite name=Pollution_symbol>";
                         break;
                     case EffectType.Draw:
-                        returnText = "Draw " + effect.amount + " " + effect.name + " card(s). " + returnText;
+                        returnText += "Draw " + effect.amount + " " + effect.name + " card(s) ";
                         break;
                     case EffectType.CreateFactory:
                         returnText += "Create a " + effect.name;
                         // no upkeep/factories creates factories
                         break;
                     case EffectType.DrawRandom:
-                        returnText = "Draw " + effect.amount + " card(s)" + " from random deck(s). " + returnText;
+                        returnText += "Draw " + effect.amount + " card(s)" + " from random deck(s) ";
                         break;
                     case EffectType.DrawHand:
-                        returnText = "Draw a full hand. " + returnText;
+                        returnText += "Draw a full hand ";
                         break;
                     case EffectType.DiscardHand:
-                        returnText = "Discard your hand. " + returnText;
+                        returnText = "Discard your hand " + returnText;
                         break;
                     case EffectType.DiscardRandom:
                         returnText = "Discard " + effect.amount + " card(s) at random. " + returnText;

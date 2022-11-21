@@ -21,6 +21,6 @@ MonoBehaviour:
   cardEffect:
   - effectType: 8
     amount: 1
-    name: Solar Panel
+    name: Windmill
   cardArt: {fileID: 0}
   type: 0

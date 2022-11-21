@@ -40,7 +40,7 @@ namespace GMNameSpace {
 
         private int turn = 0;
         private int year = 1;
-
+    
 
         public int factoryDraw;
         public int dealsDraw;
@@ -53,8 +53,15 @@ namespace GMNameSpace {
         public int power;
         public int powerRequirement;
 
-        public static int BackingTop = 85;
-        public static int BackingBottom = 30;
+        public static int backingTop = 85;
+        public static int backingBottom = 30;
+        
+        public int winCounter;
+        // Turns without having created polution till the player wins.
+        public int winCon;
+        private int pollutionStartTurn;
+        private bool powerReqMet;
+
 
         public GameObject FactoryPrefab;
 
@@ -100,12 +107,28 @@ namespace GMNameSpace {
 
         public void NextTurn() {
             filterToDiscard(hand.DiscardHand());
-
             if (power < powerRequirement) {
                 backing -= 15;
+                powerReqMet = false;
             }
             if (power >= powerRequirement) {
                 backing += 5;
+                powerReqMet = true;
+            }
+            balance += funding;
+            power = 0;
+
+            foreach (Transform factoryTransform in BoardGO.transform) {
+                factoryTransform.gameObject.GetComponent<DisplayFactory>().factory.Upkeep();
+            }
+
+            if (powerReqMet && pollutionStartTurn >= pollution) {
+                winCounter += 1;
+                if (winCounter >= winCon) {
+                    print("Du har vundet spillet");
+                }
+            } else {
+                winCounter = 0;
             }
 
             if (turn == 3) {
@@ -116,13 +139,8 @@ namespace GMNameSpace {
             }
 
             turn = (turn+1)%4;
-            balance += funding;
-            power = 0;
-
-            foreach (Transform factoryTransform in BoardGO.transform) {
-                factoryTransform.gameObject.GetComponent<DisplayFactory>().factory.Upkeep();
-            }
             DrawHand();
+            pollutionStartTurn = pollution;
         }
         
         public void Draw(CardType deckToDrawFrom, int drawAmount){

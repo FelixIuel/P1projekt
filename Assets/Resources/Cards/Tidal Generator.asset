@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ce4812bf165a444487c2456729dd441, type: 3}
-  m_Name: Watermill Construction
+  m_Name: Tidal Generator
   m_EditorClassIdentifier: 
-  cardName: Watermill construction
+  cardName: Tidal Generator construction
   flavorText: 
   cardCost:
   - effectType: 0
@@ -21,6 +21,6 @@ MonoBehaviour:
   cardEffect:
   - effectType: 8
     amount: 0
-    name: Watermill
+    name: Tidal Generator
   cardArt: {fileID: 0}
   type: 0

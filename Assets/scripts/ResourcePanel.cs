@@ -35,9 +35,9 @@ namespace RP {
             powerBar.fillAmount = Math.Clamp((float)_curPower/(float)_powerReq, 0, 1);
             backingBar.fillAmount = (float)_backing/100f;
 
-            if (_backing >= GameManager.BackingTop){
+            if (_backing >= GameManager.backingTop){
                 backingImage.sprite = Resources.Load<Sprite>("Sprites/Backing_symbol_happy");
-            } else if (_backing <= GameManager.BackingBottom) {
+            } else if (_backing <= GameManager.backingBottom) {
                 backingImage.sprite = Resources.Load<Sprite>("Sprites/Backing_symbol_mad");
             } else {
                 backingImage.sprite = Resources.Load<Sprite>("Sprites/Backing_symbol_meh");

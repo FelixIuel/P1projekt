@@ -17,7 +17,7 @@ namespace CardDrawing {
         public Image backgroundArt;
         public int cardID;
         public bool add = false;
-
+        
         public void SetCard(int _cardID, string _cardName, string _flavorText, List<Effect> _effects, 
             List<Effect> _cardCost, Sprite _cardArt, CardType _type) {
             cardID = _cardID;
@@ -47,6 +47,16 @@ namespace CardDrawing {
             }
             
             effectText.text = " ";
+            add = true;
+            if (_type == CardType.DealType) {
+                foreach (Effect effect in _cardCost) {
+                    if (effect.effectType == EffectType.Money || effect.effectType == EffectType.Power) {
+                        effectText.text = "Pay ";
+                    }
+                    effectText.text = AddText(effectText.text, effect);
+                }
+            }
+
             add = false;
             foreach(Effect effect in _effects) {
                 effectText.text = AddText(effectText.text, effect);
@@ -81,17 +91,16 @@ namespace CardDrawing {
                         returnText += effect.amount + " <sprite name=Pollution_symbol>";
                         break;
                     case EffectType.Draw:
-                        returnText = "Draw " + effect.amount + " " + effect.name + " card(s). " + returnText;
+                        returnText += "Draw " + effect.amount + " " + effect.name + " card(s). ";
                         break;
                     case EffectType.CreateFactory:
                         returnText += "Create a " + effect.name;
-                        // no upkeep/factories creates factories
                         break;
                     case EffectType.DrawRandom:
-                        returnText = "Draw " + effect.amount + " card(s)" + " from random deck(s). " + returnText;
+                        returnText += "Draw " + effect.amount + " card(s)" + " from random deck(s). ";
                         break;
                     case EffectType.DrawHand:
-                        returnText = "Draw a full hand. " + returnText;
+                        returnText += "Draw a full hand. " + returnText;
                         break;
                     case EffectType.DiscardHand:
                         returnText = "Discard your hand. " + returnText;
