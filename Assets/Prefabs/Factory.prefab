@@ -407,6 +407,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94b3937b6fe2fd444a1d297e1a50636c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cardName: {fileID: 8578875925362971742}
+  backgroundArt: {fileID: 903289804060408845}
+  cardArt: {fileID: 9133430785055074537}
+  add: 0
   factoryName: {fileID: 8578875925362971742}
   factoryArt: {fileID: 9133430785055074537}
   useText: {fileID: 7412591072285805205}

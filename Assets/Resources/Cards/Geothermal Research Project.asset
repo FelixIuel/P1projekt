@@ -21,7 +21,7 @@ MonoBehaviour:
   - effectType: 0
     amount: -4
     name: 
-  cardEffect:
+  effects:
   - effectType: 11
     amount: 2
     name: Geothermal Construction

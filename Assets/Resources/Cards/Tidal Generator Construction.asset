@@ -18,7 +18,7 @@ MonoBehaviour:
   - effectType: 0
     amount: -4
     name: 
-  cardEffect:
+  effects:
   - effectType: 8
     amount: 1
     name: Tidal Generator

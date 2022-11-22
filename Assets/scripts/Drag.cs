@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using GMNameSpace;
 using cardNameSpace;
-using CardDrawing;
-using FactoryDrawing;
+using CardDisplay;
+using FactoryDisplay;
 using UnityEngine.UI;
 
 public class Drag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {

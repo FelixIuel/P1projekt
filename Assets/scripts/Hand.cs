@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using cardNameSpace;
-using CardDrawing;
+using CardDisplay;
 
 namespace handNameSpace{
     public class Hand : MonoBehaviour {
@@ -49,7 +49,7 @@ namespace handNameSpace{
                     break;
             }
             CardGO.transform.SetParent(this.transform);
-            CardGO.GetComponent<DisplayCard>().SetCard(1, card);
+            CardGO.GetComponent<DisplayCard>().SetCard(card);
         }
     }
 }

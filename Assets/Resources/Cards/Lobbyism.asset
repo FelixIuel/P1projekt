@@ -21,7 +21,7 @@ MonoBehaviour:
   - effectType: 4
     amount: -5
     name: 
-  cardEffect:
+  effects:
   - effectType: 1
     amount: 1
     name: 

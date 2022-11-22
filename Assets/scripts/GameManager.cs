@@ -7,8 +7,8 @@ using cardNameSpace;
 using RP;
 using factoryNameSpace;
 using SceneManagerNS;
-using FactoryDrawing;
-using CardDrawing;
+using FactoryDisplay;
+using CardDisplay;
 
 namespace GMNameSpace {
 
@@ -330,7 +330,7 @@ namespace GMNameSpace {
                 factoryGO = Instantiate(FactoryPrefab);
                 Factory factory = Instantiate(Resources.Load("Factories/" + effect.name) as Factory);
                 factory.SetGameManager(this);
-                factoryGO.GetComponent<DisplayFactory>().SetDisplay(factory);
+                factoryGO.GetComponent<DisplayFactory>().SetFactory(factory);
                 factoryGO.transform.position = Input.mousePosition*screenScale;
                 factoryGO.transform.SetParent(BoardGO.transform);
             }
