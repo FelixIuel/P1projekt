@@ -12,7 +12,7 @@ using CardDrawing;
 
 namespace GMNameSpace {
 
-    public class PlayCardEvent : UnityEvent<int> {}
+    public class PlayCardEvent : UnityEvent<GameObject> {}
 
     public class GameManager : MonoBehaviour {
         
@@ -155,7 +155,7 @@ namespace GMNameSpace {
                             }
                             ShuffleDiscardIntoDeck(CardType.FactoryType);
                         }
-                        hand.AddCard(factoryDeck.drawCard());
+                        hand.CreateCard(factoryDeck.drawCard());
                         break;
                     case CardType.DealType:
                         if (dealsDeck.size() == 0) {
@@ -165,17 +165,15 @@ namespace GMNameSpace {
                             }
                             ShuffleDiscardIntoDeck(CardType.DealType);
                         }
-                        hand.AddCard(dealsDeck.drawCard());
+                        hand.CreateCard(dealsDeck.drawCard());
                         break;
                 }
             }
-            hand.CreateHand();
         }
 
         public void DrawHand(){
             Draw(CardType.FactoryType, factoryDraw);
             Draw(CardType.DealType, dealsDraw);
-            hand.CreateHand();
         }
         
         public void ShuffleDiscardIntoDeck(CardType discardPile){
@@ -205,13 +203,17 @@ namespace GMNameSpace {
             }
         }
 
-        public void PlayCard(int cardIndex) {
-            if (TryToPay(hand.hand[cardIndex].cardCost)) {
-                Card discard = hand.Discard(cardIndex);
+        public void PlayCard(GameObject cardGO) {
+            
+            if (TryToPay(cardGO.GetComponent<DisplayCard>().GetCard().cardCost)) {
+                print("ja");
+                Card discard = hand.Discard(cardGO.transform.GetSiblingIndex());
+                print(cardGO.transform.GetSiblingIndex());
                 PlayEffects(discard.cardCost);
-                PlayEffects(discard.cardEffect);
+                PlayEffects(discard.effects);
                 filterToDiscard(discard);
             }
+            print("nej");
         }
 
         public bool TryToPay(List<Effect> resources){
@@ -236,7 +238,7 @@ namespace GMNameSpace {
                 case EffectType.Pollution:
                     return (resource.amount + pollution < maxPollution);
                 case EffectType.DiscardRandom:
-                    return (hand.hand.Count > 0);
+                    return (hand.Size() > 0);
                 case EffectType.DiscardHand: 
                     return true;
             }
@@ -290,13 +292,10 @@ namespace GMNameSpace {
                     break;
                 case EffectType.DiscardRandom:
                     for (int i = 0; i < effect.amount; i++ ) {
-                        if (i > hand.hand.Count) { 
+                        if (i > hand.Size()) { 
                             break;
                         }
-                        filterToDiscard(hand.Discard(
-                            hand.handDisplay[random.Next(hand.hand.Count)].GetComponent<DisplayCard>().cardID
-                        ));
-                        hand.CreateHand();
+                        filterToDiscard(hand.Discard(random.Next(hand.Size())));
                     }
                     break;
                 case EffectType.CreateFactory:

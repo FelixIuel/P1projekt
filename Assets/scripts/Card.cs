@@ -21,9 +21,8 @@ namespace cardNameSpace {
         [SerializeField]
         public List<Effect> cardCost;
         [SerializeField]
-        public List<Effect> cardEffect;
+        public List<Effect> effects;
         public Sprite cardArt;
-        // private Sprite backgroundArt;
         public CardType type;
 
         public Card(string _cardName, string _flavorText, string _effectText, List<Effect> _cardCost, List<Effect> _cardEffect, Sprite _cardArt, CardType _type) {
@@ -33,23 +32,9 @@ namespace cardNameSpace {
             effectText = _effectText;
             cardArt = _cardArt;
             type = _type;
-            cardEffect =_cardEffect;
+            effects =_cardEffect;
         }
         
         public Card() {}
-
-
-        public void SetCardInfo(int cardID, GameObject CardObject) {
-            CardObject.GetComponent<DisplayCard>().SetCard(
-                cardID,
-                cardName,
-                flavorText,
-                cardEffect,
-                cardCost,
-                cardArt,
-                type
-            );
-        }
-
     }
 }

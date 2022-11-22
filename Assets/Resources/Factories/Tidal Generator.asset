@@ -15,7 +15,7 @@ MonoBehaviour:
   factoryName: Tidal Generator
   factoryArt: {fileID: 0}
   useCost:
-    effectType: 0
+    effectType: 4
     amount: -2
     name: 
   useOutput:
@@ -24,6 +24,6 @@ MonoBehaviour:
     name: Factory
   upkeepOutput:
   - effectType: 4
-    amount: 3
+    amount: 2
     name: 
   Used: 0

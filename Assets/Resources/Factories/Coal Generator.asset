@@ -23,7 +23,7 @@ MonoBehaviour:
     amount: 3
     name: 
   - effectType: 2
-    amount: 3
+    amount: 5
     name: 
   upkeepOutput:
   - effectType: 2

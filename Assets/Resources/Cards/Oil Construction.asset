@@ -21,7 +21,7 @@ MonoBehaviour:
   cardEffect:
   - effectType: 8
     amount: 1
-    name: Oil Generator
+    name: Oil Rig
   - effectType: 3
     amount: -2
     name: 

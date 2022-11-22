@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ce4812bf165a444487c2456729dd441, type: 3}
   m_Name: Tidal Research Project
   m_EditorClassIdentifier: 
-  cardName: 
+  cardName: Tidal Power Research
   flavorText: 
   cardCost:
   - effectType: 0

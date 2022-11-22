@@ -20,7 +20,7 @@ MonoBehaviour:
     name: 
   useOutput:
   - effectType: 4
-    amount: 7
+    amount: 9
     name: 
   - effectType: 2
     amount: -15
