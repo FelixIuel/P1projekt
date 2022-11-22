@@ -51,8 +51,9 @@ namespace FactoryDrawing {
                 useText.text += ", ";
                 useText.text = AddText(useText.text, effect);
             }
-            
-            useText.text = "<sprite name="+"Use_symbol"+">" + useText.text;
+            if (factory.useOutput.Count > 0) {
+                useText.text = "<sprite name="+"Use_symbol"+">" + useText.text;
+            }
         }
 
         public string AddText(String CurrentText, Effect effect) {

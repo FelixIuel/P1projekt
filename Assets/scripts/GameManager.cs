@@ -293,28 +293,48 @@ namespace GMNameSpace {
                         if (i > hand.hand.Count) { 
                             break;
                         }
-                        filterToDiscard(
-                            hand.Discard(
-                                hand.handDisplay[random.Next(hand.hand.Count)].GetComponent<DisplayCard>().cardID
-                            )
-                        );
+                        filterToDiscard(hand.Discard(
+                            hand.handDisplay[random.Next(hand.hand.Count)].GetComponent<DisplayCard>().cardID
+                        ));
                         hand.CreateHand();
                     }
                     break;
                 case EffectType.CreateFactory:
-                    CreateFactory(effect.name);
+                    CreateFactory(effect);
+                    break;
+                case EffectType.AddCard:
+                    AddNewCard(effect);
                     break;
             }
         }
 
-        public void CreateFactory(string factoryName){
-            GameObject factoryGO = null;
-            factoryGO = Instantiate(FactoryPrefab);
-            Factory factory = Instantiate(Resources.Load("Factories/" + factoryName) as Factory);
-            factory.SetGameManager(this);
-            factoryGO.GetComponent<DisplayFactory>().SetDisplay(factory);
-            factoryGO.transform.position = Input.mousePosition*screenScale;
-            factoryGO.transform.SetParent(BoardGO.transform);
+
+        public void AddNewCard(Effect effect) {
+            for (int i = 0; i < effect.amount; i++ ) {
+                Card card = Instantiate(Resources.Load("Cards/" + effect.name) as Card);
+                switch(card.type){
+                    case CardType.FactoryType:
+                        factoryDeck.add(card);
+                        break;
+                    case CardType.DealType:
+                        dealsDeck.add(card);
+                        break;
+                    default:
+                    break;
+                }
+            }
+        }
+
+        public void CreateFactory(Effect effect){
+            for (int i = 0; i < effect.amount; i++ ) {
+                GameObject factoryGO = null;
+                factoryGO = Instantiate(FactoryPrefab);
+                Factory factory = Instantiate(Resources.Load("Factories/" + effect.name) as Factory);
+                factory.SetGameManager(this);
+                factoryGO.GetComponent<DisplayFactory>().SetDisplay(factory);
+                factoryGO.transform.position = Input.mousePosition*screenScale;
+                factoryGO.transform.SetParent(BoardGO.transform);
+            }
         }
     }
     
@@ -330,6 +350,9 @@ namespace GMNameSpace {
         CreateFactory,
         DiscardHand,
         DiscardRandom,
+        AddCard,
+        None,
+        //Exile/Exhaust,
     }
     
     [Serializable]

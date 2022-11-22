@@ -16,14 +16,14 @@ MonoBehaviour:
   factoryArt: {fileID: 21300000, guid: ddd2ac395c189a74fb870af6eec909f9, type: 3}
   useCost:
     effectType: 0
-    amount: -2
+    amount: -1
     name: 
   useOutput:
-  - effectType: 2
+  - effectType: 4
     amount: 3
     name: 
-  - effectType: 4
-    amount: 4
+  - effectType: 2
+    amount: 3
     name: 
   upkeepOutput:
   - effectType: 2

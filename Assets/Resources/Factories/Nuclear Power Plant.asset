@@ -16,11 +16,11 @@ MonoBehaviour:
   factoryArt: {fileID: 0}
   useCost:
     effectType: 0
-    amount: -5
+    amount: -4
     name: 
   useOutput:
   - effectType: 4
-    amount: 15
+    amount: 16
     name: 
   - effectType: 3
     amount: -5

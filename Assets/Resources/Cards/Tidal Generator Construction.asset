@@ -9,21 +9,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 067eb164c16c7254ab1d396b156d621b, type: 3}
-  m_Name: Solar Panel
+  m_Script: {fileID: 11500000, guid: 3ce4812bf165a444487c2456729dd441, type: 3}
+  m_Name: Tidal Generator Construction
   m_EditorClassIdentifier: 
-  factoryName: Solar Panel
-  factoryArt: {fileID: 0}
-  useCost:
-    effectType: 10
-    amount: 1
+  cardName: Tidal Generator construction
+  flavorText: 
+  cardCost:
+  - effectType: 0
+    amount: -4
     name: 
-  useOutput:
-  - effectType: 7
+  cardEffect:
+  - effectType: 8
     amount: 1
-    name: 
-  upkeepOutput:
-  - effectType: 4
-    amount: 1
-    name: 
-  Used: 0
+    name: Tidal Generator
+  cardArt: {fileID: 0}
+  type: 0

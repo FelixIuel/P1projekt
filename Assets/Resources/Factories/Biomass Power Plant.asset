@@ -10,20 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 067eb164c16c7254ab1d396b156d621b, type: 3}
-  m_Name: Solar Panel
+  m_Name: Biomass Power Plant
   m_EditorClassIdentifier: 
-  factoryName: Solar Panel
+  factoryName: Biomass power plant
   factoryArt: {fileID: 0}
   useCost:
-    effectType: 10
-    amount: 1
+    effectType: 0
+    amount: -5
     name: 
   useOutput:
-  - effectType: 7
-    amount: 1
+  - effectType: 4
+    amount: 7
+    name: 
+  - effectType: 2
+    amount: -15
     name: 
   upkeepOutput:
-  - effectType: 4
-    amount: 1
+  - effectType: 3
+    amount: 5
     name: 
   Used: 0

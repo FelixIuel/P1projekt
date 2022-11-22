@@ -24,6 +24,6 @@ MonoBehaviour:
     name: Factory
   upkeepOutput:
   - effectType: 4
-    amount: 2
+    amount: 3
     name: 
   Used: 0

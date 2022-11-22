@@ -9,21 +9,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 067eb164c16c7254ab1d396b156d621b, type: 3}
-  m_Name: Solar Panel
+  m_Script: {fileID: 11500000, guid: 3ce4812bf165a444487c2456729dd441, type: 3}
+  m_Name: Capitalist Sponsor
   m_EditorClassIdentifier: 
-  factoryName: Solar Panel
-  factoryArt: {fileID: 0}
-  useCost:
-    effectType: 10
-    amount: 1
-    name: 
-  useOutput:
-  - effectType: 7
-    amount: 1
-    name: 
-  upkeepOutput:
+  cardName: Capitalist Sponsor
+  flavorText: 
+  cardCost:
   - effectType: 4
-    amount: 1
+    amount: -3
     name: 
-  Used: 0
+  cardEffect:
+  - effectType: 5
+    amount: 2
+    name: Factory
+  - effectType: 2
+    amount: 6
+    name: 
+  cardArt: {fileID: 0}
+  type: 1

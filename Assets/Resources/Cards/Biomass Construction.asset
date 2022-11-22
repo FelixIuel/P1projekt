@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ce4812bf165a444487c2456729dd441, type: 3}
   m_Name: Biomass Construction
   m_EditorClassIdentifier: 
-  cardName: Biomass plant Construction
+  cardName: Biomass Plant Construction
   flavorText: 
   cardCost:
   - effectType: 0
-    amount: -6
+    amount: -7
     name: 
   cardEffect:
   - effectType: 8
-    amount: 0
-    name: Biomass
+    amount: 1
+    name: Biomass Power Plant
   - effectType: 3
     amount: 10
     name: 

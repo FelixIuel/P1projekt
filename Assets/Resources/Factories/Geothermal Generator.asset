@@ -20,10 +20,10 @@ MonoBehaviour:
     name: 
   useOutput:
   - effectType: 3
-    amount: 20
+    amount: 15
     name: 
   upkeepOutput:
   - effectType: 4
-    amount: 5
+    amount: 6
     name: 
   Used: 0

@@ -15,7 +15,7 @@ MonoBehaviour:
   factoryName: Windmill
   factoryArt: {fileID: 0}
   useCost:
-    effectType: 0
+    effectType: 12
     amount: 0
     name: 
   useOutput: []

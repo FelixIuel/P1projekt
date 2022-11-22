@@ -20,7 +20,7 @@ MonoBehaviour:
     name: 
   cardEffect:
   - effectType: 8
-    amount: 0
+    amount: 1
     name: Geothermal Generator
   cardArt: {fileID: 0}
   type: 0
