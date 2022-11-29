@@ -15,8 +15,9 @@ namespace FactoryDisplay {
         public TextMeshProUGUI upkeepText;
         public Factory factory;
 
-        public void SetFactory(Factory _factory) {
+        public void SetFactory(Factory _factory, GameManager gM) {
             factory = _factory;
+            this.GetComponent<HoverManager>().SetCard(factory.baseCard, gM);
             SetDisplay();
         }
 
@@ -33,26 +34,25 @@ namespace FactoryDisplay {
             add = false; //spaghetti kode find en bedre løsning.
             if (factory.upkeepOutput.Count != 0) {
                 foreach(Effect effect in factory.upkeepOutput) {
-                    upkeepText.text += ", ";
                     upkeepText.text = AddText(upkeepText.text, effect);
                 }
                 upkeepText.text += ".";
-                upkeepText.text = "on" + "<sprite name="+"Upkeep_symbol"+">" + upkeepText.text;
+                upkeepText.text = "On " + "<sprite name="+"Upkeep_symbol"+"> : " + upkeepText.text;
             }
              
             add = false;
             
             foreach(Effect effect in factory.useOutput) {
-                // useText.text += ", ";
                 useText.text = AddText(useText.text, effect);
             }
             if (factory.useOutput.Count > 0) {
-                useText.text = "<sprite name="+"Use_symbol"+">" + useText.text;
+                useText.text = "On " + "<sprite name="+"Use_symbol"+"> : " + useText.text;
             }
         }
 
         public void Update() {
             this.GetComponent<Animator>().SetBool("Used", factory.Used);
+            CanPlay.SetActive(factory.gM.TryToPay(factory.useCost) && !factory.Used);
         }
 
         public void OnPointerClick(PointerEventData pointerEventData){

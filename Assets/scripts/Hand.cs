@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using cardNameSpace;
 using CardDisplay;
+using GMNameSpace;
 
 namespace handNameSpace{
     public class Hand : MonoBehaviour {
@@ -35,7 +36,7 @@ namespace handNameSpace{
             return cardToReturn;
         }
 
-        public void CreateCard(Card card) {
+        public void CreateCard(Card card, GameManager gM) {
             GameObject CardGO = null;
             switch(card.type){
                 case CardType.FactoryType:
@@ -49,7 +50,7 @@ namespace handNameSpace{
                     break;
             }
             CardGO.transform.SetParent(this.transform);
-            CardGO.GetComponent<DisplayCard>().SetCard(card);
+            CardGO.GetComponent<DisplayCard>().SetCard(card, gM);
         }
     }
 }

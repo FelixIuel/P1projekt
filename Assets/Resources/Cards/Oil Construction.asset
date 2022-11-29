@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ce4812bf165a444487c2456729dd441, type: 3}
   m_Name: Oil Construction
   m_EditorClassIdentifier: 
-  cardName: Oilrig construction
+  cardName: Oilrig
   flavorText: 
   cardCost:
   - effectType: 0
@@ -27,3 +27,18 @@ MonoBehaviour:
     name: 
   cardArt: {fileID: 0}
   type: 0
+  useCost:
+    effectType: 0
+    amount: -2
+    name: 
+  useOutput:
+  - effectType: 4
+    amount: 9
+    name: 
+  - effectType: 2
+    amount: 5
+    name: 
+  upkeepOutput:
+  - effectType: 2
+    amount: 3
+    name: 

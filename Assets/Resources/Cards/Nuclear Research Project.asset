@@ -24,9 +24,18 @@ MonoBehaviour:
   effects:
   - effectType: 11
     amount: 1
-    name: Nuclear Plant Construction
+    name: Nuclear Construction
   - effectType: 3
     amount: -5
     name: 
+  - effectType: 13
+    amount: 0
+    name: 
   cardArt: {fileID: 0}
   type: 1
+  useCost:
+    effectType: 0
+    amount: 0
+    name: 
+  useOutput: []
+  upkeepOutput: []

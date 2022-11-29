@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ce4812bf165a444487c2456729dd441, type: 3}
   m_Name: Nuclear Construction
   m_EditorClassIdentifier: 
-  cardName: Nuclear Plant Construction
+  cardName: Nuclear Power Plant
   flavorText: 
   cardCost:
   - effectType: 0
@@ -25,5 +25,20 @@ MonoBehaviour:
   - effectType: 3
     amount: -20
     name: 
+  - effectType: 13
+    amount: 0
+    name: 
   cardArt: {fileID: 0}
   type: 0
+  useCost:
+    effectType: 0
+    amount: -4
+    name: 
+  useOutput:
+  - effectType: 4
+    amount: 16
+    name: 
+  - effectType: 3
+    amount: -5
+    name: 
+  upkeepOutput: []

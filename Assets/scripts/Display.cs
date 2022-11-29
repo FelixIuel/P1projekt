@@ -14,6 +14,7 @@ namespace DisplayNS {
         public TextMeshProUGUI cardName;
         public Image backgroundArt;
         public Image cardArt;
+        public GameObject CanPlay;
         // we need a better name for this one
         //checks if we should add the text "add" (for adding resources like money) since we only want it to be there once.
         public bool add = false;
@@ -58,8 +59,8 @@ namespace DisplayNS {
                         returnText += "Draw " + effect.amount + " " + effect.name + " cards. ";
                     }
                     break;
-                case EffectType.CreateFactory:
-                    returnText += "Create a " + effect.name + ". ";
+                case EffectType.Exhaust:
+                    returnText += "Exhaust this card. ";
                     break;
                 case EffectType.DrawRandom:
                     if (effect.amount <= 1) {

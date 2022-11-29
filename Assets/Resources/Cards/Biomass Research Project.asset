@@ -24,6 +24,15 @@ MonoBehaviour:
   effects:
   - effectType: 11
     amount: 3
-    name: Biomass Construction
+    name: Biomass Power Plant
+  - effectType: 13
+    amount: 0
+    name: 
   cardArt: {fileID: 0}
   type: 1
+  useCost:
+    effectType: 0
+    amount: 0
+    name: 
+  useOutput: []
+  upkeepOutput: []

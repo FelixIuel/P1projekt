@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ce4812bf165a444487c2456729dd441, type: 3}
-  m_Name: Biomass Construction
+  m_Name: Biomass Power Plant
   m_EditorClassIdentifier: 
-  cardName: Biomass Plant Construction
+  cardName: Biomass Plant
   flavorText: 
   cardCost:
   - effectType: 0
@@ -25,5 +25,23 @@ MonoBehaviour:
   - effectType: 3
     amount: 10
     name: 
+  - effectType: 13
+    amount: 0
+    name: 
   cardArt: {fileID: 0}
   type: 0
+  useCost:
+    effectType: 0
+    amount: -5
+    name: 
+  useOutput:
+  - effectType: 4
+    amount: 9
+    name: 
+  - effectType: 2
+    amount: -15
+    name: 
+  upkeepOutput:
+  - effectType: 3
+    amount: 5
+    name: 

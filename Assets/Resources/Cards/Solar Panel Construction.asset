@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ce4812bf165a444487c2456729dd441, type: 3}
   m_Name: Solar Panel Construction
   m_EditorClassIdentifier: 
-  cardName: Solar Panel construction
+  cardName: Solar Panel
   flavorText: 
   cardCost:
   - effectType: 0
@@ -24,3 +24,15 @@ MonoBehaviour:
     name: Solar Panel
   cardArt: {fileID: 0}
   type: 0
+  useCost:
+    effectType: 10
+    amount: 1
+    name: 
+  useOutput:
+  - effectType: 7
+    amount: 1
+    name: 
+  upkeepOutput:
+  - effectType: 4
+    amount: 1
+    name: 

@@ -32,7 +32,7 @@ public class Drag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
         if (eventData.button == PointerEventData.InputButton.Left) {
             DisplayCard card = this.GetComponent<DisplayCard>();
             if (card != null) {
-                if (eventData.position.y > 370*(1+GameManager.screenScale.y)) {
+                if (eventData.position.y > 350/(GameManager.screenScale.y)) {
                     GameManager.tryToPlayCard.Invoke(this.gameObject);
                 }
             }

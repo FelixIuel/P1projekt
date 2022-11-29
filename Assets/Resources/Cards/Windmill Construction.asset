@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ce4812bf165a444487c2456729dd441, type: 3}
   m_Name: Windmill Construction
   m_EditorClassIdentifier: 
-  cardName: Windmill construction
+  cardName: Windmill
   flavorText: 
   cardCost:
   - effectType: 0
@@ -24,3 +24,12 @@ MonoBehaviour:
     name: Windmill
   cardArt: {fileID: 0}
   type: 0
+  useCost:
+    effectType: 12
+    amount: 0
+    name: 
+  useOutput: []
+  upkeepOutput:
+  - effectType: 4
+    amount: 1
+    name: 

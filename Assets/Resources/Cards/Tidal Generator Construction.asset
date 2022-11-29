@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ce4812bf165a444487c2456729dd441, type: 3}
   m_Name: Tidal Generator Construction
   m_EditorClassIdentifier: 
-  cardName: Tidal Generator construction
+  cardName: Tidal Generator
   flavorText: 
   cardCost:
   - effectType: 0
@@ -24,3 +24,15 @@ MonoBehaviour:
     name: Tidal Generator
   cardArt: {fileID: 0}
   type: 0
+  useCost:
+    effectType: 0
+    amount: -2
+    name: 
+  useOutput:
+  - effectType: 5
+    amount: 1
+    name: Factory
+  upkeepOutput:
+  - effectType: 4
+    amount: 2
+    name: 

@@ -13,6 +13,7 @@ using CardDisplay;
 namespace GMNameSpace {
 
     public class PlayCardEvent : UnityEvent<GameObject> {}
+    public class PlayEffectsEvent : UnityEvent<List<Effect>, Card> {}
 
     public class GameManager : MonoBehaviour {
         
@@ -21,6 +22,7 @@ namespace GMNameSpace {
         public static Vector2 screenScale = new Vector2(xScale,yScale);
         
         public static PlayCardEvent tryToPlayCard;
+        public static PlayEffectsEvent playEffects; 
         public static System.Random random = new System.Random();
 
         private Deck factoryDeck;
@@ -75,6 +77,8 @@ namespace GMNameSpace {
 
             tryToPlayCard = new PlayCardEvent();
             tryToPlayCard.AddListener(PlayCard);
+            playEffects = new PlayEffectsEvent();
+            playEffects.AddListener(PlayEffects);
             
             funding = baseFunding;
             resources.update_text(balance, funding, pollution, maxPollution, turn, year, powerRequirement, power, backing);
@@ -155,7 +159,7 @@ namespace GMNameSpace {
                             }
                             ShuffleDiscardIntoDeck(CardType.FactoryType);
                         }
-                        hand.CreateCard(factoryDeck.drawCard());
+                        hand.CreateCard(factoryDeck.drawCard(), this);
                         break;
                     case CardType.DealType:
                         if (dealsDeck.size() == 0) {
@@ -165,7 +169,7 @@ namespace GMNameSpace {
                             }
                             ShuffleDiscardIntoDeck(CardType.DealType);
                         }
-                        hand.CreateCard(dealsDeck.drawCard());
+                        hand.CreateCard(dealsDeck.drawCard(), this);
                         break;
                 }
             }
@@ -206,14 +210,17 @@ namespace GMNameSpace {
         public void PlayCard(GameObject cardGO) {
             
             if (TryToPay(cardGO.GetComponent<DisplayCard>().GetCard().cardCost)) {
-                print("ja");
                 Card discard = hand.Discard(cardGO.transform.GetSiblingIndex());
-                print(cardGO.transform.GetSiblingIndex());
-                PlayEffects(discard.cardCost);
-                PlayEffects(discard.effects);
+                PlayEffects(discard.cardCost, discard);
+                PlayEffects(discard.effects, discard);
                 filterToDiscard(discard);
+                foreach (Effect effect in discard.effects){
+                    if(effect.effectType == EffectType.Exhaust) {
+                        Destroy(cardGO);
+                        return;
+                    }
+                }
             }
-            print("nej");
         }
 
         public bool TryToPay(List<Effect> resources){
@@ -245,13 +252,13 @@ namespace GMNameSpace {
             return false;
         }
 
-        public void PlayEffects(List<Effect> effects) {
+        public void PlayEffects(List<Effect> effects, Card card) {
             foreach (Effect effect in effects) {
-                PlayEffect(effect);
+                PlayEffect(effect, card);
             }
         }
         
-        public void PlayEffect(Effect effect) {
+        public void PlayEffect(Effect effect, Card card) {
             switch (effect.effectType){
                 case EffectType.Money:
                     balance += effect.amount;
@@ -299,7 +306,7 @@ namespace GMNameSpace {
                     }
                     break;
                 case EffectType.CreateFactory:
-                    CreateFactory(effect);
+                    CreateFactory(effect, card);
                     break;
                 case EffectType.AddCard:
                     AddNewCard(effect);
@@ -324,13 +331,13 @@ namespace GMNameSpace {
             }
         }
 
-        public void CreateFactory(Effect effect){
+        public void CreateFactory(Effect effect, Card card){
             for (int i = 0; i < effect.amount; i++ ) {
                 GameObject factoryGO = null;
                 factoryGO = Instantiate(FactoryPrefab);
-                Factory factory = Instantiate(Resources.Load("Factories/" + effect.name) as Factory);
+                Factory factory = new Factory(card, effect.name, this);
                 factory.SetGameManager(this);
-                factoryGO.GetComponent<DisplayFactory>().SetFactory(factory);
+                factoryGO.GetComponent<DisplayFactory>().SetFactory(factory, this);
                 factoryGO.transform.position = Input.mousePosition*screenScale;
                 factoryGO.transform.SetParent(BoardGO.transform);
             }
@@ -351,7 +358,7 @@ namespace GMNameSpace {
         DiscardRandom,
         AddCard,
         None,
-        //Exile/Exhaust,
+        Exhaust,
     }
     
     [Serializable]

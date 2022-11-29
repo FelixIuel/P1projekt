@@ -12,7 +12,7 @@ namespace cardNameSpace {
         ProjectType
     }
 
-    [CreateAssetMenu(fileName = "Cards/new Card", menuName = "Card")]
+    [CreateAssetMenu(fileName = "Cards/new Card", menuName = "Card/Default")]
     [System.Serializable]
     public class Card : ScriptableObject {
         public string cardName;
@@ -24,6 +24,12 @@ namespace cardNameSpace {
         public List<Effect> effects;
         public Sprite cardArt;
         public CardType type;
+        public Effect useCost;
+        [SerializeField]
+        public List<Effect> useOutput;
+        [SerializeField]
+        public List<Effect> upkeepOutput;
+        public GameManager gM;
 
         public Card(string _cardName, string _flavorText, string _effectText, List<Effect> _cardCost, List<Effect> _cardEffect, Sprite _cardArt, CardType _type) {
             cardName = _cardName;
@@ -34,7 +40,7 @@ namespace cardNameSpace {
             type = _type;
             effects =_cardEffect;
         }
-        
+
         public Card() {}
     }
 }
