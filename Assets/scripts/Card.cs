@@ -29,7 +29,13 @@ namespace cardNameSpace {
         public List<Effect> useOutput;
         [SerializeField]
         public List<Effect> upkeepOutput;
-        public GameManager gM;
+        public GameManager gM; 
+        // = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+
+
+        private void OnEnable() {
+            gM = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+        }
 
         public Card(string _cardName, string _flavorText, string _effectText, List<Effect> _cardCost, List<Effect> _cardEffect, Sprite _cardArt, CardType _type) {
             cardName = _cardName;

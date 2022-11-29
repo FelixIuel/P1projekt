@@ -15,9 +15,9 @@ namespace FactoryDisplay {
         public TextMeshProUGUI upkeepText;
         public Factory factory;
 
-        public void SetFactory(Factory _factory, GameManager gM) {
+        public void SetFactory(Factory _factory) {
             factory = _factory;
-            this.GetComponent<HoverManager>().SetCard(factory.baseCard, gM);
+            this.GetComponent<HoverManager>().SetCard(factory.baseCard);
             SetDisplay();
         }
 

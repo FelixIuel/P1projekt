@@ -13,11 +13,9 @@ public class HoverManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     private GameObject showOnHover;
     public Vector3 showOffset = new Vector3(300f,0f,0f);
     public Card cardToShow;
-    public GameManager gM;
 
-    public void SetCard(Card _card, GameManager _gM) {
+    public void SetCard(Card _card) {
         cardToShow = _card;
-        gM = _gM;
     }
 
     public void OnPointerEnter(PointerEventData eventData) {
@@ -29,14 +27,17 @@ public class HoverManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
             if (cardToShow != null) {
                 showOnHover.transform.localScale *= 1.25f;
                 showOnHover.GetComponent<DisplayCard>().ToggleCanPlay(false);
-                showOnHover.GetComponent<DisplayCard>().SetCard(cardToShow, gM);
+                showOnHover.GetComponent<DisplayCard>().SetCard(cardToShow);
+                showOnHover.tag = "HoverDisplay";
                 Destroy(showOnHover.GetComponent<Drag>());
             }
         }
     }
 
     public void OnPointerExit(PointerEventData eventData) {
-        Destroy(showOnHover);
+        GameObject[] hoverDisplays = GameObject.FindGameObjectsWithTag("HoverDisplay");
+        foreach(GameObject _display in hoverDisplays)
+        Destroy(_display);
         showOnHover = null;
     }
 }

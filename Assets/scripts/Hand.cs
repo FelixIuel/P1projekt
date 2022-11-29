@@ -36,7 +36,7 @@ namespace handNameSpace{
             return cardToReturn;
         }
 
-        public void CreateCard(Card card, GameManager gM) {
+        public void CreateCard(Card card) {
             GameObject CardGO = null;
             switch(card.type){
                 case CardType.FactoryType:
@@ -50,7 +50,7 @@ namespace handNameSpace{
                     break;
             }
             CardGO.transform.SetParent(this.transform);
-            CardGO.GetComponent<DisplayCard>().SetCard(card, gM);
+            CardGO.GetComponent<DisplayCard>().SetCard(card);
         }
     }
 }

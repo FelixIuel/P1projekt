@@ -16,23 +16,18 @@ namespace factoryNameSpace {
         public List<Effect> useOutput;
         [SerializeField]
         public List<Effect> upkeepOutput;
-        public GameManager gM;
+        public GameManager gM = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         public bool Used = false;
         public Card baseCard;
         
 
-        public Factory(Card _baseCard, string _name, GameManager _gM){
+        public Factory(Card _baseCard, string _name){
             factoryName = _name;
             factoryArt = _baseCard.cardArt;
             useCost = _baseCard.useCost;
             useOutput = _baseCard.useOutput;
             upkeepOutput = _baseCard.upkeepOutput;
             baseCard = _baseCard;
-            gM = _gM;
-        }
-
-        public void SetGameManager(GameManager _gM) {
-            gM = _gM;
         }
 
         public void Upkeep() {

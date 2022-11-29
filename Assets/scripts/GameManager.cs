@@ -159,7 +159,7 @@ namespace GMNameSpace {
                             }
                             ShuffleDiscardIntoDeck(CardType.FactoryType);
                         }
-                        hand.CreateCard(factoryDeck.drawCard(), this);
+                        hand.CreateCard(factoryDeck.drawCard());
                         break;
                     case CardType.DealType:
                         if (dealsDeck.size() == 0) {
@@ -169,7 +169,7 @@ namespace GMNameSpace {
                             }
                             ShuffleDiscardIntoDeck(CardType.DealType);
                         }
-                        hand.CreateCard(dealsDeck.drawCard(), this);
+                        hand.CreateCard(dealsDeck.drawCard());
                         break;
                 }
             }
@@ -335,9 +335,8 @@ namespace GMNameSpace {
             for (int i = 0; i < effect.amount; i++ ) {
                 GameObject factoryGO = null;
                 factoryGO = Instantiate(FactoryPrefab);
-                Factory factory = new Factory(card, effect.name, this);
-                factory.SetGameManager(this);
-                factoryGO.GetComponent<DisplayFactory>().SetFactory(factory, this);
+                Factory factory = new Factory(card, effect.name);
+                factoryGO.GetComponent<DisplayFactory>().SetFactory(factory);
                 factoryGO.transform.position = Input.mousePosition*screenScale;
                 factoryGO.transform.SetParent(BoardGO.transform);
             }

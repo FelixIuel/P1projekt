@@ -12,9 +12,8 @@ namespace CardDisplay {
         private Card card;
         public bool toggleCanPlay = true;
         
-        public void SetCard(Card _card, GameManager gM) {
+        public void SetCard(Card _card) {
             card = _card;
-            card.gM = gM;
             SetDisplay();
         }
         

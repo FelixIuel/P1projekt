@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 8171389331997364823}
   m_Layer: 0
   m_Name: PollutionInfo
-  m_TagString: Untagged
+  m_TagString: HoverDisplay
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
