@@ -1650,7 +1650,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectPrefab: {fileID: 2634515396812891062, guid: 4674c7c4558d6084ab082ee8abb5d6e8, type: 3}
-  showOffset: {x: 0, y: -150, z: 0}
+  showOffset: {x: 0, y: -200, z: 0}
   cardToShow: {fileID: 0}
 --- !u!1 &868274628
 GameObject:
@@ -3514,7 +3514,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectPrefab: {fileID: 7680488952471476048, guid: 7f565e73583f837428430bfe5ffd24ed, type: 3}
-  showOffset: {x: 0, y: -150, z: 0}
+  showOffset: {x: 0, y: -200, z: 0}
   cardToShow: {fileID: 0}
 --- !u!1 &1602736532
 GameObject:
