@@ -39,6 +39,8 @@ namespace GMNameSpace {
         public GameObject handGO;
         public GameObject BoardGO;
         public GameObject ResourcesGO;
+        public GameObject WinnerScreen;
+        public GameObject LoserScreen;
 
         private int turn = 0;
         private int year = 1;
@@ -97,7 +99,8 @@ namespace GMNameSpace {
                 pollution = 0;
             }
             if (backing <= 0 || pollution >= maxPollution) {
-                SceneManagement.ChangeScene("LoserScene");
+                LoserScreen.SetActive(true);
+                //SceneManagement.ChangeScene("LoserScene");
             }
             if (backing >= 90) {
                 funding = 2*baseFunding;
@@ -130,7 +133,8 @@ namespace GMNameSpace {
                 winCounter += 1;
                 if (winCounter >= winCon) {
                     print("Du har vundet spillet");
-                    SceneManagement.ChangeScene("WinScene");
+                    WinnerScreen.SetActive(true);
+                    //SceneManagement.ChangeScene("WinScene");
                 }
             } else {
                 winCounter = 0;
