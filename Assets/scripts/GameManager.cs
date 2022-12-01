@@ -20,7 +20,9 @@ namespace GMNameSpace {
         static float xScale = (float)1920 / (float)Screen.width;
         static float yScale = (float)1080 / (float)Screen.height;
         public static Vector2 screenScale = new Vector2(xScale,yScale);
-        
+
+        public static GameManager instance;
+
         public static PlayCardEvent tryToPlayCard;
         public static PlayEffectsEvent playEffects; 
         public static System.Random random = new System.Random();
@@ -70,6 +72,7 @@ namespace GMNameSpace {
         public GameObject FactoryPrefab;
 
         void Start() {
+            instance = this;
             factoryDeck = factoryDeckGO.GetComponent<Deck>();
             dealsDeck = dealsDeckGO.GetComponent<Deck>();
             factoryDiscard = factoryDiscardGO.GetComponent<Deck>();
@@ -88,7 +91,16 @@ namespace GMNameSpace {
             factoryDeck.shuffle();
             dealsDeck.shuffle();
             DrawHand();
+            
         }
+
+
+        public static GameManager Instance {
+            get {
+                return instance; 
+            }
+        }
+
 
         void Update() {
             
@@ -97,10 +109,6 @@ namespace GMNameSpace {
             }
             if (pollution < 0) {
                 pollution = 0;
-            }
-            if (backing <= 0 || pollution >= maxPollution) {
-                LoserScreen.SetActive(true);
-                //SceneManagement.ChangeScene("LoserScene");
             }
             if (backing >= 90) {
                 funding = 2*baseFunding;
@@ -113,6 +121,11 @@ namespace GMNameSpace {
         }
 
         public void NextTurn() {
+            if (backing <= 0 || pollution >= maxPollution) {
+                LoserScreen.SetActive(true);
+                //SceneManagement.ChangeScene("LoserScene");
+            }
+            
             filterToDiscard(hand.DiscardHand());
             if (power < powerRequirement) {
                 backing -= 15;

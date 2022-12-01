@@ -13,7 +13,7 @@ namespace cardNameSpace {
     }
 
     [CreateAssetMenu(fileName = "Cards/new Card", menuName = "Card/Default")]
-    [System.Serializable]
+    // [System.Serializable]
     public class Card : ScriptableObject {
         public string cardName;
         public string flavorText;
@@ -29,13 +29,7 @@ namespace cardNameSpace {
         public List<Effect> useOutput;
         [SerializeField]
         public List<Effect> upkeepOutput;
-        public GameManager gM; 
-        // = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
-
-
-        private void OnEnable() {
-            gM = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
-        }
+        public GameManager gM = null;
 
         public Card(string _cardName, string _flavorText, string _effectText, List<Effect> _cardCost, List<Effect> _cardEffect, Sprite _cardArt, CardType _type) {
             cardName = _cardName;
@@ -48,5 +42,11 @@ namespace cardNameSpace {
         }
 
         public Card() {}
+
+        void update() {
+            // if (gM == null){
+            //     gM = GameManager.Instance;
+            // }
+        }
     }
 }
