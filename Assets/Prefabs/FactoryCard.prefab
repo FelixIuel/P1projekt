@@ -210,6 +210,8 @@ MonoBehaviour:
   flavorText: {fileID: 5943291517075694796}
   effectText: {fileID: 6033529822831590059}
   cardCost: {fileID: 7878491834143627949}
+  toggleCanPlay: 1
+  gM: {fileID: 0}
 --- !u!23 &5874588987389014159
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -442,7 +444,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.18733688, g: 0.6320754, b: 0.09838911, a: 0.5019608}
+  m_Color: {r: 0.43137255, g: 0.83137256, b: 0.34901962, a: 0.41568628}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

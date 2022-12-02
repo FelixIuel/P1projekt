@@ -51,8 +51,10 @@ namespace FactoryDisplay {
         }
 
         public void Update() {
-            this.GetComponent<Animator>().SetBool("Used", factory.Used);
-            CanPlay.SetActive(factory.gM.TryToPay(factory.useCost) && !factory.Used);
+            if (factory != null){
+                this.GetComponent<Animator>().SetBool("Used", factory.Used);
+                CanPlay.SetActive(factory.gM.TryToPay(factory.useCost) && !factory.Used);
+            }
         }
 
         public void OnPointerClick(PointerEventData pointerEventData){

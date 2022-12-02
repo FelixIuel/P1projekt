@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Solar Panel Construction
   m_EditorClassIdentifier: 
   cardName: Solar Panel
-  flavorText: 
+  flavorText: A solar panel gives 300kw a day!
   cardCost:
   - effectType: 0
     amount: -3
@@ -36,3 +36,4 @@ MonoBehaviour:
   - effectType: 4
     amount: 1
     name: 
+  gM: {fileID: 0}

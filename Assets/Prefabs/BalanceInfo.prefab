@@ -66,9 +66,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: This is your Balance. The number on the left is how much money you currently
-    have and the number in () is the amount of money you will get when you start
-    the next round.
+  m_text: The number on the left is how much money you currently have and the number
+    in the brackets is the amount of money you will get when you start the next round.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

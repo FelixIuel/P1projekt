@@ -145,8 +145,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Backing determains your income. Backing increses by 5 everytime you meet
     the energy quota and decreses by 15 everytime you dont. Backing is also tied
-    to your income, if you have 85 and above you will get more money, however being
-    under 30 will reduce your income.
+    to your income, if you have 85 and above you will get a higher income, however
+    being under 30 will reduce your income.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

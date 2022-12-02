@@ -11,9 +11,11 @@ namespace CardDisplay {
         public TextMeshProUGUI cardCost;
         private Card card;
         public bool toggleCanPlay = true;
+        public GameManager gM;
         
         public void SetCard(Card _card) {
             card = _card;
+            card.gM = GameManager.Instance;
             SetDisplay();
         }
         
@@ -103,7 +105,9 @@ namespace CardDisplay {
         }
 
         public void Update() {
-            CanPlay.SetActive(card.gM.TryToPay(card.cardCost) && toggleCanPlay);
+            if (card != null) {
+                CanPlay.SetActive(card.gM.TryToPay(card.cardCost) && toggleCanPlay);
+            }
         }
     }
 }
