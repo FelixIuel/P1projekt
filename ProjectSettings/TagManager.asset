@@ -7,6 +7,7 @@ TagManager:
   - Board
   - Hand
   - HoverDisplay
+  - WinCounter
   layers:
   - Default
   - TransparentFX

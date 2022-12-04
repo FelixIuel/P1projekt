@@ -9,6 +9,7 @@ using factoryNameSpace;
 using SceneManagerNS;
 using FactoryDisplay;
 using CardDisplay;
+using TMPro;
 
 namespace GMNameSpace {
 
@@ -121,25 +122,23 @@ namespace GMNameSpace {
         }
 
         public void NextTurn() {
+            
+            // This part of NextTurn, runs through what happens at the end of your turn. 
             if (backing <= 0 || pollution >= maxPollution) {
                 LoserScreen.SetActive(true);
-                //SceneManagement.ChangeScene("LoserScene");
             }
             
             filterToDiscard(hand.DiscardHand());
+            
+            
             if (power < powerRequirement) {
                 backing -= 15;
                 powerReqMet = false;
             }
+            
             if (power >= powerRequirement) {
                 backing += 5;
                 powerReqMet = true;
-            }
-            balance += funding;
-            power = 0;
-
-            foreach (Transform factoryTransform in BoardGO.transform) {
-                factoryTransform.gameObject.GetComponent<DisplayFactory>().factory.Upkeep();
             }
 
             if (powerReqMet && pollutionStartTurn >= pollution) {
@@ -147,11 +146,21 @@ namespace GMNameSpace {
                 if (winCounter >= winCon) {
                     print("Du har vundet spillet");
                     WinnerScreen.SetActive(true);
-                    //SceneManagement.ChangeScene("WinScene");
                 }
             } else {
                 winCounter = 0;
             }
+
+            // This part of NextTurn, runs through what happens at the start of your turn.
+            pollutionStartTurn = pollution;
+            balance += funding;
+            power = 0;
+
+            foreach (Transform factoryTransform in BoardGO.transform) {
+                factoryTransform.gameObject.GetComponent<DisplayFactory>().factory.Upkeep();
+            }
+
+            GameObject.FindGameObjectWithTag("WinCounter").GetComponentInChildren<TextMeshProUGUI>().text = "" + winCounter;
 
             if (turn == 3) {
                 year += 1;
@@ -162,7 +171,6 @@ namespace GMNameSpace {
 
             turn = (turn+1)%4;
             DrawHand();
-            pollutionStartTurn = pollution;
         }
         
         public void Draw(CardType deckToDrawFrom, int drawAmount){
@@ -301,7 +309,7 @@ namespace GMNameSpace {
                     break;
                 case EffectType.DrawRandom:
                     for (int i = 0; i < effect.amount; i++ ) {
-                        if (random.Next(1,2) == 1) {
+                        if (random.Next(1,3) == 1) {
                             Draw(CardType.FactoryType, 1);
                         } else {
                             Draw(CardType.DealType, 1);
@@ -327,6 +335,8 @@ namespace GMNameSpace {
                     break;
                 case EffectType.AddCard:
                     AddNewCard(effect);
+                    factoryDeck.shuffle();
+                    dealsDeck.shuffle();
                     break;
             }
         }

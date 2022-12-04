@@ -36,8 +36,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -21.430908, y: -307.9076}
-  m_SizeDelta: {x: 307.1381, y: 273.8152}
+  m_AnchoredPosition: {x: -32.619263, y: -278.31268}
+  m_SizeDelta: {x: 284.7614, y: 214.6254}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &622031932200680910
 CanvasRenderer:
@@ -60,15 +60,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.16862746, g: 0.16862746, b: 0.16862746, a: 0.7058824}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8e8da07b3abea2d4da2996100e4e38c1, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -112,8 +112,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.0593, y: 0.0078}
-  m_SizeDelta: {x: 266.2599, y: 119.8939}
+  m_AnchoredPosition: {x: -2.4928, y: 0.2945}
+  m_SizeDelta: {x: 269.1269, y: 200.7419}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4610745118018768931
 CanvasRenderer:
@@ -143,10 +143,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'This is the energy meter. To meet the energy quota the number on the left
-    must be the same or above the right number. Meeting the energy quota is important
-    to raise your Backing, but there is no reason to make too much Energy since Energy
-    resets every turn. '
+  m_text: Every turn you have to create enough energy to satisfy the energy requirement
+    shown by this bar. Not meeting the requirement will decrease your backing. At
+    the beginning of each turn any created energy is removed.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -173,14 +172,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 20.55
   m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0

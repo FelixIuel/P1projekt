@@ -22,7 +22,7 @@ MonoBehaviour:
   - effectType: 8
     amount: 1
     name: Windmill
-  cardArt: {fileID: 0}
+  cardArt: {fileID: 21300000, guid: 00107b280bdde004984bf07dc0e46d08, type: 3}
   type: 0
   useCost:
     effectType: 12
@@ -33,3 +33,4 @@ MonoBehaviour:
   - effectType: 4
     amount: 1
     name: 
+  gM: {fileID: 0}

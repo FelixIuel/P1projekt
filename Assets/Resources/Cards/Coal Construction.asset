@@ -22,7 +22,7 @@ MonoBehaviour:
   - effectType: 8
     amount: 1
     name: Coal Generator
-  cardArt: {fileID: 21300000, guid: ddd2ac395c189a74fb870af6eec909f9, type: 3}
+  cardArt: {fileID: 21300000, guid: ff3f9b19f994e904eaddf77988f85719, type: 3}
   type: 0
   useCost:
     effectType: 0
@@ -39,3 +39,4 @@ MonoBehaviour:
   - effectType: 2
     amount: 1
     name: 
+  gM: {fileID: 0}
