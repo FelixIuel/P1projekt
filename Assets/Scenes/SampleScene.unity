@@ -3180,15 +3180,15 @@ MonoBehaviour:
   LoserScreen: {fileID: 1125970938}
   factoryDraw: 3
   dealsDraw: 1
-  balance: 555
-  baseFunding: 3
+  balance: 5
+  baseFunding: 4
   pollution: 0
   backing: 60
-  maxPollution: 1000
+  maxPollution: 300
   power: 0
-  powerRequirement: 2
+  powerRequirement: 3
   winCounter: 0
-  winCon: 8
+  winCon: 6
   FactoryPrefab: {fileID: 5202054948903078043, guid: 9fb35ba958a23624d99082304c43cd4e, type: 3}
 --- !u!4 &1343609416
 Transform:
