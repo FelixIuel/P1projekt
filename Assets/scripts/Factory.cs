@@ -19,7 +19,6 @@ namespace factoryNameSpace {
         public GameManager gM = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         public bool Used = false;
         public Card baseCard;
-        
 
         public Factory(Card _baseCard, string _name){
             factoryName = _name;
@@ -43,6 +42,11 @@ namespace factoryNameSpace {
                 gM.PlayEffects(useOutput, null);
                 return true;
             }
+            return false;
+        }
+
+        public bool TryToSell(){
+            
             return false;
         }
     }

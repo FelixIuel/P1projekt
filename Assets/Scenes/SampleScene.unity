@@ -3169,6 +3169,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11a22200038f7184abf908f1ef7bc2f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SellCost:
+  - effectType: 0
+    amount: -5
+    name: 
+  - effectType: 2
+    amount: 10
+    name: 
   factoryDeckGO: {fileID: 1863713175}
   dealsDeckGO: {fileID: 52141787}
   factoryDiscardGO: {fileID: 1804895449}

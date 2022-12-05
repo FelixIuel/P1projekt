@@ -41,6 +41,13 @@ public class Drag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
         }
         if (factory != null) {
             this.transform.SetParent(GameObject.FindGameObjectWithTag("Board").transform);
+            if (eventData.position.y <= 350/GameManager.screenScale.y) {
+                if (GameManager.instance.TryToSell()) {
+                    Destroy(this.gameObject);
+                } else {
+                    this.transform.position = (GameObject.FindGameObjectWithTag("Board").transform.position);
+                }
+            }
         }
     }
 }

@@ -21,6 +21,7 @@ namespace GMNameSpace {
         static float xScale = (float)1920 / (float)Screen.width;
         static float yScale = (float)1080 / (float)Screen.height;
         public static Vector2 screenScale = new Vector2(xScale,yScale);
+        public List<Effect> SellCost;
 
         public static GameManager instance;
 
@@ -255,6 +256,14 @@ namespace GMNameSpace {
                 }
             }
             return true;
+        }
+
+        public bool TryToSell() {
+            if (TryToPay(SellCost)) {
+                PlayEffects(SellCost, null);
+                return true;
+            }
+            return false;
         }
 
         public bool TryToPay(Effect resource) {
