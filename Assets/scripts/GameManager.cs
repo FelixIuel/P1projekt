@@ -168,6 +168,9 @@ namespace GMNameSpace {
                 ShuffleDiscardIntoDeck(CardType.FactoryType);
                 ShuffleDiscardIntoDeck(CardType.DealType);
                 powerRequirement += 5;
+                if (year <= 5){
+                    powerRequirement += 3;
+                }
             }
 
             turn = (turn+1)%4;
