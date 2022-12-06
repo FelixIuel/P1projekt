@@ -3201,7 +3201,7 @@ MonoBehaviour:
   baseFunding: 4
   pollution: 0
   backing: 60
-  maxPollution: 300
+  maxPollution: 150
   power: 0
   powerRequirement: 3
   winCounter: 0
@@ -4398,8 +4398,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5d5f8a3a34325ed43853c4c0b394560e, type: 2}
   - {fileID: 11400000, guid: 5d5f8a3a34325ed43853c4c0b394560e, type: 2}
   - {fileID: 11400000, guid: 5d5f8a3a34325ed43853c4c0b394560e, type: 2}
-  - {fileID: 11400000, guid: 6a420edf52a08fe4ebf2fce889f8a0d3, type: 2}
-  - {fileID: 11400000, guid: 6a420edf52a08fe4ebf2fce889f8a0d3, type: 2}
   - {fileID: 11400000, guid: 6a420edf52a08fe4ebf2fce889f8a0d3, type: 2}
   - {fileID: 11400000, guid: 6a420edf52a08fe4ebf2fce889f8a0d3, type: 2}
   - {fileID: 11400000, guid: 6a420edf52a08fe4ebf2fce889f8a0d3, type: 2}
