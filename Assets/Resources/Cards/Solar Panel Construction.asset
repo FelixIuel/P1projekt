@@ -16,7 +16,7 @@ MonoBehaviour:
   flavorText: A solar panel gives 300kw a day!
   cardCost:
   - effectType: 0
-    amount: -3
+    amount: -2
     name: 
   effects:
   - effectType: 8
