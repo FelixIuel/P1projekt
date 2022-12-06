@@ -35,14 +35,14 @@ MonoBehaviour:
     amount: 1
     name: 
   useOutput:
-  - effectType: 14
-    amount: 1
-    name: 
   - effectType: 4
     amount: 6
     name: 
   - effectType: 2
     amount: -2
+    name: 
+  - effectType: 7
+    amount: 2
     name: 
   upkeepOutput:
   - effectType: 3

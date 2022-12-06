@@ -24,7 +24,7 @@ MonoBehaviour:
   effects:
   - effectType: 11
     amount: 1
-    name: Biomass Power Plant
+    name: Biofuel Power Plant
   - effectType: 13
     amount: 0
     name: 
