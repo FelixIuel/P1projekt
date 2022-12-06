@@ -3197,10 +3197,10 @@ MonoBehaviour:
   LoserScreen: {fileID: 1125970938}
   factoryDraw: 3
   dealsDraw: 1
-  balance: 555
+  balance: 5
   baseFunding: 4
   pollution: 0
-  backing: 100
+  backing: 60
   maxPollution: 300
   power: 0
   powerRequirement: 3
