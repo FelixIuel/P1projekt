@@ -234,14 +234,12 @@ namespace GMNameSpace {
         }
 
         public void PlayCard(GameObject cardGO) {
-            
             if (TryToPay(cardGO.GetComponent<DisplayCard>().GetCard().cardCost)) {
                 Card discard = hand.Discard(cardGO.transform.GetSiblingIndex());
                 PlayEffects(discard.cardCost, discard);
                 PlayEffects(discard.effects, discard);
                 foreach (Effect effect in discard.effects){
                     if(effect.effectType == EffectType.Exhaust) {
-                        Destroy(cardGO);
                         return;
                     }
                 }
@@ -275,11 +273,17 @@ namespace GMNameSpace {
                 case EffectType.Power:
                     return (power + resource.amount >= 0);
                 case EffectType.DiscardRandom:
-                    return (hand.Size() > 0);
+                    if (resource.name == "On Play") {
+                        return (hand.Size() > resource.amount);
+                    }
+                    return (hand.Size() >= resource.amount);
                 case EffectType.DiscardHand: 
-                    return true;
+                        return true;
                 case EffectType.ExhaustRandom:
-                    return (hand.Size() > 0);
+                    if (resource.name == "On Play") {
+                        return (hand.Size() > resource.amount);
+                    }
+                        return (hand.Size() >= resource.amount);
                 case EffectType.Backing:
                     return true;
                 case EffectType.Pollution:
@@ -335,9 +339,6 @@ namespace GMNameSpace {
                     break;
                 case EffectType.DiscardRandom:
                     for (int i = 0; i < effect.amount; i++ ) {
-                        if (i > hand.Size()) { 
-                            break;
-                        }
                         filterToDiscard(hand.Discard(random.Next(hand.Size())));
                     }
                     break;
@@ -351,10 +352,7 @@ namespace GMNameSpace {
                     break;
                 case EffectType.ExhaustRandom:
                     for (int i = 0; i < effect.amount; i++ ) {
-                        if (i > hand.Size()) {
-                            break;
-                        }
-                        DestroyImmediate(hand.Discard(random.Next(hand.Size())));
+                        hand.Discard(random.Next(hand.Size()));
                     }
                     break;
             }

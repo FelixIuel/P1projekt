@@ -32,7 +32,7 @@ namespace handNameSpace{
         public Card Discard(int index){
             GameObject cardGO = this.transform.GetChild(index).gameObject;
             Card cardToReturn = cardGO.GetComponent<DisplayCard>().GetCard();
-            Destroy(cardGO);
+            DestroyImmediate(cardGO);
             return cardToReturn;
         }
 

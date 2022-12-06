@@ -17,7 +17,7 @@ MonoBehaviour:
   cardCost:
   - effectType: 14
     amount: 3
-    name: 
+    name: On Play
   - effectType: 0
     amount: -2
     name: 
