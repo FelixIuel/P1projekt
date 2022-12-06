@@ -10,39 +10,33 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ce4812bf165a444487c2456729dd441, type: 3}
-  m_Name: Oil Construction
+  m_Name: Hydropower Plant
   m_EditorClassIdentifier: 
-  cardName: Oil Power Plant
+  cardName: Hydropower Plant
   flavorText: 
   cardCost:
   - effectType: 0
-    amount: -3
+    amount: -6
     name: 
   effects:
   - effectType: 8
     amount: 1
-    name: Oil Rig
-  - effectType: 3
-    amount: -5
-    name: 
-  cardArt: {fileID: 21300000, guid: 5dfd0071256cbf44683091da5effdbd4, type: 3}
+    name: Hydropower Plant
+  cardArt: {fileID: 21300000, guid: 264e39bbfef76bd4fb5112540e9d51b3, type: 3}
   type: 0
   useCost:
     effectType: 0
-    amount: -1
+    amount: -2
     name: 
   useOutput:
+  - effectType: 9
+    amount: 0
+    name: 
+  - effectType: 6
+    amount: 0
+    name: 
+  upkeepOutput:
   - effectType: 4
     amount: 4
-    name: 
-  - effectType: 2
-    amount: 5
-    name: 
-  - effectType: 5
-    amount: 1
-    name: Deal
-  upkeepOutput:
-  - effectType: 2
-    amount: 1
     name: 
   gM: {fileID: 0}

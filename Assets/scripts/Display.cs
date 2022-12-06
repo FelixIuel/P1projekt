@@ -89,6 +89,13 @@ namespace DisplayNS {
                         returnText += "Add " + effect.amount + " " + effect.name + " cards to your deck. ";
                     }
                     break;
+                case EffectType.ExhaustRandom:
+                    if (effect.amount <= 1) {
+                        returnText += "Exhaust " + effect.amount + " card from your hand. ";
+                    } else {
+                        returnText += "Exhaust " + effect.amount + " cards from you hand. ";
+                    }
+                    break;
             }
             return returnText;
         }

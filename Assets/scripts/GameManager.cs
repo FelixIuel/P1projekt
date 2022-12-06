@@ -279,12 +279,12 @@ namespace GMNameSpace {
                     return (backing + resource.amount > 0);
                 case EffectType.Power:
                     return (power + resource.amount >= 0);
-                case EffectType.Pollution:
-                    return (resource.amount + pollution < maxPollution);
                 case EffectType.DiscardRandom:
                     return (hand.Size() > 0);
                 case EffectType.DiscardHand: 
                     return true;
+                case EffectType.ExhaustRandom:
+                    return (hand.Size() > 0);
             }
             return false;
         }
@@ -350,6 +350,14 @@ namespace GMNameSpace {
                     factoryDeck.shuffle();
                     dealsDeck.shuffle();
                     break;
+                case EffectType.ExhaustRandom:
+                    for (int i = 0; i < effect.amount; i++ ) {
+                        if (i > hand.Size()) { 
+                            break;
+                        }
+                        Destroy(hand.Discard(random.Next(hand.Size())));
+                    }
+                    break;
             }
         }
 
@@ -397,6 +405,7 @@ namespace GMNameSpace {
         AddCard,
         None,
         Exhaust,
+        ExhaustRandom,
     }
     
     [Serializable]

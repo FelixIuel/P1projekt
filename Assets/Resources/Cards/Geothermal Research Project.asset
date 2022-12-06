@@ -23,7 +23,7 @@ MonoBehaviour:
     name: 
   effects:
   - effectType: 11
-    amount: 3
+    amount: 2
     name: Geothermal Construction
   - effectType: 13
     amount: 0

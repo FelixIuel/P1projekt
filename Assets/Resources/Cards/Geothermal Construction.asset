@@ -37,6 +37,6 @@ MonoBehaviour:
     name: 
   upkeepOutput:
   - effectType: 4
-    amount: 6
+    amount: 5
     name: 
   gM: {fileID: 0}

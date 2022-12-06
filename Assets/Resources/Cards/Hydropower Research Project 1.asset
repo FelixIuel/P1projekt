@@ -10,39 +10,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ce4812bf165a444487c2456729dd441, type: 3}
-  m_Name: Biomass Power Plant
+  m_Name: Hydropower Research Project 1
   m_EditorClassIdentifier: 
-  cardName: Biomass Power Plant
+  cardName: Tidal Power Research
   flavorText: 
   cardCost:
   - effectType: 0
-    amount: -7
+    amount: -2
+    name: 
+  - effectType: 4
+    amount: -3
     name: 
   effects:
-  - effectType: 8
-    amount: 1
-    name: Biomass Power Plant
-  - effectType: 3
-    amount: 10
-    name: 
+  - effectType: 11
+    amount: 3
+    name: Tidal Generator Construction
   - effectType: 13
     amount: 0
     name: 
-  cardArt: {fileID: 21300000, guid: d0f9f553e0d42ca4d8d341727888328d, type: 3}
-  type: 0
+  cardArt: {fileID: 0}
+  type: 1
   useCost:
     effectType: 0
-    amount: -3
+    amount: 0
     name: 
-  useOutput:
-  - effectType: 4
-    amount: 6
-    name: 
-  - effectType: 2
-    amount: -5
-    name: 
-  upkeepOutput:
-  - effectType: 3
-    amount: 2
-    name: 
+  useOutput: []
+  upkeepOutput: []
   gM: {fileID: 0}
