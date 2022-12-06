@@ -34,7 +34,7 @@ namespace DisplayNS {
                     break;
                 case EffectType.Funding:
                     returnText = Add(returnText);
-                    returnText += effect.amount + " funding. ";
+                    returnText += effect.amount + " base funding. ";
                     break;
                 case EffectType.Backing:
                     returnText = Add(returnText);

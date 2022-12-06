@@ -16,7 +16,10 @@ MonoBehaviour:
   flavorText: 
   cardCost:
   - effectType: 4
-    amount: -3
+    amount: -1
+    name: 
+  - effectType: 0
+    amount: -1
     name: 
   effects:
   - effectType: 5

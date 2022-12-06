@@ -16,14 +16,17 @@ MonoBehaviour:
   flavorText: 
   cardCost:
   - effectType: 4
-    amount: -4
+    amount: -3
     name: 
   effects:
   - effectType: 0
-    amount: 6
+    amount: 8
     name: 
   - effectType: 2
     amount: 6
+    name: 
+  - effectType: 13
+    amount: 0
     name: 
   cardArt: {fileID: 21300000, guid: 7d38bd2a865fe70478ed19c5852fdf06, type: 3}
   type: 1
