@@ -15,10 +15,10 @@ MonoBehaviour:
   cardName: Geothermal Power Research
   flavorText: 
   cardCost:
-  - effectType: 4
-    amount: -4
-    name: 
   - effectType: 0
+    amount: -2
+    name: 
+  - effectType: 4
     amount: -2
     name: 
   effects:

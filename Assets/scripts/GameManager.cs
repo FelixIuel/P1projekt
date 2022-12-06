@@ -338,7 +338,7 @@ namespace GMNameSpace {
                     DrawHand();
                     break;
                 case EffectType.DiscardHand:
-                    hand.DiscardHand();
+                    filterToDiscard(hand.DiscardHand());
                     break;
                 case EffectType.DiscardRandom:
                     for (int i = 0; i < effect.amount; i++ ) {
