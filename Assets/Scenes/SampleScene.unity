@@ -3201,7 +3201,7 @@ MonoBehaviour:
   baseFunding: 4
   pollution: 0
   backing: 60
-  maxPollution: 150
+  maxPollution: 200
   power: 0
   powerRequirement: 3
   winCounter: 0
