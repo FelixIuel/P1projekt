@@ -168,9 +168,6 @@ namespace GMNameSpace {
                 ShuffleDiscardIntoDeck(CardType.FactoryType);
                 ShuffleDiscardIntoDeck(CardType.DealType);
                 powerRequirement += 5;
-                if (year <= 5) {
-
-                }
             }
 
             turn = (turn+1)%4;
@@ -261,7 +258,7 @@ namespace GMNameSpace {
             return true;
         }
 
-        public bool TryToSell() {
+        public bool TryToSell() { 
             if (TryToPay(SellCost)) {
                 PlayEffects(SellCost, null);
                 return true;
@@ -275,8 +272,6 @@ namespace GMNameSpace {
                     return (balance + resource.amount >= 0);
                 case EffectType.Funding:
                     return (baseFunding + resource.amount > 0);
-                case EffectType.Backing:
-                    return (backing + resource.amount > 0);
                 case EffectType.Power:
                     return (power + resource.amount >= 0);
                 case EffectType.DiscardRandom:
@@ -285,6 +280,10 @@ namespace GMNameSpace {
                     return true;
                 case EffectType.ExhaustRandom:
                     return (hand.Size() > 0);
+                case EffectType.Backing:
+                    return true;
+                case EffectType.Pollution:
+                    return true;
             }
             return false;
         }
