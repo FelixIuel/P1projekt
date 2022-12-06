@@ -23,7 +23,7 @@ MonoBehaviour:
     name: 
   effects:
   - effectType: 2
-    amount: -10
+    amount: -12
     name: 
   - effectType: 3
     amount: 5

@@ -112,9 +112,9 @@ namespace GMNameSpace {
             if (pollution < 0) {
                 pollution = 0;
             }
-            if (backing >= 90) {
-                funding = 2*baseFunding;
-            } else if (backing <= 30) {
+            if (backing >= backingTop) {
+                funding = (int)Math.Floor(1.5f*baseFunding);
+            } else if (backing <= backingBottom) {
                 funding = (int)(0.5f*(float)baseFunding);
             } else {
                 funding = baseFunding;
@@ -167,7 +167,10 @@ namespace GMNameSpace {
                 year += 1;
                 ShuffleDiscardIntoDeck(CardType.FactoryType);
                 ShuffleDiscardIntoDeck(CardType.DealType);
-                powerRequirement += 3;
+                powerRequirement += 5;
+                if (year <= 5) {
+
+                }
             }
 
             turn = (turn+1)%4;
@@ -239,13 +242,13 @@ namespace GMNameSpace {
                 Card discard = hand.Discard(cardGO.transform.GetSiblingIndex());
                 PlayEffects(discard.cardCost, discard);
                 PlayEffects(discard.effects, discard);
-                filterToDiscard(discard);
                 foreach (Effect effect in discard.effects){
                     if(effect.effectType == EffectType.Exhaust) {
                         Destroy(cardGO);
                         return;
                     }
                 }
+                filterToDiscard(discard);
             }
         }
 

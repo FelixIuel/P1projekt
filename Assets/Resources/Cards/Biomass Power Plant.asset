@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ce4812bf165a444487c2456729dd441, type: 3}
   m_Name: Biomass Power Plant
   m_EditorClassIdentifier: 
-  cardName: Biomass Plant
+  cardName: Biomass Power Plant
   flavorText: 
   cardCost:
   - effectType: 0
@@ -32,17 +32,17 @@ MonoBehaviour:
   type: 0
   useCost:
     effectType: 0
-    amount: -5
+    amount: -3
     name: 
   useOutput:
   - effectType: 4
-    amount: 9
+    amount: 6
     name: 
   - effectType: 2
-    amount: -15
+    amount: -5
     name: 
   upkeepOutput:
   - effectType: 3
-    amount: 5
+    amount: 2
     name: 
   gM: {fileID: 0}

@@ -16,7 +16,7 @@ MonoBehaviour:
   flavorText: 
   cardCost:
   - effectType: 0
-    amount: -8
+    amount: -5
     name: 
   effects:
   - effectType: 8
@@ -29,11 +29,11 @@ MonoBehaviour:
   type: 0
   useCost:
     effectType: 4
-    amount: -10
+    amount: -5
     name: 
   useOutput:
   - effectType: 3
-    amount: 15
+    amount: 10
     name: 
   upkeepOutput:
   - effectType: 4
