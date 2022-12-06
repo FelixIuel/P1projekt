@@ -22,9 +22,6 @@ MonoBehaviour:
   - effectType: 8
     amount: 1
     name: Solar Panel
-  - effectType: 13
-    amount: 0
-    name: 
   cardArt: {fileID: 21300000, guid: 5eecdee9d1f2871428bb2c4901b7ee9a, type: 3}
   type: 0
   useCost:

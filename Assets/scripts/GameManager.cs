@@ -351,10 +351,10 @@ namespace GMNameSpace {
                     break;
                 case EffectType.ExhaustRandom:
                     for (int i = 0; i < effect.amount; i++ ) {
-                        if (i > hand.Size()) { 
+                        if (i > hand.Size()) {
                             break;
                         }
-                        Destroy(hand.Discard(random.Next(hand.Size())));
+                        DestroyImmediate(hand.Discard(random.Next(hand.Size())));
                     }
                     break;
             }

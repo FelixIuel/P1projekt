@@ -82,9 +82,10 @@ namespace CardDisplay {
                 if (card.useCost.effectType == EffectType.Money || card.useCost.effectType == EffectType.Power) {
                     useText = "Pay ";
                 }
-
-                add = true;
-                useText = AddText(useText, card.useCost) + "<br>";
+                if (card.useOutput.Count > 0) {
+                    add = true;
+                    useText = AddText(useText, card.useCost);
+                }
                 add = false;
                 if (card.upkeepOutput.Count != 0) {
                     foreach(Effect effect in card.upkeepOutput) {
@@ -100,7 +101,7 @@ namespace CardDisplay {
                 if (card.useOutput.Count > 0) {
                     useText =  "On " + "<sprite name="+"Use_symbol"+"> : " + useText;
                 }
-                effectText.text += "<br><br>" + useText + "<br><br>" + upkeepText;
+                effectText.text += "<br>" + useText + "<br>" + upkeepText;
             }
         }
 

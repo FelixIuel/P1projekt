@@ -20,10 +20,10 @@ MonoBehaviour:
     name: 
   effects:
   - effectType: 4
-    amount: 3
+    amount: 4
     name: 
   - effectType: 2
-    amount: 6
+    amount: 2
     name: 
   - effectType: 7
     amount: 1
