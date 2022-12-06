@@ -22,6 +22,9 @@ MonoBehaviour:
   - effectType: 8
     amount: 1
     name: Tidal Generator
+  - effectType: 13
+    amount: 0
+    name: 
   cardArt: {fileID: 21300000, guid: 8323a7bff6a3fe84f806e0ccd62944fa, type: 3}
   type: 0
   useCost:
