@@ -6,7 +6,6 @@ using handNameSpace;
 using cardNameSpace;
 using RP;
 using factoryNameSpace;
-using SceneManagerNS;
 using FactoryDisplay;
 using CardDisplay;
 using TMPro;

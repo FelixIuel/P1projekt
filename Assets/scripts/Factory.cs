@@ -6,8 +6,6 @@ using cardNameSpace;
 
 namespace factoryNameSpace {
 
-    // [CreateAssetMenu(fileName = "Factories/New Factory", menuName = "Factory")]
-    // [Serializable]
     public class Factory {
         public string factoryName;
         public Sprite factoryArt;
