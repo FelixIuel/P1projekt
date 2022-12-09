@@ -11,12 +11,6 @@ namespace GameEventNS {
         public string eventText;
         [SerializeField]
         public List<GameEventChoice> choices;
-        // public string optionOneText;
-        // public string optionTwoText;
-        // public string outcomeOneText;
-        // public string outcomeTwoText;
-        // public List<Effect> optioneOneEffect;
-        // public List<Effect> optioneTwoEffect;
         public Sprite eventImage;
         public int chosenEffect = 0;
 
