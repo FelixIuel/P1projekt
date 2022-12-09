@@ -278,6 +278,7 @@ RectTransform:
   - {fileID: 1167294303}
   - {fileID: 1098266006}
   - {fileID: 1125970939}
+  - {fileID: 1116088567}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2220,6 +2221,42 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 782465090095245585, guid: 42b656169fa0a9d448220576e0f295b7, type: 3}
   m_PrefabInstance: {fileID: 7531718816358371987}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1116088566
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1116088567}
+  m_Layer: 0
+  m_Name: EventScreen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1116088567
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116088566}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 41661099}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1125970938 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7079460220333182808, guid: d73dc66e0092348408a54f8d38b44531, type: 3}
@@ -3195,6 +3232,7 @@ MonoBehaviour:
   ResourcesGO: {fileID: 1187385928}
   WinnerScreen: {fileID: 1098266005}
   LoserScreen: {fileID: 1125970938}
+  eventScreen: {fileID: 0}
   factoryDraw: 3
   dealsDraw: 1
   balance: 5
@@ -3207,6 +3245,8 @@ MonoBehaviour:
   winCounter: 0
   winCon: 6
   FactoryPrefab: {fileID: 5202054948903078043, guid: 9fb35ba958a23624d99082304c43cd4e, type: 3}
+  event2Prefab: {fileID: 0}
+  event4Prefab: {fileID: 0}
 --- !u!4 &1343609416
 Transform:
   m_ObjectHideFlags: 0
