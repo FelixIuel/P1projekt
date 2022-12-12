@@ -25,14 +25,14 @@ public class TutorialManager : MonoBehaviour {
         currentSection += amount;
         tutorialOverlay.transform.GetChild(currentSection-amount).gameObject.SetActive(false);
         SectionText();
-        if (currentSection > tutorialOverlay.transform.childCount) {
-            SceneManagement.ChangeScene("SampleScene");
+        if (currentSection >= tutorialOverlay.transform.childCount) {
+            SceneManagement.ChangeScene("StartScreen");
             return;
         }
         tutorialOverlay.transform.GetChild(currentSection).gameObject.SetActive(true);
     }
 
     void SectionText() {
-        tutorialSectionText.text = "Tutorial:" + currentSection + "/" + tutorialOverlay.transform.childCount;
+        tutorialSectionText.text = "Tutorial:" + (currentSection+1) + "/" + tutorialOverlay.transform.childCount;
     }
 }
