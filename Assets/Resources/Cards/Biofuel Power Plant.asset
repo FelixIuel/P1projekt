@@ -28,7 +28,7 @@ MonoBehaviour:
   - effectType: 2
     amount: -10
     name: 
-  cardArt: {fileID: 21300000, guid: d0f9f553e0d42ca4d8d341727888328d, type: 3}
+  cardArt: {fileID: 21300000, guid: 0067ee3bff7d6ab4999c758e1a0691bb, type: 3}
   type: 0
   useCost:
     effectType: 14

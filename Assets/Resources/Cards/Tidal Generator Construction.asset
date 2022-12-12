@@ -29,12 +29,12 @@ MonoBehaviour:
   type: 0
   useCost:
     effectType: 0
-    amount: -2
+    amount: -1
     name: 
   useOutput:
-  - effectType: 5
-    amount: 1
-    name: Factory
+  - effectType: 7
+    amount: 2
+    name: 
   upkeepOutput:
   - effectType: 4
     amount: 2
