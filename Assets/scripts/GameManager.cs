@@ -37,7 +37,7 @@ namespace GMNameSpace {
         private Hand hand;
         private ResourcePanel resources;
 
-        private List<GameEvent> eventDeck;
+        public List<GameEvent> eventDeck;
         private int eventChance = 15;
         private int eventCounter = 0;
 

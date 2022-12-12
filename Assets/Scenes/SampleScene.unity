@@ -3232,7 +3232,7 @@ MonoBehaviour:
   ResourcesGO: {fileID: 1187385928}
   WinnerScreen: {fileID: 1098266005}
   LoserScreen: {fileID: 1125970938}
-  eventScreen: {fileID: 0}
+  eventScreen: {fileID: 1116088566}
   factoryDraw: 3
   dealsDraw: 1
   balance: 5
@@ -3245,8 +3245,8 @@ MonoBehaviour:
   winCounter: 0
   winCon: 6
   FactoryPrefab: {fileID: 5202054948903078043, guid: 9fb35ba958a23624d99082304c43cd4e, type: 3}
-  event2Prefab: {fileID: 0}
-  event4Prefab: {fileID: 0}
+  event2Prefab: {fileID: 8281627462168423265, guid: 15fa43e552f6cf0419a17d906dbe8db0, type: 3}
+  event4Prefab: {fileID: 8281627462168423265, guid: c75aa769a2b33154199db58e3734858d, type: 3}
 --- !u!4 &1343609416
 Transform:
   m_ObjectHideFlags: 0
