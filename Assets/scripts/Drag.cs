@@ -13,11 +13,14 @@ public class Drag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     Transform returnParent = null;
 
     public void Start() {}
+    private PointerEventData _lastPointerData ;
+
 
     public void OnBeginDrag(PointerEventData eventData){
         if (eventData.button == PointerEventData.InputButton.Left) {
             returnParent = this.transform.parent;
             this.transform.SetParent(this.transform.parent.parent);
+            _lastPointerData = eventData;
         }
     }
 
@@ -28,6 +31,7 @@ public class Drag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     }
 
     public void OnEndDrag(PointerEventData eventData){
+        _lastPointerData = null;
         this.transform.SetParent(returnParent);
         DisplayCard card = this.GetComponent<DisplayCard>();
         DisplayFactory factory = this.GetComponent<DisplayFactory>();
@@ -39,6 +43,7 @@ public class Drag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
                     }
             }
         }
+
         if (factory != null) {
             this.transform.SetParent(GameObject.FindGameObjectWithTag("Board").transform);
             if (eventData.position.y <= 350/GameManager.screenScale.y) {
@@ -48,6 +53,13 @@ public class Drag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
                     this.transform.position = (GameObject.FindGameObjectWithTag("Board").transform.position);
                 }
             }
+        }
+    }
+    public void CancelDrag () {
+        if (_lastPointerData != null) {
+            this.transform.position = (GameObject.FindGameObjectWithTag("Board").transform.position);
+            this.transform.SetParent(GameObject.FindGameObjectWithTag("Board").transform);
+            _lastPointerData.pointerDrag = null;
         }
     }
 }

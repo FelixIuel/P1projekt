@@ -62,5 +62,9 @@ namespace FactoryDisplay {
                 factory.Used = true;
             }
         }
+
+        public void OnBecameInvisible() {
+            this.gameObject.GetComponent<Drag>().CancelDrag();
+        }
     }
 }   
