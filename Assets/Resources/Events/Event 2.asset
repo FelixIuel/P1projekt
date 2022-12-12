@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a050069f679031b4b98bedf5b0980adc, type: 3}
+  m_Name: Event 2
+  m_EditorClassIdentifier: 
+  eventName: Factory workers
+  eventText: It's winter and some of your factory workers have caught a cold.
+  choices:
+  - optionText: Force them to work even though they are sick
+    outcomeText: You force them to work, which loses you 10 <sprite name=backing_symbol_mad>
+      backing
+    effect:
+    - effectType: 3
+      amount: -10
+      name: 
+  - optionText: Let them be sick and give them a break
+    outcomeText: You let them be sick, which loses you 3 <sprite name=Energy_symbol>,
+      but you gain 10 <sprite name=backing_symbol_happy> backing
+    effect:
+    - effectType: 4
+      amount: -3
+      name: 
+    - effectType: 3
+      amount: 10
+      name: 
+  eventImage: {fileID: 0}
+  chosenEffect: 0

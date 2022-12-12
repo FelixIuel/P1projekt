@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a050069f679031b4b98bedf5b0980adc, type: 3}
+  m_Name: Quiz 5
+  m_EditorClassIdentifier: 
+  eventName: Quiz Question
+  eventText: How much CO2 is produced by burning 1kg of coal?
+  choices:
+  - optionText: 1.78 kg CO2
+    outcomeText: "That is incorrect! The people\u2019s faith in you is wavering!
+      You lose 3 <sprite name=Backing_symbol_meh> backing. "
+    effect:
+    - effectType: 3
+      amount: -3
+      name: 
+  - optionText: 3 kg CO2
+    outcomeText: "That is incorrect! The people\u2019s faith in you is wavering!
+      You lose 3 <sprite name=Backing_symbol_meh> backing. "
+    effect:
+    - effectType: 3
+      amount: -3
+      name: 
+  - optionText: 1.5kg CO2
+    outcomeText: "The people\u2019s faith in you is stagnating! You lose 8 <sprite
+      name=Backing_symbol_mad> backing"
+    effect:
+    - effectType: 3
+      amount: -8
+      name: 
+  - optionText: 2.42 kg CO2
+    outcomeText: "That is correct! The people\u2019s faith in your leadership increases!
+      You gain 15 <sprite name=Backing_symbol_happy> backing"
+    effect: []
+  eventImage: {fileID: 0}
+  chosenEffect: 0

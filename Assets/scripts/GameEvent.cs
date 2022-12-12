@@ -19,13 +19,9 @@ namespace GameEventNS {
         }
 
         public void PlayOutcome(){
-            if (chosenEffect == 1) {
-                GameManager.playEffects.Invoke(choices[1].effect, null);
-            } else {
-                GameManager.playEffects.Invoke(choices[1].effect, null);
-            }
+            GameManager.playEffects.Invoke(choices[chosenEffect].effect, null);
         }
-    }
+    }       
     
     [Serializable]
     public class GameEventChoice {

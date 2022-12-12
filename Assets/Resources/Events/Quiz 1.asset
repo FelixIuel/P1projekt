@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a050069f679031b4b98bedf5b0980adc, type: 3}
+  m_Name: Quiz 1
+  m_EditorClassIdentifier: 
+  eventName: Quiz Question
+  eventText: How many nuclear power plants are there in the world?
+  choices:
+  - optionText: 437
+    outcomeText: "That is correct! The people\u2019s faith in your leadership increases!
+      + fun fact, did you know in nuclear power you can use zirconium (Zr), hafnium
+      (Hf), thorium (Th), and uranium (U). <br> You gain 8 <sprite name=Money_symbol>."
+    effect:
+    - effectType: 0
+      amount: 8
+      name: 
+  - optionText: 482
+    outcomeText: "That is incorrect! The people\u2019s faith in you is stagnating!
+      You lose 8 <sprite name=Backing_symbol_mad> backing."
+    effect:
+    - effectType: 3
+      amount: -8
+      name: 
+  - optionText: 423
+    outcomeText: "That is incorrect! The people\u2019s faith in you is wavering!
+      You lose 3 <sprite name=Backing_symbol_meh> backing."
+    effect:
+    - effectType: 3
+      amount: -3
+      name: 
+  - optionText: 400
+    outcomeText: "That is incorrect! The people\u2019s faith in you is falling! You
+      lose 5 <sprite name=Backing_symbol_mad> backing."
+    effect:
+    - effectType: 3
+      amount: -5
+      name: 
+  eventImage: {fileID: 0}
+  chosenEffect: 0

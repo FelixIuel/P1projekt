@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a050069f679031b4b98bedf5b0980adc, type: 3}
+  m_Name: Event 1
+  m_EditorClassIdentifier: 
+  eventName: A man has fallen into the lake in lego city
+  eventText: A man has fallen in the lake, where you have your Tidal energy plant.
+  choices:
+  - optionText: Build a rescue helicopter
+    outcomeText: You pay for the helicopter, which loses you 5 <sprite name=Money_symbol>,
+      but you gain 20 <sprite name=backing_symbol_happy>
+    effect:
+    - effectType: 0
+      amount: -5
+      name: 
+    - effectType: 3
+      amount: 20
+      name: 
+  - optionText: Let him drown
+    outcomeText: You let him drown, making the people question your leadership. You
+      lose 15 <sprite name=backing_symbol_mad> Backing.
+    effect:
+    - effectType: 3
+      amount: -15
+      name: 
+  eventImage: {fileID: 0}
+  chosenEffect: 0

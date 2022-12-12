@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a050069f679031b4b98bedf5b0980adc, type: 3}
+  m_Name: Quiz 8
+  m_EditorClassIdentifier: 
+  eventName: Quiz Question
+  eventText: Traditional fuels such as oil, gas and coal are also known as?
+  choices:
+  - optionText: Black fuels
+    outcomeText: "That is incorrect! The people\u2019s faith in you is stagnating!
+      You lose 8 <sprite name=Backing_symbol_mad> backing"
+    effect:
+    - effectType: 3
+      amount: -8
+      name: 
+  - optionText: Fossil fuels
+    outcomeText: 
+    effect:
+    - effectType: 1
+      amount: 2
+      name: "The people\u2019s faith in your leadership increases! Gain 2 funding
+        and lose 10 <sprite name=Pollution_symbol>  "
+    - effectType: 2
+      amount: -10
+      name: 
+  - optionText: CO2 fuels
+    outcomeText: "That is incorrect! The people\u2019s faith in you is stagnating!
+      You lose 8 <sprite name=Backing_symbol_mad> backing"
+    effect:
+    - effectType: 3
+      amount: -8
+      name: 
+  - optionText: Dinosaur fuels
+    outcomeText: "That is incorrect! The people\u2019s faith in you is stagnating!
+      You lose 8 <sprite name=Backing_symbol_mad> backing"
+    effect:
+    - effectType: 3
+      amount: -8
+      name: 
+  eventImage: {fileID: 0}
+  chosenEffect: 0

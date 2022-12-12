@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a050069f679031b4b98bedf5b0980adc, type: 3}
+  m_Name: Event 4
+  m_EditorClassIdentifier: 
+  eventName: Earthquake
+  eventText: An earthquake has hit some of your factories
+  choices:
+  - optionText: Try to salvage the situation
+    outcomeText: You lose 3 <sprite name=Money_symbol> but gain 10 <sprite name=Backing_symbol_happy>
+      backing
+    effect:
+    - effectType: 0
+      amount: -3
+      name: 
+    - effectType: 3
+      amount: 10
+      name: 
+  - optionText: Let nature take its turn.
+    outcomeText: 
+    effect: []
+  eventImage: {fileID: 0}
+  chosenEffect: 0

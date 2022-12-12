@@ -11,6 +11,7 @@ using CardDisplay;
 using TMPro;
 using GameEventNS;
 using EventDisplay;
+using UnityEngine.UI;
 
 namespace GMNameSpace {
 
@@ -38,7 +39,7 @@ namespace GMNameSpace {
         private ResourcePanel resources;
 
         public List<GameEvent> eventDeck;
-        private int eventChance = 15;
+        private int eventChance = 35;
         private int eventCounter = 0;
 
         public GameObject factoryDeckGO;
@@ -51,6 +52,7 @@ namespace GMNameSpace {
         public GameObject WinnerScreen;
         public GameObject LoserScreen;
         public GameObject eventScreen;
+        public Image backgroundArt;
 
         private int turn = 0;
         private int year = 1;
@@ -127,6 +129,13 @@ namespace GMNameSpace {
                 funding = baseFunding;
             }
             resources.update_text(balance, funding, pollution, maxPollution, turn, year, powerRequirement, power, backing);
+            if (pollution <= 0.3f*maxPollution) {
+                backgroundArt.sprite = Resources.Load<Sprite>("Backgrounds/Game background 1");
+            } else if (pollution <= 0.6f*maxPollution){
+                backgroundArt.sprite = Resources.Load<Sprite>("Backgrounds/Game background 2");
+            } else {
+                backgroundArt.sprite = Resources.Load<Sprite>("Backgrounds/Game background 3");
+            }
         }
 
         public void NextTurn() {
@@ -186,7 +195,7 @@ namespace GMNameSpace {
             int drawChance = random.Next(0,100);
             if (eventDeck.Count > 0) {
                 if (drawChance+eventCounter >= 100-eventChance) {
-                    int drawIndex = random.Next(eventDeck.Count-1);
+                    int drawIndex = random.Next(eventDeck.Count);
                     GameEvent _event = eventDeck[drawIndex];
                     eventDeck.RemoveAt(drawIndex);
                     GameObject gameEvent = null;

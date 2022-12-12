@@ -24,9 +24,8 @@ namespace EventDisplay {
         }
         
         public void SetChoiceDisplay() {
-            cardName.text = gameEvent.eventName;
-            cardArt.sprite = gameEvent.eventImage;
-            eventText.text = gameEvent.eventText;
+            cardName.text = "" + gameEvent.eventName;
+            eventText.text = "" + gameEvent.eventText;
             optionText = new List<TextMeshProUGUI>(optionContainer.GetComponentsInChildren<TextMeshProUGUI>());
             for (int i = 0; i < gameEvent.choices.Count; i++ ) {
                 optionText[i].text = gameEvent.choices[i].optionText;
