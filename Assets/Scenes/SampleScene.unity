@@ -3236,11 +3236,11 @@ MonoBehaviour:
   eventScreen: {fileID: 1116088566}
   factoryDraw: 3
   dealsDraw: 1
-  balance: 600
+  balance: 5
   baseFunding: 4
   pollution: 0
-  backing: 90
-  maxPollution: 2000
+  backing: 60
+  maxPollution: 200
   power: 0
   powerRequirement: 3
   winCounter: 0

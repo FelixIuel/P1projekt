@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: Geothermal Construction
   m_EditorClassIdentifier: 
   cardName: Geothermal Power Plant
-  flavorText: "The steam that is used in geothermal energy comes from hot water reservoirs
-    found a few miles beneath the earth\u2019s surface."
+  flavorText: 'Geothermal energy uses steam from the earth to generate energy '
   cardCost:
   - effectType: 0
     amount: -6
