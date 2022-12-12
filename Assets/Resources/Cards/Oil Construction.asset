@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Oil Construction
   m_EditorClassIdentifier: 
   cardName: Oil Power Plant
-  flavorText: 
+  flavorText: About 35 percent of U.S. energy needs are covered with oil
   cardCost:
   - effectType: 0
     amount: -3

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Windmill Construction
   m_EditorClassIdentifier: 
   cardName: Windmill
-  flavorText: 
+  flavorText: A small turbine in the yard can easily power a home
   cardCost:
   - effectType: 0
     amount: -1

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Biofuel Research Project
   m_EditorClassIdentifier: 
   cardName: Biofuel Research Project
-  flavorText: 
+  flavorText: Biomass is made of plant or animal matter.
   cardCost:
   - effectType: 0
     amount: -4

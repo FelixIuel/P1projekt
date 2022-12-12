@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Tidal Generator Construction
   m_EditorClassIdentifier: 
   cardName: Tidal Generator
-  flavorText: 
+  flavorText: "Tidal energy\u2019s power output is dependant on the moon"
   cardCost:
   - effectType: 0
     amount: -4

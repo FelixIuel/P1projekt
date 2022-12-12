@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Nuclear Research Project
   m_EditorClassIdentifier: 
   cardName: Nuclear Power Resarch
-  flavorText: 
+  flavorText: 'One nuclear power plant can power more than 690,000 homes  '
   cardCost:
   - effectType: 0
     amount: -4

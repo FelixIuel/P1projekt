@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Gas Construction
   m_EditorClassIdentifier: 
   cardName: Gas Power Plant
-  flavorText: 
+  flavorText: Gas power plants utilise turbines to ignite gas in order to produce
+    combustible gases to power a generator.
   cardCost:
   - effectType: 0
     amount: -5

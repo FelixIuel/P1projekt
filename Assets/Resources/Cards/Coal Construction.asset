@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Coal Construction
   m_EditorClassIdentifier: 
   cardName: Coal Power Plant
-  flavorText: 
+  flavorText: In the United States, 50,000 coal-related deaths are recorded each
+    year.
   cardCost:
   - effectType: 0
     amount: -2
