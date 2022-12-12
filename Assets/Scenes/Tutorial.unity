@@ -3988,7 +3988,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: Each Turn you will need to produce a certain amount of <sprite name=Energy_symbol>.
-    If the <sprite name=Energy_symbol> requirement isn't met, you loose backing.
+    If the <sprite name=Energy_symbol> requirement isn't met, you lose backing.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -9583,6 +9583,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SellCost: []
+  eventDeck: []
   factoryDeckGO: {fileID: 1863713175}
   dealsDeckGO: {fileID: 52141787}
   factoryDiscardGO: {fileID: 1804895449}
@@ -9592,6 +9593,7 @@ MonoBehaviour:
   ResourcesGO: {fileID: 1187385928}
   WinnerScreen: {fileID: 1098266005}
   LoserScreen: {fileID: 1125970938}
+  eventScreen: {fileID: 0}
   factoryDraw: 3
   dealsDraw: 1
   balance: 3
@@ -9604,6 +9606,8 @@ MonoBehaviour:
   winCounter: 0
   winCon: 4
   FactoryPrefab: {fileID: 5202054948903078043, guid: 9fb35ba958a23624d99082304c43cd4e, type: 3}
+  event2Prefab: {fileID: 0}
+  event4Prefab: {fileID: 0}
 --- !u!4 &1343609416
 Transform:
   m_ObjectHideFlags: 0
