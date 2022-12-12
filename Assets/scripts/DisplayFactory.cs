@@ -31,7 +31,7 @@ namespace FactoryDisplay {
             }
             add = true;
             useText.text = AddText(useText.text, factory.useCost);
-            add = false; //spaghetti kode find en bedre løsning.
+            add = false;
             if (factory.upkeepOutput.Count != 0) {
                 foreach(Effect effect in factory.upkeepOutput) {
                     upkeepText.text = AddText(upkeepText.text, effect);

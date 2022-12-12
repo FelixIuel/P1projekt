@@ -6,10 +6,11 @@ using handNameSpace;
 using cardNameSpace;
 using RP;
 using factoryNameSpace;
-using SceneManagerNS;
 using FactoryDisplay;
 using CardDisplay;
 using TMPro;
+using GameEventNS;
+using EventDisplay;
 
 namespace GMNameSpace {
 
@@ -36,6 +37,10 @@ namespace GMNameSpace {
         private Hand hand;
         private ResourcePanel resources;
 
+        private List<GameEvent> eventDeck;
+        private int eventChance = 15;
+        private int eventCounter = 0;
+
         public GameObject factoryDeckGO;
         public GameObject dealsDeckGO;
         public GameObject factoryDiscardGO;
@@ -45,6 +50,7 @@ namespace GMNameSpace {
         public GameObject ResourcesGO;
         public GameObject WinnerScreen;
         public GameObject LoserScreen;
+        public GameObject eventScreen;
 
         private int turn = 0;
         private int year = 1;
@@ -72,6 +78,8 @@ namespace GMNameSpace {
 
 
         public GameObject FactoryPrefab;
+        public GameObject event2Prefab;
+        public GameObject event4Prefab;
 
         void Start() {
             instance = this;
@@ -175,6 +183,26 @@ namespace GMNameSpace {
 
             turn = (turn+1)%4;
             DrawHand();
+
+            int drawChance = random.Next(0,100);
+            if (eventDeck.Count > 0) {
+                if (drawChance+eventCounter >= 100-eventChance) {
+                    int drawIndex = random.Next(eventDeck.Count-1);
+                    GameEvent _event = eventDeck[drawIndex];
+                    eventDeck.RemoveAt(drawIndex);
+                    GameObject gameEvent = null;
+                    if (_event.choices.Count == 2) {
+                        gameEvent = Instantiate(event2Prefab, eventScreen.transform);
+                    } else {
+                        gameEvent = Instantiate(event4Prefab, eventScreen.transform);
+                    }
+                    gameEvent.GetComponent<GameEventDisplay>().SetEvent(_event);
+                    gameEvent.transform.SetParent(eventScreen.transform);
+                    eventCounter = 0;
+                } else {
+                    eventCounter += 2;
+                }
+            }
         }
         
         public void Draw(CardType deckToDrawFrom, int drawAmount){

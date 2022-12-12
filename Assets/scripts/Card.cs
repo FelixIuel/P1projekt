@@ -13,7 +13,6 @@ namespace cardNameSpace {
     }
 
     [CreateAssetMenu(fileName = "Cards/new Card", menuName = "Card/Default")]
-    // [System.Serializable]
     public class Card : ScriptableObject {
         public string cardName;
         public string flavorText;
@@ -44,9 +43,6 @@ namespace cardNameSpace {
         public Card() {}
 
         void update() {
-            // if (gM == null){
-            //     gM = GameManager.Instance;
-            // }
         }
     }
 }

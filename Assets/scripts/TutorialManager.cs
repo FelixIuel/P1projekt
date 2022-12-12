@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using SceneManagerNS;
@@ -9,27 +6,30 @@ public class TutorialManager : MonoBehaviour {
     private GameObject tutorialOverlay;
     [SerializeField]
     private TextMeshProUGUI tutorialSectionText;
-    private int currentSection = 1;
+    private int currentSection = 0;
 
 
     private void Start() {
         foreach (Transform child in tutorialOverlay.transform){
             child.gameObject.SetActive(false);
         }
-        tutorialOverlay.transform.GetChild(currentSection-1).gameObject.SetActive(true);
+        tutorialOverlay.transform.GetChild(currentSection).gameObject.SetActive(true);
         SectionText();
     }
 
 
-    public void NextSection(){
-        tutorialOverlay.transform.GetChild(currentSection-1).gameObject.SetActive(false);
-        currentSection += 1;
+    public void ChangeSection(int amount){
+        if (currentSection == 0 && amount < 0) {
+            return;
+        }
+        currentSection += amount;
+        tutorialOverlay.transform.GetChild(currentSection-amount).gameObject.SetActive(false);
         SectionText();
         if (currentSection > tutorialOverlay.transform.childCount) {
             SceneManagement.ChangeScene("SampleScene");
             return;
         }
-        tutorialOverlay.transform.GetChild(currentSection-1).gameObject.SetActive(true);
+        tutorialOverlay.transform.GetChild(currentSection).gameObject.SetActive(true);
     }
 
     void SectionText() {
