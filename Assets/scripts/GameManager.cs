@@ -76,7 +76,6 @@ namespace GMNameSpace {
         private int pollutionStartTurn;
         private bool powerReqMet;
 
-
         public GameObject FactoryPrefab;
         public GameObject event2Prefab;
         public GameObject event4Prefab;
@@ -132,7 +131,7 @@ namespace GMNameSpace {
 
         public void NextTurn() {
             
-            // This part of NextTurn, runs through what happens at the end of your turn. 
+            // This part of NextTurn, runs through what happens at the end of your turn.
             if (backing <= 0 || pollution >= maxPollution) {
                 LoserScreen.SetActive(true);
             }
@@ -386,6 +385,13 @@ namespace GMNameSpace {
                         hand.Discard(random.Next(hand.Size()));
                     }
                     break;
+                case EffectType.AddDraw:
+                    if (effect.name == "Factory") {
+                        factoryDraw += effect.amount;
+                    } else {
+                        dealsDraw += effect.amount;
+                    }
+                    break;
             }
         }
 
@@ -434,6 +440,7 @@ namespace GMNameSpace {
         None,
         Exhaust,
         ExhaustRandom,
+        AddDraw,
     }
     
     [Serializable]
