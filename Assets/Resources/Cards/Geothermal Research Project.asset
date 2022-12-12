@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Geothermal Research Project
   m_EditorClassIdentifier: 
   cardName: Geothermal Power Research
-  flavorText: 
+  flavorText: "The steam that is used in geothermal energy comes from hot water reservoirs
+    found a few miles beneath the earth\u2019s surface."
   cardCost:
   - effectType: 0
     amount: -2

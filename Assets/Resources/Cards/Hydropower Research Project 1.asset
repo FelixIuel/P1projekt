@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Hydropower Research Project 1
   m_EditorClassIdentifier: 
   cardName: Hydropower Research
-  flavorText: 
+  flavorText: Norway makes almost all of its energy from hydropower
   cardCost:
   - effectType: 0
     amount: -3

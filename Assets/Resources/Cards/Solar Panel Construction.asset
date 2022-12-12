@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Solar Panel Construction
   m_EditorClassIdentifier: 
   cardName: Solar Panel
-  flavorText: A solar panel gives 300kw a day!
+  flavorText: A typical solar panel will generate 2kWh per day
   cardCost:
   - effectType: 0
     amount: -2
