@@ -16,8 +16,8 @@ MonoBehaviour:
   eventText: How far away do you need to be to not hear a wind turbine
   choices:
   - optionText: 1000 feet / 305 meters
-    outcomeText: "hat is correct! The people\u2019s faith in your leadership increases!
-      You gain 10 <sprite name=Money_symbol"
+    outcomeText: "That is correct! The people\u2019s faith in your leadership increases!
+      You gain 10 <sprite name=Money_symbol>"
     effect:
     - effectType: 0
       amount: 10

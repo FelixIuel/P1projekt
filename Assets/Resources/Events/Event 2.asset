@@ -16,7 +16,7 @@ MonoBehaviour:
   eventText: It's winter and some of your factory workers have caught a cold.
   choices:
   - optionText: Force them to work even though they are sick
-    outcomeText: You force them to work, which loses you 10 <sprite name=backing_symbol_mad>
+    outcomeText: You force them to work, which loses you 10 <sprite name=Backing_symbol_mad>
       backing
     effect:
     - effectType: 3
