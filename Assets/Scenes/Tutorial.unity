@@ -993,7 +993,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Cards that can currently be played have a green border around them
+  m_text: Cards that can currently be played have a green border around them.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4411,7 +4411,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: Certain factories and deals produce <sprite name=Pollution_symbol>. When
-    the  <sprite name=Pollution_symbol> bar is filled you loose the game.
+    the  <sprite name=Pollution_symbol> bar is filled you lose the game.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5777,7 +5777,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: When Factory cards are played they create corresponding factories on the
-    game board, which can then be used throughout the game
+    game board, which can then be used throughout the game.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7978,13 +7978,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'At the end of your turn, you discard all cards in your hand and draw new
-    cards. At the end of each year, or when a deck is empty, the discard pile is
-    shuffled back into the deck. In the beginning you draw 3 factory cards and 1
-    deal card.
+  m_text: 'At the end of your turn, you discard all cards in your hand and draw a
+    new hand. At the end of each year, or when a deck is empty, the discard pile
+    is shuffled back into the deck. At the start of the game you draw 3 factory cards
+    and 1 deal card.
 
-    Cards that are exhausted are permanently removed from the current
-    playthrough.'
+    Cards that are exhausted are permanently removed from the
+    current playthrough.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -11659,7 +11659,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7d38bd2a865fe70478ed19c5852fdf06, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f4ace73197885bd42b10c51f8798c231, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -12636,7 +12636,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Factories can be sold by dragging them back onto the hand. This costs 5<sprite
+  m_text: Factories can be sold by dragging them back to your hand. This costs 5<sprite
     name=Money_symbol> and creates 10 <sprite name=Pollution_symbol>
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -13182,7 +13182,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: ' <sprite name=Money_symbol> is used to buy new factories as well as make
     certain deals and activate abilities of certain factories. Your income for your
-    next turn is shown in brackets "(+_)" next to your current balance.'
+    next turn is shown in brackets "(+X)" next to your current balance.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
