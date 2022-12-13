@@ -55,6 +55,7 @@ public class Drag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
             }
         }
     }
+    
     public void CancelDrag () {
         if (_lastPointerData != null) {
             this.transform.position = (GameObject.FindGameObjectWithTag("Board").transform.position);
