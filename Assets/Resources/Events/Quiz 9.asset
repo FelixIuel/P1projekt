@@ -16,12 +16,12 @@ MonoBehaviour:
   eventText: "Which country\u2019s energy is nearly 100% pure renewable energy?"
   choices:
   - optionText: 'Norway '
-    outcomeText: 
+    outcomeText: "That is incorrect! The people\u2019s faith in you is wavering!
+      You lose 3 <sprite name=Backing_symbol_meh> backing."
     effect:
     - effectType: 3
       amount: -3
-      name: "That is incorrect! The people\u2019s faith in you is wavering! You lose
-        3 <sprite name=Backing_symbol_meh> backing."
+      name: 
   - optionText: 'Uruguay '
     outcomeText: "That is incorrect! The people\u2019s faith in you is wavering!
       You lose 3 <sprite name=Backing_symbol_meh> backing."
@@ -44,4 +44,4 @@ MonoBehaviour:
       amount: -3
       name: 
   eventImage: {fileID: 0}
-  chosenEffect: 0
+  chosenEffect: 2

@@ -23,12 +23,12 @@ MonoBehaviour:
       amount: -8
       name: 
   - optionText: Fossil fuels
-    outcomeText: 
+    outcomeText: "The people\u2019s faith in your leadership increases! Gain 2 funding
+      and lose 10 <sprite name=Pollution_symbol>  "
     effect:
     - effectType: 1
       amount: 2
-      name: "The people\u2019s faith in your leadership increases! Gain 2 funding
-        and lose 10 <sprite name=Pollution_symbol>  "
+      name: 
     - effectType: 2
       amount: -10
       name: 
@@ -47,4 +47,4 @@ MonoBehaviour:
       amount: -8
       name: 
   eventImage: {fileID: 0}
-  chosenEffect: 0
+  chosenEffect: 1
