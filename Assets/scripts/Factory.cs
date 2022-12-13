@@ -42,11 +42,6 @@ namespace factoryNameSpace {
             }
             return false;
         }
-
-        public bool TryToSell(){
-            
-            return false;
-        }
     }
 
 }

@@ -38,9 +38,9 @@ public class Drag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
         if (card != null) {
             this.transform.SetParent(GameObject.FindGameObjectWithTag("Hand").transform);
             if (eventData.button == PointerEventData.InputButton.Left) {
-                    if (eventData.position.y > 350/(GameManager.screenScale.y)) {
-                        GameManager.tryToPlayCard.Invoke(this.gameObject);
-                    }
+                if (eventData.position.y > 350/(GameManager.screenScale.y)) {
+                    GameManager.tryToPlayCard.Invoke(this.gameObject);
+                }
             }
         }
 
