@@ -26,7 +26,10 @@ MonoBehaviour:
       amount: 10
       name: 
   - optionText: Let nature take its turn.
-    outcomeText: 
-    effect: []
+    outcomeText: Lose 5 <sprite name=Power_symbol> energy.
+    effect:
+    - effectType: 4
+      amount: -5
+      name: 
   eventImage: {fileID: 0}
   chosenEffect: 0

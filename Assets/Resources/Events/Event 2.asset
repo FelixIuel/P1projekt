@@ -24,7 +24,7 @@ MonoBehaviour:
       name: 
   - optionText: Let them be sick and give them a break
     outcomeText: You give them a break, which loses you 3 <sprite name=Energy_symbol>,
-      but you gain 10 <sprite name=backing_symbol_happy> backing
+      but you gain 10 <sprite name=Backing_symbol_happy> backing
     effect:
     - effectType: 4
       amount: -3
