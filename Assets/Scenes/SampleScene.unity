@@ -3314,6 +3314,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8785e4424c2ec7546b2df08f99a4cfb6, type: 2}
   - {fileID: 11400000, guid: f0a5ad1400d7fea4c93394c75d3f8957, type: 2}
   - {fileID: 11400000, guid: ddb17a67c021fb54cb4b7e3dd84f095e, type: 2}
+  - {fileID: 11400000, guid: 1b65b433f3c235b46bdf910157ee7dac, type: 2}
+  - {fileID: 11400000, guid: 1b65b433f3c235b46bdf910157ee7dac, type: 2}
+  - {fileID: 11400000, guid: 357968c693705c54fa9da256300ff36c, type: 2}
+  - {fileID: 11400000, guid: 357968c693705c54fa9da256300ff36c, type: 2}
   factoryDeckGO: {fileID: 1863713175}
   dealsDeckGO: {fileID: 52141787}
   factoryDiscardGO: {fileID: 1804895449}
