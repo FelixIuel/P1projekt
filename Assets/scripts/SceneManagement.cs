@@ -8,6 +8,8 @@ namespace SceneManagerNS {
         public static void ChangeScene(string scene){
             SceneManager.LoadScene(scene);
         }
-        
+        public void CloseGame(){
+           Application.Quit();
+        }
     }
 }
