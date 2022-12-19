@@ -45,9 +45,6 @@ namespace handNameSpace{
                 case CardType.DealType:
                     CardGO = Instantiate(dealPrefab);
                     break;
-                case CardType.ProjectType:
-                    CardGO = Instantiate(projectPrefab);
-                    break;
             }
             CardGO.transform.SetParent(this.transform);
             CardGO.GetComponent<DisplayCard>().SetCard(card);

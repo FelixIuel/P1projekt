@@ -35,9 +35,6 @@ namespace CardDisplay {
                 case CardType.DealType:
                     backgroundArt.sprite = Resources.Load<Sprite>("Deal_card_1");
                     break;
-                case CardType.ProjectType:
-                    backgroundArt.sprite = Resources.Load<Sprite>("Deal_card_1");
-                    break;
             }
             
             cardName.text = " " + card.cardName;

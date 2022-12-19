@@ -9,7 +9,6 @@ namespace cardNameSpace {
     public enum CardType {
         FactoryType,
         DealType,
-        ProjectType
     }
 
     [CreateAssetMenu(fileName = "Cards/new Card", menuName = "Card/Default")]
