@@ -9,7 +9,6 @@ using UnityEngine.EventSystems;
 namespace FactoryDisplay {
     public class DisplayFactory : DisplayNS.Display, IPointerClickHandler {
         
-        public TextMeshProUGUI factoryName;
         public Image factoryArt;
         public TextMeshProUGUI useText;
         public TextMeshProUGUI upkeepText;
@@ -22,7 +21,7 @@ namespace FactoryDisplay {
         }
 
         public override void SetDisplay() {
-            factoryName.text = "" + factory.factoryName;
+            cardName.text = "" + factory.factoryName;
             factoryArt.sprite = factory.factoryArt;
             upkeepText.text = "";
             useText.text = "";
