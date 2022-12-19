@@ -9,7 +9,6 @@ namespace handNameSpace{
     public class Hand : MonoBehaviour {
         public GameObject factoryPrefab;
         public GameObject dealPrefab;
-        public GameObject projectPrefab;
         
         public Hand(){}
 
